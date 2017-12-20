@@ -1,0 +1,24 @@
+<ion-view view-title="Hall" name="hall-view">
+  <ion-content class="padding">
+    <div class="list">
+      <div class="card">
+        <div class="item item-icon-left" ng-click="hallCtrl.createNewRoom()">
+          <i class="icon ion-qr-scanner" name="qr"></i>
+          <p>Create new room</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="item item-icon-left" ng-click="hallCtrl.scanBarCode()">
+          <i class="icon ion-qr-scanner" name="qr"></i>
+          <p>Join room by QR Code Scanning</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="item item-icon-left" ng-click="hallCtrl.inputKeyCode()">
+          <i class="icon ion-qr-scanner" name="qr"></i>
+          <p>Join room by Key Code</p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

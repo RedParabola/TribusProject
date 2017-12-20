@@ -1,0 +1,35 @@
+<ion-view hide-nav-bar="true">
+  <ion-content class="padding">
+    <h2>{{overviewCtrl.title}}</h2>
+
+    <div class="card">
+      <div class="item item-icon-left" ng-click="overviewCtrl.test()">
+        <i class="icon ion-load-a" name="test"></i>
+        <p>Do test: GET SHOWS</p>
+      </div>
+    </div>
+      
+    <div class="card">
+      <div class="item item-icon-left" ng-repeat="room in overviewCtrl.rooms">
+        <i class="icon ion-ios-people"></i>
+        <p>Master: {{room.master}}</p>
+        <p>Participants: {{room.accepted}}/{{room.invited}}</p>
+        <p>Topic: {{room.topic}}</p>
+        <p>Status: {{room.status}}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="item" ng-repeat="show in overviewCtrl.testShows">
+        <i class="icon ion-ios-bell"></i>
+        <p>Title: {{show.title}}</p>
+        <p>Genre: {{show.genre}}</p>
+        <p>Year: {{show.year}}</p>
+        <p>Seasons: {{show.seasons}}</p>
+        <p>Summary: {{show.summary}}</p>
+        <p>Poster: {{show.poster}}</p>
+      </div>
+    </div>
+    
+  </ion-content>
+</ion-view>
