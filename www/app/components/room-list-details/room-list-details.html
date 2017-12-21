@@ -1,21 +1,25 @@
 <div>
 
   <div class="item item-icon-left item-text-wrap">
+
     <i class="icon ion-ios-people {{roomDetailsCtrl.room.category}}"></i>
-    <p>Topic: {{roomDetailsCtrl.room.topic}}</p>
-  </div>
-  
-  <div class="item item-text-wrap">
-    <p>Participants: {{roomDetailsCtrl.room.joined}}</p>
-    <p>Status: {{roomDetailsCtrl.room.status}}</p>
+    <b>{{roomDetailsCtrl.room.topic}}</b>
+
+    <div class="item-text-wrap row">
+      <div class="col col-40">
+        Participants: {{roomDetailsCtrl.room.joined}}
+      </div>
+      <div class="col col-60">
+        Status: {{roomDetailsCtrl.room.status}}
+      </div>
+    </div>
+
   </div>
 
   <div class="item item-text-wrap">
-    <p>Master: {{roomDetailsCtrl.room.master}}</p>
     <p>Actors:</p>        
     <div ng-repeat="actor in roomDetailsCtrl.room.actors">
-      <p>{{actor.name}}</p>
-      <p>{{actor.sentence}}</p>
+      <b>{{actor.name}}</b>
     </div>
   </div>
 
