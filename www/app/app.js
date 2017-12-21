@@ -10,6 +10,7 @@ var app = angular.module('starter', [
   'ngCordova',
   'starter.controllers',
   'starter.services',
+  'starter.components',
   'starter.layouts',
   'chart.js',
   //'flux',
@@ -105,11 +106,18 @@ var app = angular.module('starter', [
       controllerAs: 'hallCtrl'
     })
 
+    .state('room-list', {
+      url: '/room-list',
+      templateUrl: 'app/modules/room-list/room-list.html',
+      controller: 'RoomListController',
+      controllerAs: 'roomListCtrl'
+    })
+
     .state('room-creation-wizard', {
       url: '/room-creation-wizard',
-      templateUrl: 'app/modules/room-creation/room-creation.html',
-      controller: 'RoomCreationController',
-      controllerAs: 'roomCreationCtrl'
+      templateUrl: 'app/modules/room-creation-wizard/room-creation-wizard.html',
+      controller: 'RoomCreationWizardController',
+      controllerAs: 'roomCreationWizardCtrl'
     });
 
     // if none of the above states are matched, use this as the fallback

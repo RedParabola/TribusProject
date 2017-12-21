@@ -1,6 +1,7 @@
 angular.module('starter.services')
   .factory('RoomResource', roomResource)
   .constant('ROOM_CONSTANTS', {
+    GETALLROOMS: 'all',
     ROOMINFO_BYID: 'info',
     VOTEHISTORY_BYID: 'votes',
     CREATEROOM: 'create'

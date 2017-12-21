@@ -1,9 +1,9 @@
 angular
 .module('starter.controllers')
-.controller('RoomCreationController', roomCreationController);
+.controller('RoomCreationWizardController', roomCreationWizardController);
 
-roomCreationController.$inject = ['$rootScope', '$scope', '$log', '$state'];
-function roomCreationController($rootScope, $scope, $log, $state) {
+roomCreationWizardController.$inject = ['$rootScope', '$scope', '$log', '$state'];
+function roomCreationWizardController($rootScope, $scope, $log, $state) {
 
   var vm = this;
   var textToEncode = 'OMG! Tits';

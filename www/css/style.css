@@ -1,1 +1,26 @@
 /* Empty. Add your own CSS if you like */
+
+.fixed-search-header{
+  margin-top:43px;
+  /* 
+   The ionic header bar is 43px in height,
+   put your content below the header bar.
+  */
+}
+
+.ion-content-under-search{
+  margin-top:43px!important;
+}
+
+.ion-content-over-details{
+  margin-bottom:200px!important;
+}
+
+.bottom-details{
+  position: fixed;
+  bottom: 0px;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 94%;
+  height: 200px;
+}

@@ -1,0 +1,22 @@
+<div>
+
+  <div class="item item-icon-left item-text-wrap">
+    <i class="icon ion-ios-people {{roomDetailsCtrl.room.category}}"></i>
+    <p>Topic: {{roomDetailsCtrl.room.topic}}</p>
+  </div>
+  
+  <div class="item item-text-wrap">
+    <p>Participants: {{roomDetailsCtrl.room.joined}}</p>
+    <p>Status: {{roomDetailsCtrl.room.status}}</p>
+  </div>
+
+  <div class="item item-text-wrap">
+    <p>Master: {{roomDetailsCtrl.room.master}}</p>
+    <p>Actors:</p>        
+    <div ng-repeat="actor in roomDetailsCtrl.room.actors">
+      <p>{{actor.name}}</p>
+      <p>{{actor.sentence}}</p>
+    </div>
+  </div>
+
+</div>

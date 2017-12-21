@@ -2,13 +2,13 @@ angular
 .module('starter.controllers', [])
 .controller('HallController', hallController);
 
-hallController.$inject = ['$rootScope', '$scope', '$log', '$state', '$cordovaBarcodeScanner', '$timeout'];
-function hallController($rootScope, $scope, $log, $state, $cordovaBarcodeScanner, $timeout) {
+hallController.$inject = ['$rootScope', '$scope', '$log', '$state', '$ionicHistory', '$cordovaBarcodeScanner', '$timeout'];
+function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordovaBarcodeScanner, $timeout) {
 
   var vm = this;
+  vm.scanBarCode = _scanBarCode;
+  vm.goToListOfRooms = _goToListOfRooms;
   vm.createNewRoom = _createNewRoom;
-  vm.scanBarCode = _scanBarCode;    
-  vm.inputKeyCode = _inputKeyCode;    
   
   initialize();
 
@@ -16,10 +16,6 @@ function hallController($rootScope, $scope, $log, $state, $cordovaBarcodeScanner
 
   function initialize(){
 
-  }
-
-  function _createNewRoom(){
-    $state.go('room-creation-wizard');
   }
 
   function _scanBarCode(){
@@ -35,12 +31,21 @@ function hallController($rootScope, $scope, $log, $state, $cordovaBarcodeScanner
     }, 500);
   }
 
-  function _inputKeyCode(){
-    $log.info("Should unveil or popup an input to introduce the room key code");    
+  function _goToListOfRooms(){
+    $ionicHistory.nextViewOptions({
+      disableBack : false
+    });
+    $state.go('room-list');
+  }
+
+  function _createNewRoom(){
+    $ionicHistory.nextViewOptions({
+      disableBack : false
+    });
+    $state.go('room-creation-wizard');
   }
 
   function joinRoom(){
-
+    $state.go('tab.dash', {roomId: 'a0b1c2d3e4f5f6789'});    
   }
-
 }

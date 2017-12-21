@@ -2,8 +2,8 @@ angular
 .module('starter.controllers')
 .controller('RegisterController', registerController);
 
-registerController.$inject = ['$rootScope', '$log', 'RegisterService', '$timeout'];
-function registerController($rootScope, $log, RegisterService, $timeout) {
+registerController.$inject = ['$rootScope', '$log', 'UserService', '$timeout'];
+function registerController($rootScope, $log, UserService, $timeout) {
 
   var vm = this;
   vm.validateField = _validateField;
@@ -23,7 +23,7 @@ function registerController($rootScope, $log, RegisterService, $timeout) {
 
   function _doRegister(){
     $timeout(function(){
-      RegisterService.tryRegister().then(
+      UserService.tryRegister().then(
         function(userInfo) {
           $log.info("Register successful");
         }, function(error) {

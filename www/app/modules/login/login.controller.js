@@ -2,8 +2,8 @@ angular
 .module('starter.controllers')
 .controller('LoginController', loginController);
 
-loginController.$inject = ['$rootScope', '$log', 'LoginService', '$timeout', '$ionicHistory', '$state', '$ionicPopup'];
-function loginController($rootScope, $log, LoginService, $timeout, $ionicHistory, $state, $ionicPopup) {
+loginController.$inject = ['$rootScope', '$log', 'UserService', '$timeout', '$ionicHistory', '$state', '$ionicPopup'];
+function loginController($rootScope, $log, UserService, $timeout, $ionicHistory, $state, $ionicPopup) {
 
   var vm = this;
   vm.validateField = _validateField;
@@ -24,7 +24,7 @@ function loginController($rootScope, $log, LoginService, $timeout, $ionicHistory
 
   function _doLogin(){
     $timeout(function(){
-      LoginService.tryLogin(vm.email,vm.password).then(
+      UserService.tryLogin(vm.email,vm.password).then(
         function(userInfo) {
           setupUserInfoAccount(userInfo);
           goToHall();
