@@ -2,8 +2,8 @@ angular
 .module('starter.controllers')
 .controller('RoomListController', roomListController);
 
-roomListController.$inject = ['$rootScope', '$scope', '$log', '$state', '$timeout', 'RoomService', 'PopupService'];
-function roomListController($rootScope, $scope, $log, $state, $timeout, RoomService, PopupService) {
+roomListController.$inject = ['$rootScope', '$scope', '$log', '$state', '$ionicHistory', '$timeout', 'RoomService', 'PopupService'];
+function roomListController($rootScope, $scope, $log, $state, $ionicHistory, $timeout, RoomService, PopupService) {
 
   var vm = this;
   var textToEncode = 'OMG! Tits';
@@ -43,7 +43,7 @@ function roomListController($rootScope, $scope, $log, $state, $timeout, RoomServ
       vm.shouldShowDetails = false;
       $timeout(function(){
         vm.selectedRoom = undefined;
-      },200);
+      },250);
     } else {
       vm.selectedRoom = room;
     }
@@ -78,6 +78,9 @@ function roomListController($rootScope, $scope, $log, $state, $timeout, RoomServ
   }
 
   function joinRoom(){
+    $ionicHistory.nextViewOptions({
+      disableBack : true
+    });
     $state.go('tab.dash', {roomId: 'a0b1c2d3e4f5f6789'});
   }
 }

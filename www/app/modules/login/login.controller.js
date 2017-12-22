@@ -2,8 +2,8 @@ angular
 .module('starter.controllers')
 .controller('LoginController', loginController);
 
-loginController.$inject = ['$rootScope', '$log', 'UserService', '$timeout', '$ionicHistory', '$state', '$ionicPopup'];
-function loginController($rootScope, $log, UserService, $timeout, $ionicHistory, $state, $ionicPopup) {
+loginController.$inject = ['$rootScope', '$log', 'UserService', '$timeout', '$ionicHistory', '$state', 'PopupService'];
+function loginController($rootScope, $log, UserService, $timeout, $ionicHistory, $state, PopupService) {
 
   var vm = this;
   vm.validateField = _validateField;
@@ -30,10 +30,10 @@ function loginController($rootScope, $log, UserService, $timeout, $ionicHistory,
           goToHall();
         }, function(error) {
           $log.info("Login fail error: " + error);
-          $ionicPopup.alert({
-            title: 'Login failed!',
-            template: 'Either connection has a problem, either your credentials are wrong.'
-        });
+          PopupService.getAlertPopup(
+            'Login failed!',
+            'Either connection has a problem, either your credentials are wrong.'
+        );
       });
     },  100);
   }

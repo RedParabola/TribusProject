@@ -46,6 +46,9 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
   }
 
   function joinRoom(){
+    $ionicHistory.nextViewOptions({
+      disableBack : true
+    });
     $state.go('tab.dash', {roomId: 'a0b1c2d3e4f5f6789'});    
   }
 }
