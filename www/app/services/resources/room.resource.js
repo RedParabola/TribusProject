@@ -3,6 +3,7 @@ angular.module('starter.services')
   .constant('ROOM_CONSTANTS', {
     GETALLROOMS: 'all',
     ROOMINFO_BYID: 'info',
+    CHECK_ROOMCODE: 'check',
     VOTEHISTORY_BYID: 'votes',
     CREATEROOM: 'create'
   })

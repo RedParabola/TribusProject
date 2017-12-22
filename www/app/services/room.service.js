@@ -8,6 +8,7 @@ function roomService($q, RoomResource, ROOM_CONSTANTS) {
     getExistentRooms: _getExistentRooms,
     getRoomInfo: _getRoomInfo,
     getRoomStats: _getRoomStats,
+    checkRoomCode: _checkRoomCode,
   };
 
   function _getExistentRooms(){
@@ -42,6 +43,20 @@ function roomService($q, RoomResource, ROOM_CONSTANTS) {
     var deferred = $q.defer();
     getFakeStats().then(
     //RoomResource.customGET(ROOM_CONSTANTS.VOTEHISTORY_BYID,{roomId: roomId}).then(
+      function (data) {
+        deferred.resolve(parseTestResponse(data));
+      },
+      function (error) {
+        deferred.reject(error);
+      }
+    );
+    return deferred.promise;
+  }
+
+  function _checkRoomCode(roomId,roomCode) {
+    var deferred = $q.defer();
+    checkCodeFake(roomId,roomCode).then(
+    //RoomResource.customGET(ROOM_CONSTANTS.CHECK_ROOMCODE,{roomId: roomId, roomCode: roomCode}).then(
       function (data) {
         deferred.resolve(parseTestResponse(data));
       },
@@ -481,6 +496,16 @@ function roomService($q, RoomResource, ROOM_CONSTANTS) {
       votesArray[i] = Math.floor((Math.random() * 15) + 0);
     }
     deferred.resolve(votesArray);
+    return deferred.promise;
+  }
+
+  function checkCodeFake(roomId,roomCode){
+    var deferred = $q.defer();
+    if(roomCode === 'qwe'){
+      deferred.resolve();
+    } else {
+      deferred.reject();
+    }
     return deferred.promise;
   }
 

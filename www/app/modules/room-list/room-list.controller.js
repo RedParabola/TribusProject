@@ -2,13 +2,14 @@ angular
 .module('starter.controllers')
 .controller('RoomListController', roomListController);
 
-roomListController.$inject = ['$rootScope', '$scope', '$log', '$state', 'RoomService', '$timeout'];
-function roomListController($rootScope, $scope, $log, $state, RoomService, $timeout) {
+roomListController.$inject = ['$rootScope', '$scope', '$log', '$state', '$timeout', 'RoomService', 'PopupService'];
+function roomListController($rootScope, $scope, $log, $state, $timeout, RoomService, PopupService) {
 
   var vm = this;
   var textToEncode = 'OMG! Tits';
   vm.filterSearch = _filterSearch;
   vm.toggleRoomDetails = _toggleRoomDetails;
+  vm.popupKeycodeInput = _popupKeycodeInput;
   
   initialize();
 
@@ -48,8 +49,32 @@ function roomListController($rootScope, $scope, $log, $state, RoomService, $time
     }
   }
 
-  function popupKeycodeInput(){
-    //TODO: Popup input to introduce the room keycode
+  function _popupKeycodeInput(){
+    vm.roomCode = undefined;
+
+    var codePopup = PopupService.getPasswordPopup(
+      $scope,
+      'roomListCtrl.roomCode',
+      'Room Code',
+      "Please enter the 8 alphanumeric characters of this room's code"
+    );
+
+    //Show the popup and wait for results
+    codePopup.then(function(res){
+      RoomService.checkRoomCode(vm.selectedRoom.id,vm.roomCode).then(
+        function(){
+          joinRoom();
+        }, function (error){
+          var alertPopup = PopupService.getAlertPopup(
+            'Not possible to join the room.',
+            'The room code you introduced is wrong.'
+          );
+          alertPopup.then(function(res) {
+            console.log('Thank you for not eating my delicious ice cream cone');
+          });
+        }
+      )
+    });
   }
 
   function joinRoom(){

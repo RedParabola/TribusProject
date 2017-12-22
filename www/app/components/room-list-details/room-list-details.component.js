@@ -17,6 +17,7 @@ function roomListDetailsDirective() {
 
 roomListDetailsController.$inject = ['$scope'];
 function roomListDetailsController($scope) {
+  
   var vm = this;
 
   initialize();

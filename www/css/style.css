@@ -28,7 +28,9 @@
 }
 
 .bottom-details .bottom-button{
+  position: absolute;
   bottom: 0px;
+  width: 100%;
 }
 
 .vert-51-padding{
