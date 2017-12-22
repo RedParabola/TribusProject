@@ -1,6 +1,6 @@
 <ion-view view-title="Room List" name="room-list-view">
   <!-- Filter field -->
-  <div class="card padding fixed-search-header">
+  <div class="card no-padding fixed-search-header">
     <label class="item item-input">
       <input type="text"
              placeholder="Enter a keyword"
@@ -9,9 +9,10 @@
     </label>
   </div>
   <!-- List of rooms -->
-  <ion-content class="ion-content-under-search ion-content-over-details">
+  <ion-content class="ion-content-under-search"
+               ng-class="{'ion-content-over-details': roomListCtrl.shouldShowDetails}">
     <div class="card">
-      <div class="item item-icon-left"
+      <div class="item item-icon-left vert-83-padding"
            ng-repeat="room in roomListCtrl.existingRooms"
            ng-click="roomListCtrl.toggleRoomDetails(room)">
         <i class="icon ion-ios-people {{room.category}}"></i>
@@ -20,7 +21,7 @@
           <div class="col col-40">
             <p>Participants: {{room.joined}}</p>
           </div>
-          <div class="col col-60">
+          <div class="col col-60 text-right">
             <p>Status: {{room.status}}</p>
           </div>
         </div>
@@ -30,8 +31,10 @@
   </ion-content>
   <!-- Selected room details -->
   <div class="card bottom-details"
-       ng-show="roomListCtrl.selectedRoom">
+       ng-show="roomListCtrl.shouldShowDetails">
     <room-list-details room="roomListCtrl.selectedRoom"></room-list-details>
-    <button class="button button-block button-calm" ng-click="roomDetailsCtrl.popupKeycodeInput()">Join</button>
+    <div class="bottom-button">
+      <button class="button button-block button-calm" ng-click="roomDetailsCtrl.popupKeycodeInput()">Join</button>        
+    </div>
   </div>
 </ion-view>

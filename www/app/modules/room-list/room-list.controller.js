@@ -2,8 +2,8 @@ angular
 .module('starter.controllers')
 .controller('RoomListController', roomListController);
 
-roomListController.$inject = ['$rootScope', '$scope', '$log', '$state', 'RoomService'];
-function roomListController($rootScope, $scope, $log, $state, RoomService) {
+roomListController.$inject = ['$rootScope', '$scope', '$log', '$state', 'RoomService', '$timeout'];
+function roomListController($rootScope, $scope, $log, $state, RoomService, $timeout) {
 
   var vm = this;
   var textToEncode = 'OMG! Tits';
@@ -18,6 +18,8 @@ function roomListController($rootScope, $scope, $log, $state, RoomService) {
     vm.existingRooms = [];
     vm.searchField = undefined;
     vm.selectedRoom = undefined;
+    vm.shouldShowDetails = false;
+    
     //TODO: Retrieve list of existing rooms
     RoomService.getExistentRooms().then(
       function(rooms){
@@ -34,9 +36,13 @@ function roomListController($rootScope, $scope, $log, $state, RoomService) {
 
   function _toggleRoomDetails(room){
     if(!vm.selectedRoom){
+      vm.shouldShowDetails = true;
       vm.selectedRoom = room;
     } else if (room.id === vm.selectedRoom.id){
-      vm.selectedRoom = undefined;
+      vm.shouldShowDetails = false;
+      $timeout(function(){
+        vm.selectedRoom = undefined;
+      },200);
     } else {
       vm.selectedRoom = room;
     }

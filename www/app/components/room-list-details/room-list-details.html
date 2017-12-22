@@ -1,6 +1,6 @@
 <div>
 
-  <div class="item item-icon-left item-text-wrap">
+  <div class="item item-icon-left item-text-wrap vert-51-padding">
 
     <i class="icon ion-ios-people {{roomDetailsCtrl.room.category}}"></i>
     <b>{{roomDetailsCtrl.room.topic}}</b>
@@ -9,18 +9,15 @@
       <div class="col col-40">
         Participants: {{roomDetailsCtrl.room.joined}}
       </div>
-      <div class="col col-60">
+      <div class="col col-60 text-right">
         Status: {{roomDetailsCtrl.room.status}}
       </div>
     </div>
 
   </div>
 
-  <div class="item item-text-wrap">
-    <p>Actors:</p>        
-    <div ng-repeat="actor in roomDetailsCtrl.room.actors">
-      <b>{{actor.name}}</b>
-    </div>
+  <div class="item item-text-wrap vert-51-padding">
+    <b>{{roomDetailsCtrl.listOfActors}}</b>
   </div>
 
 </div>

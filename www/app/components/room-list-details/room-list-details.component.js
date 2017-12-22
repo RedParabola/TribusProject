@@ -24,7 +24,23 @@ function roomListDetailsController($scope) {
   //////////////////
 
   function initialize() {
-    
+    vm.listOfActors = '';
+    $scope.$watch('roomDetailsCtrl.room',layoutActors);
   }
   
+  function layoutActors(newValue,oldValue){
+    if(!newValue ){
+      vm.listOfActors = '';
+    } else {
+      if(newValue !== oldValue){
+        vm.listOfActors = '';        
+      }
+      angular.forEach(vm.room.actors,function(actor,index){
+        vm.listOfActors = vm.listOfActors.concat(actor.name);
+        if(index !== vm.room.actors.length - 1){
+          vm.listOfActors = vm.listOfActors.concat(', ');          
+        }
+      });
+    }      
+  }
 }

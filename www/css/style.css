@@ -1,7 +1,8 @@
 /* Empty. Add your own CSS if you like */
 
 .fixed-search-header{
-  margin-top:43px;
+  margin-top:46px;
+  box-shadow: rgb(41, 41, 41) -1px 0px 6px 0px !important;
   /* 
    The ionic header bar is 43px in height,
    put your content below the header bar.
@@ -9,7 +10,7 @@
 }
 
 .ion-content-under-search{
-  margin-top:43px!important;
+  margin-top:49px!important;
 }
 
 .ion-content-over-details{
@@ -17,10 +18,110 @@
 }
 
 .bottom-details{
+  padding-top: 5px;
   position: fixed;
   bottom: 0px;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin: 0 3%;
   width: 94%;
   height: 200px;
+  box-shadow: rgb(41, 41, 41) 0px -10px 10px -10px !important;
+}
+
+.bottom-details .bottom-button{
+  bottom: 0px;
+}
+
+.vert-51-padding{
+  padding-top: 5px;
+  padding-bottom: 1px;
+}
+
+.vert-83-padding{
+  padding-top: 10px;
+  padding-bottom: 3px;
+}
+
+/* when hiding the thing */
+.ng-hide-add { 
+  -webkit-animation:0.2s flipInX linear; 
+  animation:0.2s flipInX linear; 
+  animation-direction: reverse;
+}
+
+/* when showing the thing */
+.ng-hide-remove { 
+  -webkit-animation:0.3s flipInX ease; 
+  animation:0.3s flipInX ease; 
+}
+
+/* flip in */
+@-webkit-keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  25% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 30deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 30deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+  }
+
+  50% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 10deg);
+  }
+
+  75% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 3deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 3deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 90deg);
+    -ms-transform: perspective(400px) rotate3d(-1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  25% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 30deg);
+    -ms-transform: perspective(400px) rotate3d(-1, 0, 0, 30deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 30deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+  }
+
+  50% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 10deg);
+    -ms-transform: perspective(400px) rotate3d(-1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 10deg);
+  }
+
+  75% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 3deg);
+    -ms-transform: perspective(400px) rotate3d(-1, 0, 0, 3deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 3deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+    -ms-transform: perspective(400px);
+    transform: perspective(400px);
+  }
 }

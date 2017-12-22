@@ -52,6 +52,7 @@ function roomService($q, RoomResource, ROOM_CONSTANTS) {
     return deferred.promise;
   }
 
+  //Maximum size for topic: 42 characters
   function getFakeList () {
     var deferred = $q.defer();
     var roomsArray= [
@@ -61,7 +62,7 @@ function roomService($q, RoomResource, ROOM_CONSTANTS) {
         accepted: 60,
         invited: 105,
         category: 'SOCIETY',
-        topic: 'Is piracy a solution?',
+        topic: 'Consequences of globalization on underdeveloped countries',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
         status: 'NOT_STARTED',
         joined: 50,

@@ -8,6 +8,7 @@
 var app = angular.module('starter', [
   'ionic',
   'ngCordova',
+  'ngAnimate',
   'starter.controllers',
   'starter.services',
   'starter.components',
