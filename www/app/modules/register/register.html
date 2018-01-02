@@ -1,13 +1,52 @@
 <ion-view view-title="Register" name="register-view">
-  <ion-content class="padding">
-      <div class="list list-inset">
-          <label class="item item-input">
-              <input type="text" placeholder="Email" ng-model="registerCtrl.email">
-          </label>
-          <label class="item item-input">
-              <input type="password" placeholder="Password" ng-model="registerCtrl.password">
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Write your email</span>
+        <input type="email" placeholder="itsatrump@twh.com" ng-model="registerCtrl.email">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Choose a password</span>
+        <input type="password" placeholder="**********" ng-model="registerCtrl.password">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Please, confirm your password</span>
+        <input type="password" placeholder="**********" ng-model="registerCtrl.confirmPassword">
+      </label>
+    </div>
+
+      <div class="item list-inset">
+        <label class="toggle toggle-positive text-center">
+            <input type="checkbox" ng-model="registerCtrl.isUserAnonymous">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+            <span>I want my profile to be anonymous</span>
           </label>
       </div>
-      <button class="button button-block button-calm" ng-click="registerCtrl.doRegister()">Register</button>
+
+    <div class="list list-inset" ng-show="!registerCtrl.isUserAnonymous">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Choose a nickname</span>
+        <input type="text" placeholder="trumpet17" ng-model="registerCtrl.nick">
+      </label>
+      <label class="item item-input item-stacked-label">
+          <span class="input-label">Write your name</span>
+          <input type="text" placeholder="Doneld" ng-model="registerCtrl.name">
+      </label>
+      <label class="item item-input item-stacked-label">
+          <span class="input-label">write your surname</span>
+          <input type="text" placeholder="Tramp" ng-model="registerCtrl.surname">
+      </label>
+    </div>
+
+    <div class="card text-center">
+      <span>Please, select your birthdate:</span>
+        <label class="input-label" style="margin: 0 auto;">
+        <input type="date" ng-model="registerCtrl.birthDate">
+      </label>
+    </div>
+
+    <button class="button button-block button-royal" ng-click="registerCtrl.doRegister()">Register</button>
   </ion-content>
 </ion-view>

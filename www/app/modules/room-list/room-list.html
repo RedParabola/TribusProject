@@ -12,7 +12,7 @@
   <ion-content class="ion-content-under-search"
                ng-class="{'ion-content-over-details': roomListCtrl.shouldShowDetails}">
     <div class="card">
-      <div class="item item-icon-left vert-83-padding"
+      <div class="item item-icon-left padding-vert-83"
            ng-repeat="room in roomListCtrl.existingRooms"
            ng-click="roomListCtrl.toggleRoomDetails(room)">
         <i class="icon ion-ios-people {{room.category}}"></i>
@@ -34,7 +34,7 @@
        ng-show="roomListCtrl.shouldShowDetails">
     <room-list-details room="roomListCtrl.selectedRoom"></room-list-details>
     <div class="bottom-button">
-      <button class="button button-block button-calm" ng-click="roomListCtrl.popupKeycodeInput()">Join</button>        
+      <button class="button button-block button-assertive" ng-click="roomListCtrl.popupKeycodeInput()">Join</button>        
     </div>
   </div>
 </ion-view>

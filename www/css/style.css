@@ -1,56 +1,36 @@
 /* Empty. Add your own CSS if you like */
 
-.fixed-search-header{
-  margin-top:46px;
-  box-shadow: rgb(41, 41, 41) -1px 0px 6px 0px !important;
-  /* 
-   The ionic header bar is 43px in height,
-   put your content below the header bar.
-  */
+
+
+
+/***********************/
+/*****             *****/
+/****  Generic CSS  ****/
+/*****             *****/
+/***********************/
+
+label.item-input input, label.input-label input{
+  font-size:20px;
 }
 
-.ion-content-under-search{
-  margin-top:49px!important;
-}
-
-.ion-content-over-details{
-  margin-bottom:200px!important;
-}
-
-.bottom-details{
-  padding-top: 5px;
-  position: fixed;
-  bottom: 0px;
-  margin: 0 3%;
-  width: 94%;
-  height: 200px;
-  box-shadow: rgb(41, 41, 41) 0px -10px 10px -10px !important;
-}
-
-.bottom-details .bottom-button{
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-}
-
-.vert-51-padding{
+.padding-vert-51{
   padding-top: 5px;
   padding-bottom: 1px;
 }
 
-.vert-83-padding{
+.padding-vert-83{
   padding-top: 10px;
   padding-bottom: 3px;
 }
 
 /* when hiding the thing */
-.ng-hide-add { 
+.ng-hide-add {
   -webkit-animation:0.25s fadeOut ease; 
   animation:0.25s fadeOut ease; 
 }
 
 /* when showing the thing */
-.ng-hide-remove { 
+.ng-hide-remove {
   -webkit-animation:0.3s flipInX ease; 
   animation:0.3s flipInX ease; 
 }
@@ -146,4 +126,46 @@
   100% {
     opacity: 0;
   }
+}
+
+
+
+
+/************************/
+/*****              *****/
+/****  Specific CSS  ****/
+/*****              *****/
+/************************/
+
+.fixed-search-header{
+  margin-top:46px;
+  box-shadow: rgb(41, 41, 41) -1px 0px 6px 0px !important;
+  /* 
+   The ionic header bar is 43px in height,
+   put your content below the header bar.
+  */
+}
+
+.ion-content-under-search{
+  margin-top:49px!important;
+}
+
+.ion-content-over-details{
+  margin-bottom:200px!important;
+}
+
+.bottom-details{
+  padding-top: 5px;
+  position: fixed;
+  bottom: 0px;
+  margin: 0 3%;
+  width: 94%;
+  height: 200px;
+  box-shadow: rgb(41, 41, 41) 0px -10px 10px -10px !important;
+}
+
+.bottom-details .bottom-button{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
