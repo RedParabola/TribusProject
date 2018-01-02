@@ -15,15 +15,16 @@
       </label>
     </div>
 
-      <div class="item list-inset">
-        <label class="toggle toggle-positive text-center">
+      <li class="item item-toggle">
+          <span style="font-size: 18px;">I want my profile to be <b>anonymous</b></span>
+          <label class="toggle toggle-positive">
             <input type="checkbox" ng-model="registerCtrl.isUserAnonymous">
             <div class="track">
               <div class="handle"></div>
             </div>
-            <span>I want my profile to be anonymous</span>
           </label>
-      </div>
+       </li>
+
 
     <div class="list list-inset" ng-show="!registerCtrl.isUserAnonymous">
       <label class="item item-input item-stacked-label">
@@ -35,7 +36,7 @@
           <input type="text" placeholder="Doneld" ng-model="registerCtrl.name">
       </label>
       <label class="item item-input item-stacked-label">
-          <span class="input-label">write your surname</span>
+          <span class="input-label">Write your surname</span>
           <input type="text" placeholder="Tramp" ng-model="registerCtrl.surname">
       </label>
     </div>
