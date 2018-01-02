@@ -15,16 +15,15 @@
       </label>
     </div>
 
-      <li class="item item-toggle">
-          <span style="font-size: 18px;">I want my profile to be <b>anonymous</b></span>
-          <label class="toggle toggle-positive">
-            <input type="checkbox" ng-model="registerCtrl.isUserAnonymous">
-            <div class="track">
-              <div class="handle"></div>
-            </div>
-          </label>
-       </li>
-
+    <div class="item item-toggle">
+      <span style="font-size: 18px;">I want my profile to be <b>anonymous</b></span>
+      <label class="toggle toggle-positive">
+        <input type="checkbox" ng-model="registerCtrl.isUserAnonymous">
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+      </label>
+    </div>
 
     <div class="list list-inset" ng-show="!registerCtrl.isUserAnonymous">
       <label class="item item-input item-stacked-label">
@@ -48,6 +47,10 @@
       </label>
     </div>
 
-    <button class="button button-block button-royal" ng-click="registerCtrl.doRegister()">Register</button>
+    <div class="text-center padding">
+      <span style="font-size: 18px;">By pressing the 'Register' button below, you accept the <a><b>Terms of Service.</b></a></span>
+      <button class="button button-block button-royal" ng-click="registerCtrl.doRegister()">Register</button>
+    </div>
+
   </ion-content>
 </ion-view>
