@@ -1,8 +1,8 @@
 angular.module('starter.services')
 .service('RoomService', roomService);
 
-roomService.$inject = ['$q', 'RoomResource', 'ROOM_CONSTANTS'];
-function roomService($q, RoomResource, ROOM_CONSTANTS) {
+roomService.$inject = ['$q', 'RoomResource', 'ROOM_ENDP'];
+function roomService($q, RoomResource, ROOM_ENDP) {
 
   return {
     getExistentRooms: _getExistentRooms,
@@ -14,7 +14,7 @@ function roomService($q, RoomResource, ROOM_CONSTANTS) {
   function _getExistentRooms(){
     var deferred = $q.defer();
     getFakeList().then(
-    //RoomResource.customGET(ROOM_CONSTANTS.GETALLROOMS,{}).then(
+    //RoomResource.customGET(ROOM_ENDP.GETALLROOMS,{}).then(
       function (data) {
         deferred.resolve(parseTestResponse(data));
       },
@@ -28,7 +28,7 @@ function roomService($q, RoomResource, ROOM_CONSTANTS) {
   function _getRoomInfo(roomId) {
     var deferred = $q.defer();
     getFakeInfo().then(
-    //RoomResource.customGET(ROOM_CONSTANTS.ROOMINFO_BYID,{roomId: roomId}).then(
+    //RoomResource.customGET(ROOM_ENDP.ROOMINFO_BYID,{roomId: roomId}).then(
       function (data) {
         deferred.resolve(parseTestResponse(data));
       },
@@ -42,7 +42,7 @@ function roomService($q, RoomResource, ROOM_CONSTANTS) {
   function _getRoomStats(roomId) {
     var deferred = $q.defer();
     getFakeStats().then(
-    //RoomResource.customGET(ROOM_CONSTANTS.VOTEHISTORY_BYID,{roomId: roomId}).then(
+    //RoomResource.customGET(ROOM_ENDP.VOTEHISTORY_BYID,{roomId: roomId}).then(
       function (data) {
         deferred.resolve(parseTestResponse(data));
       },
@@ -56,7 +56,7 @@ function roomService($q, RoomResource, ROOM_CONSTANTS) {
   function _checkRoomCode(roomId,roomCode) {
     var deferred = $q.defer();
     checkCodeFake(roomId,roomCode).then(
-    //RoomResource.customGET(ROOM_CONSTANTS.CHECK_ROOMCODE,{roomId: roomId, roomCode: roomCode}).then(
+    //RoomResource.customGET(ROOM_ENDP.CHECK_ROOMCODE,{roomId: roomId, roomCode: roomCode}).then(
       function (data) {
         deferred.resolve(parseTestResponse(data));
       },
