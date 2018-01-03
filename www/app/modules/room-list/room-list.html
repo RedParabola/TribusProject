@@ -1,13 +1,19 @@
 <ion-view view-title="Room List" name="room-list-view">
   <!-- Filter field -->
   <div class="card no-padding fixed-search-header">
-    <label class="item item-input">
+    <label class="item item-input item-input-wrapper">
       <input type="text"
+             id="roomListFilter"
              placeholder="Enter a keyword"
              ng-model="roomListCtrl.searchField"
              ng-change="roomListCtrl.filterSearch()">
+      <button class="button button-stable">
+        <i ng-if="roomListCtrl.searchField" class="icon ion-close-round placeholder-icon"></i>
+        <i ng-if="!roomListCtrl.searchField" class="icon ion-ios-search placeholder-icon"></i>
+      </button>
     </label>
   </div>
+
   <!-- List of rooms -->
   <ion-content class="ion-content-under-search"
                ng-class="{'ion-content-over-details': roomListCtrl.shouldShowDetails}">

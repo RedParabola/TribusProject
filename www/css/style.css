@@ -9,8 +9,13 @@
 /*****             *****/
 /***********************/
 
+em,i{
+  font-style:italic;
+}
+
 label.item-input input, label.input-label input{
   font-size:20px;
+  line-height: 22px;
 }
 
 .padding-vert-51{
@@ -137,6 +142,16 @@ label.item-input input, label.input-label input{
 /*****              *****/
 /************************/
 
+.fixed-search-header label{
+  padding: 2px;
+  height: 46px;
+}
+
+.fixed-search-header label input{
+  font-size: auto;
+  padding: 0 5px!important;
+}
+
 .fixed-search-header{
   margin-top:46px;
   box-shadow: rgb(41, 41, 41) -1px 0px 6px 0px !important;
@@ -147,7 +162,7 @@ label.item-input input, label.input-label input{
 }
 
 .ion-content-under-search{
-  margin-top:49px!important;
+  margin-top:50px!important;
 }
 
 .ion-content-over-details{
