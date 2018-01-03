@@ -1,133 +1,146 @@
 <ion-view view-title="Room Creation" name="room-creation-wizard-view">
+  <ion-content class="padding" scroll="false">
 
-    <ion-content class="padding" scroll="false">
-        <ion-slides options="options" slider="data.slider">
-          <ion-slide-page>
-            <ion-content>
-              <h2>Journey to HD 219134 b</h2>
-              <div>some property: {{viewModel.someProperty}}</div>
-              <p>
-                This app will prepare you for your journey through the galaxy
-                to HD 219134 b, an exoplanet 21 lightyears away from our home on Earth.
-              </p>
-              <p>
-                <img src="exoplanet.jpg" style="max-width: 100%" />
-              </p>
-              <div style="text-align: center">
-                <small style="font-style: italic">An artist's rendering of your new home.</small>
-              </div>
-              <div>
-                <button class="button button-assertive" ng-click="doClick()">Tap</button>
-              </div>
-            </ion-content>
-          </ion-slide-page>
-          <ion-slide-page>
-            <h2>Before launch</h2>
-            <div>some property: {{viewModel.someProperty}}</div>
-            <p>
-              Before entering the space capsule, please prepare accordingly:
-            </p>
-            <p>
-              <img src="exoplanet.jpg" style="max-width: 100%" />
-            </p>
-            <ul>
-              <li>Say "good bye" to your loved ones. You will not see them again.</li>
-              <li>Turn off any gas sources and lights in your home.</li>
-              <li>Pets cannot make the journey to distant planets. Please arrange for their safe keeping.</li>
-            </ul>
-            <div>
-              <button class="button button-assertive" ng-click="doClick()">Tap</button>
+    <ion-slides options="options" slider="roomCreationWizardCtrl.slider">
+
+      <!-- 1. Room basic info -->
+      <ion-slide-page>
+        <ion-content>
+          <h2>¡Welcome to the room creation wizard!</h2>
+          <p>
+            Through 3 simple steps, we will empower you as a <b>moderator</b> in the creation of your own debate room.
+          </p>             
+          <h3 class="padding">
+            Room basic info
+          </h3>
+          <div class="list padding">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label"><b>*Main topic</b></span>
+              <span class="input-label"><i>(maximum 42 characters)</i></span>
+              <textarea type="text"
+                        rows="3"
+                        style="font-size: 20px; line-height: 22px;"
+                        placeholder="Is Net Neutrality overrated?"
+                        ng-model="roomCreationWizardCtrl.topic">
+              </textarea>
+            </label>
+            <label class="item item-input item-select">
+              <span class="input-label"><b>*Choose a category</b></span>
+              <select style="font-size: 18px; line-height: 20px;">
+                <option value="" disabled selected>Please Select...</option>
+                <option ng-repeat="category in roomCreationWizardCtrl.categories">
+                  <i class="icon ion-close-round {{category.icon}}-icon"></i>
+                  <p>{{category.name}}</p>
+                </option>
+              </select>
+
+            </label>
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Short description</span>
+              <span class="input-label"><i>(maximum 180 characters)</i></span>
+              <textarea type="text"
+                        rows="5"
+                        style="font-size: 16px; line-height: 18px;"                  
+                        ng-model="roomCreationWizardCtrl.description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum tenetur obcaecati temporibus totam fugiat et quae quia quisquam asperiores esse eum ipsum porro officiis reiciendis unde molestias rerum molestiae. Perferendis. 
+              </textarea>
+            </label>
+          </div>
+          <div>
+            <button class="button button-assertive" ng-click="doClick()">Tap</button>
+          </div>
+        </ion-content>
+      </ion-slide-page>
+
+      <!-- 2. ??? -->
+      <ion-slide-page>
+        <ion-content>            
+          <h3 class="padding">
+            List of actors
+          </h3>
+          <div class="list padding">
+            <div class="item item-button-right"
+            ng-repeat="actor in roomCreationWizardCtrl.actors track by $index">
+              <p style="font-size: 20px;">{{ actor.name | limitTo: 20 }}{{actor.name.length > 20 ? '...' : ''}}</p>
+              <p>{{ actor.sentence | limitTo: 30 }}{{actor.sentence.length > 30 ? '...' : ''}}</p>
+              <button class="button button-light"
+                      ng-click="roomCreationWizardCtrl.removeActor(actor)">
+                <i class="icon ion-trash-b"></i>
+              </button>
             </div>
-          </ion-slide-page>
-          <ion-slide-page>
-            <h2>During launch</h2>
-            <div>some property: {{viewModel.someProperty}}</div>
-            <p>
-              Hang on and enjoy the ride. Your input is not needed (and, in fact, is heavily restricted) during the
-              launch and minutes after reacing the proper altitude needed to utilize the ion propulsion engines
-              that will carry you to HD 219134 b.
-            </p>
-            <p>
-              <img src="exoplanet.jpg" style="max-width: 100%" />
-            </p>
-          </ion-slide-page>
-          <ion-slide-page>
-            <h2>After launch and years ahead</h2>
-            <div>some property: {{viewModel.someProperty}}</div>
-            <p>
-              Thus begins the long journey to HD 219134 b. To pass the time, we've supplied
-              you with a variety of pharmaceuticals along with a pamphlet to understand the benefits and drawbacks of each.
-            </p>
-            <p>
-              <img src="exoplanet.jpg" style="max-width: 100%" />
-            </p>
-            <p>
-              Whether you choose to utilize your full Vitality Buffer of four earth-years by experiencing the mystery and excitement
-               of traveling through the vast universe, you must transition to the Cryo Pad for preservation for the rest of the voyage.
-            </p>
-            <p>
-              During your long nap, the experimental Worm Slip engines will fire to reduce the journey by several hundreds of thousands of earth-years.
-              The status of the experiment will not be known until your planned Cryo Wake in 4000 earth-years.
-            </p>
-            <div>
-              <button class="button button-assertive" ng-click="doClick()">Tap</button>
-            </div>
-          </ion-slide-page>
-          <ion-slide-page>
-            <h2>Approaching HD 219134 b</h2>
-            <div>some property: {{viewModel.someProperty}}</div>
-            <p>
-              <img src="exoplanet.jpg" style="max-width: 100%" />
-            </p>
-            <p>
-              If you are lucky enough to be able to see HD 219134 b with your own eyes, congratulations! No
-              space pioneer has ever made it this far. Take a minute and celebrate this monumental achievement by
-              activating the Party Pod.
-            </p>
-            <p>
-              Next, review the Approach checklist for a detailed list of instructions on preparing the capsule for
-              entry into a possible atmosphere.
-            </p>
-            <p>
-              If the Worm Slip experiment failed and you have only partially progressed on your journey to HD 219134 b, please review the
-              Contingency Plan for ideas on how to make the most of the rest of your life in space.
-            </p>
-            <div>
-              <button class="button button-assertive" ng-click="doClick()">Tap</button>
-            </div>
-          </ion-slide-page>
-          <ion-slide-page>
-            <h2>Life on HD 219134 b</h2>
-            <p>
-              <img src="exoplanet.jpg" style="max-width: 100%" />
-            </p>
-            <p>
-              Scientists aren't quite sure what life on HD 219134 b will be like!
-              In order to help you adapt to a set of predicted atmospheric, pressure, and temperature environments,
-              we've provided three Life Support Configurations.
-            </p>
-            <p>
-              Your Personal Pioneer Pad will help you determine which Life Support Configuration to use. In the event
-              that none of the provided Life Support Configurations adaquately protects you from the HD 219134 b environment,
-              we regret to inform you that the experiment is ended and we hope to one day retrieve your valuable data. From all of us
-              at Ion Space Pursuits, we thank you for your participation in this important research study.
-            </p>
-            <div>some property: {{viewModel.someProperty}}</div>
-            <div>
-              <button class="button button-assertive" ng-click="doClick()">Tap</button>
+            <div class="item item-button-right">
+              <i>Add new actor</i>
+              <button class="button button-light"
+                      ng-click="roomCreationWizardCtrl.addNewActor()">
+                  <i class="icon ion-plus-round"></i>
+              </button>
             </div>
 
-            <div class="card">
-                <div class="item item-icon-left" ng-click="roomCreationWizardCtrl.makeCode()">
-                  <i class="icon ion-qr-scanner" name="qr"></i>
-                  <p>Generate Room QR</p>
-                </div>
-              </div>
-              <div id="qrcode"></div>         
+          </div>
+          <div>
+            <button class="button button-assertive" ng-click="doClick()">Tap</button>
+          </div>
+        </ion-content>
+      </ion-slide-page>
 
-          </ion-slide-page>
-        </ion-slides>
-      </ion-content>
-    
+      <!-- 3. ??? -->
+      <ion-slide-page>
+        <ion-content>
+          <h2>¡Welcome to the room creation wizard!</h2>
+          <p class="padding">
+            Through 3 simple steps, we will empower you as a <b>moderator</b> in the creation of your own debate room.
+          </p>             
+          <h3>
+            Room basic info
+          </h3>
+          <div class="list padding">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label"><b>*Main topic</b></span>
+              <span class="input-label"><i>(maximum 42 characters)</i></span>
+              <textarea type="text"
+                        rows="3"
+                        style="font-size: 20px; line-height: 22px;"
+                        placeholder="Is Net Neutrality overrated?"
+                        ng-model="roomCreationWizardCtrl.topic">
+              </textarea>
+            </label>
+            <label class="item item-input item-select">
+              <span class="input-label"><b>*Choose a category</b></span>
+              <select style="font-size: 18px; line-height: 20px;">
+                <option value="" disabled selected>Please Select...</option>
+                <option ng-repeat="category in roomCreationWizardCtrl.categories">
+                  <i class="icon ion-close-round {{category.icon}}-icon"></i>
+                  <p>{{category.name}}</p>
+                </option>
+              </select>
+
+            </label>
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Short description</span>
+              <span class="input-label"><i>(maximum 180 characters)</i></span>
+              <textarea type="text"
+                        rows="5"
+                        style="font-size: 16px; line-height: 18px;"                  
+                        ng-model="roomCreationWizardCtrl.description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum tenetur obcaecati temporibus totam fugiat et quae quia quisquam asperiores esse eum ipsum porro officiis reiciendis unde molestias rerum molestiae. Perferendis. 
+              </textarea>
+            </label>
+          </div>
+          <div>
+            <button class="button button-assertive" ng-click="doClick()">Tap</button>
+          </div>
+          <div class="card">
+            <div class="item item-icon-left" ng-click="roomCreationWizardCtrl.makeCode()">
+              <i class="icon ion-qr-scanner" name="qr"></i>
+              <p>Generate Room QR</p>
+            </div>
+          </div>
+          <div id="qrcode"></div> 
+        </ion-content>
+      </ion-slide-page>
+
+    </ion-slides>
+
+  </ion-content>
 </ion-view>
 
