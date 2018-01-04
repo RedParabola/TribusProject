@@ -61,19 +61,21 @@ function roomListController($rootScope, $scope, $log, $state, $ionicHistory, $ti
 
     //Show the popup and wait for results
     codePopup.then(function(res){
-      RoomService.checkRoomCode(vm.selectedRoom.id,vm.roomCode).then(
-        function(){
-          joinRoom();
-        }, function (error){
-          var alertPopup = PopupService.getAlertPopup(
-            'Not possible to join the room.',
-            'The room code you introduced is wrong.'
-          );
-          alertPopup.then(function(res) {
-            console.log('Thank you for not eating my delicious ice cream cone');
-          });
-        }
-      )
+      if(res){
+        RoomService.checkRoomCode(vm.selectedRoom.id,vm.roomCode).then(
+          function(){
+            joinRoom();
+          }, function (error){
+            var alertPopup = PopupService.getAlertPopup(
+              'Not possible to join the room.',
+              'The room code you introduced is wrong.'
+            );
+            alertPopup.then(function(res) {
+              $log.info('Wrong code');
+            });
+          }
+        )
+      }
     });
   }
 

@@ -5,9 +5,31 @@ popupService.$inject = ['$ionicPopup'];
 function popupService($ionicPopup) {
 
   return {
+    getAddActorPopup: _getAddActorPopup,
     getPasswordPopup: _getPasswordPopup,
     getAlertPopup: _getAlertPopup
   };
+
+  function _getAddActorPopup(scope,actorNgModel,mottoNgModel,title,sentence) {
+    var popup = $ionicPopup.show({
+      template: '<label class="item item-input"><input type="text" placeholder="Actor\'s name" ng-model="'.concat(actorNgModel,'"></label><label class="item item-input"><textarea rows="3" type="text" placeholder="Actor\'s motto" ng-model="',mottoNgModel,'"></textarea></label>'),
+      title: title,
+      subTitle: sentence,
+      scope: scope,
+      buttons: [
+        {
+          text: 'Cancel',
+          onTap: function(e){ return false; }
+        },
+        {
+          text: '<b>Add actor</b>',
+          type: 'button-positive',
+          onTap: function(e){ return scope.$eval(actorNgModel); }
+        }
+      ]
+    });
+    return popup;
+  }
 
   function _getPasswordPopup(scope,passwordNgModel,title,sentence) {
     var popup = $ionicPopup.show({
@@ -16,10 +38,14 @@ function popupService($ionicPopup) {
       subTitle: sentence,
       scope: scope,
       buttons: [
-        { text: 'Cancel' },
+        {
+          text: 'Cancel',
+          onTap: function(e){ return false; }
+        },
         {
           text: '<b>Join</b>',
           type: 'button-positive',
+          onTap: function(e){ return true; }          
         }
       ]
     });
