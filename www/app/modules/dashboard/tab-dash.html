@@ -14,24 +14,24 @@
       </div>
     </div>
 
-    <!-- Grid of options -->
-    <div ng-if="dashCtrl.selectedRoom.options" class="list row-no-padding">
-      <div ng-repeat="room in dashCtrl.selectedRoom.options track by $index">
-        <!-- A row each pair of options -->
+    <!-- Grid of Actors -->
+    <div ng-if="dashCtrl.selectedRoom.actors" class="list row-no-padding">
+      <div ng-repeat="room in dashCtrl.selectedRoom.actors track by $index">
+        <!-- A row each pair of actors -->
         <div class="row" style="padding-top: 0px;" ng-if="$even">
-          <div ng-if="dashCtrl.selectedRoom.options[$index]" class="col col-50">
+          <div ng-if="dashCtrl.selectedRoom.actors[$index]" class="col col-50">
             <div class="card" style="margin: 0px;"
-                 ng-click="dashCtrl.voteOption($index)">
+                 ng-click="dashCtrl.voteActor($index)">
               <div class="item item-text-wrap">
-                {{dashCtrl.selectedRoom.options[$index].name}}
+                {{dashCtrl.selectedRoom.actors[$index].name}}
               </div>
             </div>
           </div>
-          <div ng-if="dashCtrl.selectedRoom.options[$index+1]" class="col col-50">
+          <div ng-if="dashCtrl.selectedRoom.actors[$index+1]" class="col col-50">
             <div class="card" style="margin: 0px;"
-                 ng-click="dashCtrl.voteOption($index+1)">
+                 ng-click="dashCtrl.voteActor($index+1)">
             <div class="item item-text-wrap">
-                {{dashCtrl.selectedRoom.options[$index+1].name}}
+                {{dashCtrl.selectedRoom.actors[$index+1].name}}
               </div>
             </div>
           </div>

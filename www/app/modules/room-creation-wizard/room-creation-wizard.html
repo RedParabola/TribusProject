@@ -29,11 +29,11 @@
               <select style="font-size: 18px; line-height: 20px;">
                 <option value="" disabled selected>Please Select...</option>
                 <option ng-repeat="category in roomCreationWizardCtrl.categories">
-                  <i class="icon ion-close-round {{category.icon}}-icon"></i>
+                  <div class=""
+                  <i class="icon {{category.icon}}"></i>
                   <p>{{category.name}}</p>
                 </option>
               </select>
-
             </label>
             <label class="item item-input item-stacked-label">
               <span class="input-label">Short description</span>
@@ -52,7 +52,7 @@
         </ion-content>
       </ion-slide-page>
 
-      <!-- 2. ??? -->
+      <!-- 2. List of actors -->
       <ion-slide-page>
         <ion-content>            
           <h3 class="padding">
@@ -60,9 +60,11 @@
           </h3>
           <div class="list padding">
             <div class="item item-button-right"
-            ng-repeat="actor in roomCreationWizardCtrl.actors track by $index">
-              <p style="font-size: 20px;">{{ actor.name | limitTo: 20 }}{{actor.name.length > 20 ? '...' : ''}}</p>
-              <p>{{ actor.sentence | limitTo: 30 }}{{actor.sentence.length > 30 ? '...' : ''}}</p>
+                 ng-repeat="actor in roomCreationWizardCtrl.actors track by $index">
+              <div ng-click="roomCreationWizardCtrl.editActor(actor)">                
+                <p style="font-size: 20px;">{{ actor.name | limitTo: 20 }}{{actor.name.length > 20 ? '...' : ''}}</p>
+                <p>{{ actor.motto | limitTo: 30 }}{{actor.motto.length > 30 ? '...' : ''}}</p>
+              </div>
               <button class="button button-light"
                       ng-click="roomCreationWizardCtrl.removeActor(actor)">
                 <i class="icon ion-trash-b"></i>
@@ -72,7 +74,7 @@
               <i>Add new actor</i>
               <button class="button button-light"
                       ng-click="roomCreationWizardCtrl.addNewActor()">
-                  <i class="icon ion-plus-round"></i>
+                  <i class="icon ion-person-add"></i>
               </button>
             </div>
 

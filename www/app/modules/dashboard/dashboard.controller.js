@@ -6,7 +6,7 @@ angular
   function dashController($scope, $log, $interval, RoomService) {
 
     var vm = this;
-    vm.voteOption = _voteOption;
+    vm.voteActor = _voteActor;
 
     initialize();
 
@@ -36,8 +36,8 @@ angular
       vm.selectedRoom = info;
       vm.selectedRoom.data = [];
       vm.selectedRoom.labels = [];
-      vm.selectedRoom.options.forEach(function(option) {
-      vm.selectedRoom.labels.push(option.name);
+      vm.selectedRoom.actors.forEach(function(actor) {
+      vm.selectedRoom.labels.push(actor.name);
       }, this);
     }
 
@@ -45,11 +45,11 @@ angular
       vm.selectedRoom.data = votesArray;
     }
 
-    function _voteOption(option){
-      if(option > 0 && option <= vm.selectedRoom.options.length){
-        vm.selectedRoom.data[option]++;
+    function _voteActor(actor){
+      if(actor > 0 && actor <= vm.selectedRoom.actors.length){
+        vm.selectedRoom.data[actor]++;
       }
-      $log.info('User voted option: ' + vm.selectedRoom.options[option].name);
+      $log.info('User voted actor: ' + vm.selectedRoom.actors[actor].name);
     }
 
   }

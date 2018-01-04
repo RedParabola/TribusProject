@@ -84,27 +84,27 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         actors: [
           {
             name:'SGAE',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NSA',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NETFLIX',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'The Pirate Bay',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'Users',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'CANAL+',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
         ]
       },
@@ -121,27 +121,27 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         actors: [
           {
             name:'SGAE',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NSA',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NETFLIX',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'The Pirate Bay',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'Users',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'CANAL+',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
         ]
       },
@@ -158,27 +158,27 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         actors: [
           {
             name:'SGAE',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NSA',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NETFLIX',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'The Pirate Bay',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'Users',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'CANAL+',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
         ]
       },
@@ -195,27 +195,27 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         actors: [
           {
             name:'SGAE',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NSA',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NETFLIX',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'The Pirate Bay',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'Users',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'CANAL+',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
         ]
       },
@@ -232,27 +232,27 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         actors: [
           {
             name:'SGAE',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NSA',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NETFLIX',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'The Pirate Bay',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'Users',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'CANAL+',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
         ]
       },
@@ -269,27 +269,27 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         actors: [
           {
             name:'SGAE',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NSA',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NETFLIX',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'The Pirate Bay',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'Users',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'CANAL+',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
         ]
       },
@@ -306,27 +306,27 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         actors: [
           {
             name:'SGAE',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NSA',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NETFLIX',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'The Pirate Bay',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'Users',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'CANAL+',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
         ]
       },
@@ -343,27 +343,27 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         actors: [
           {
             name:'SGAE',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NSA',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NETFLIX',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'The Pirate Bay',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'Users',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'CANAL+',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
         ]
       },
@@ -380,27 +380,27 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         actors: [
           {
             name:'SGAE',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NSA',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NETFLIX',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'The Pirate Bay',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'Users',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'CANAL+',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
         ]
       },
@@ -417,27 +417,27 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         actors: [
           {
             name:'SGAE',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NSA',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'NETFLIX',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'The Pirate Bay',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'Users',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
           {
             name:'CANAL+',
-            sentence: 'Brief sentence about the actor.'
+            motto: 'Brief sentence about the actor.'
           },
         ]
       }
@@ -461,27 +461,27 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       actors: [
         {
           name:'SGAE',
-          sentence: 'Brief sentence about the actor.'
+          motto: 'Brief sentence about the actor.'
         },
         {
           name:'NSA',
-          sentence: 'Brief sentence about the actor.'
+          motto: 'Brief sentence about the actor.'
         },
         {
           name:'NETFLIX',
-          sentence: 'Brief sentence about the actor.'
+          motto: 'Brief sentence about the actor.'
         },
         {
           name:'The Pirate Bay',
-          sentence: 'Brief sentence about the actor.'
+          motto: 'Brief sentence about the actor.'
         },
         {
           name:'Users',
-          sentence: 'Brief sentence about the actor.'
+          motto: 'Brief sentence about the actor.'
         },
         {
           name:'CANAL+',
-          sentence: 'Brief sentence about the actor.'
+          motto: 'Brief sentence about the actor.'
         },
       ]
     };
