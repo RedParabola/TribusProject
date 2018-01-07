@@ -57,31 +57,35 @@ function roomListController($rootScope, $scope, $log, $state, $ionicHistory, $ti
   }
 
   function _popupKeycodeInput(){
-    vm.roomCode = undefined;
-    var codePopup = PopupService.getPasswordPopup(
-      $scope,
-      'roomListCtrl.roomCode',
-      'Room Code',
-      "Please enter the 8 alphanumeric characters of this room's code"
-    );
-    //Show the popup and wait for results
-    codePopup.then(function(res){
-      if(res){
-        RoomService.checkRoomCode(vm.selectedRoom.id,vm.roomCode).then(
-          function(){
-            joinRoom();
-          }, function (error){
-            var alertPopup = PopupService.getAlertPopup(
-              'Not possible to join the room.',
-              'The room code you introduced is wrong.'
-            );
-            alertPopup.then(function(res) {
-              $log.info('Wrong code');
-            });
-          }
-        )
-      }
-    });
+    if(!vm.selectedRoom.private){
+      joinRoom();
+    } else {
+      vm.roomCode = undefined;
+      var codePopup = PopupService.getPasswordPopup(
+        $scope,
+        'roomListCtrl.roomCode',
+        'Room Code',
+        "Please enter the 8 alphanumeric characters of this room's code"
+      );
+      //Show the popup and wait for results
+      codePopup.then(function(res){
+        if(res){
+          RoomService.checkRoomCode(vm.selectedRoom.id,vm.roomCode).then(
+            function(){
+              joinRoom();
+            }, function (error){
+              var alertPopup = PopupService.getAlertPopup(
+                'Not possible to join the room.',
+                'The room code you introduced is wrong.'
+              );
+              alertPopup.then(function(res) {
+                $log.info('Wrong code');
+              });
+            }
+          )
+        }
+      });
+    }
   }
 
   function joinRoom(){

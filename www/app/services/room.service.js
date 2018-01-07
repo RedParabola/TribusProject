@@ -74,6 +74,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       {
         id: 01234,
         master: 'Pepe',
+        private: false,
         accepted: 60,
         invited: 105,
         category: 'ECONOMICS',
@@ -111,6 +112,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       {
         id: 12345,
         master: 'Carlos',
+        private: false,
         accepted: 60,
         invited: 105,
         category: 'MORAL',
@@ -148,6 +150,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       {
         id: 23456,
         master: 'Lidia',
+        private: false,
         accepted: 60,
         invited: 105,
         category: 'CULTURE',
@@ -185,6 +188,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       {
         id: 34567,
         master: 'Virginia',
+        private: true,
         accepted: 60,
         invited: 105,
         category: 'PSYCHOLOGY',
@@ -222,6 +226,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       {
         id: 45678,
         master: 'Sergio',
+        private: true,
         accepted: 60,
         invited: 105,
         category: 'LIFESTYLE',
@@ -259,6 +264,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       {
         id: 56789,
         master: 'Diego',
+        private: true,
         accepted: 60,
         invited: 105,
         category: 'HEALTH',
@@ -296,6 +302,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       {
         id: 67890,
         master: 'Juan',
+        private: true,
         accepted: 60,
         invited: 105,
         category: 'TECHNOLOGY',
@@ -333,6 +340,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       {
         id: 78901,
         master: 'Yu',
+        private: true,
         accepted: 60,
         invited: 105,
         category: 'EDUCATION',
@@ -370,6 +378,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       {
         id: 89012,
         master: 'Fran',
+        private: true,
         accepted: 60,
         invited: 105,
         category: 'SOCIETY',
@@ -407,6 +416,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       {
         id: 90123,
         master: 'Horseman',
+        private: true,
         accepted: 60,
         invited: 105,
         category: 'ENVIRONMENT',
@@ -444,6 +454,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       {
         id: 66666,
         master: 'Loler',
+        private: true,
         accepted: 666,
         invited: 666,
         category: 'OTHERS',
@@ -488,6 +499,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
     var roomInfo= {
       id: 12345,
       master: 'Pepe',
+      private: true,
       accepted: 60,
       invited: 105,
       category: 'SOCIETY',

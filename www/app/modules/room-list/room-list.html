@@ -41,11 +41,17 @@
     <room-list-details room="roomListCtrl.selectedRoom"></room-list-details>
     <div class="bottom-button">
       <button ng-if="roomListCtrl.selectedRoom.statusGlobal !== 'closed'"
-              class="button button-block category-{{roomListCtrl.selectedRoom.globalColor}}"
-              ng-click="roomListCtrl.popupKeycodeInput()"><b>Join</b></button>
+              class="button item-icon-right button-block category-{{roomListCtrl.selectedRoom.globalColor}}"
+              ng-click="roomListCtrl.popupKeycodeInput()">
+              <b>Join</b>
+              <i class="icon" ng-class="{'ion-android-lock': roomListCtrl.selectedRoom.private}"></i>
+      </button>
       <button ng-if="roomListCtrl.selectedRoom.statusGlobal === 'closed'"
-              class="button button-block category-{{roomListCtrl.selectedRoom.globalColor}}"
-              ng-click="roomListCtrl.popupKeycodeInput()"><b>Check final stats</b></button>
+              class="button item-icon-right button-block category-{{roomListCtrl.selectedRoom.globalColor}}"
+              ng-click="roomListCtrl.popupKeycodeInput()">
+              <b>Check final stats</b>
+              <i class="icon" ng-class="{'ion-android-lock': roomListCtrl.selectedRoom.private}"></i>
+            </button>
     </div>
   </div>
 </ion-view>
