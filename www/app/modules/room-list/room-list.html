@@ -18,17 +18,17 @@
   <ion-content class="ion-content-under-search"
                ng-class="{'ion-content-over-details': roomListCtrl.shouldShowDetails}">
     <div class="card">
-      <div class="item item-icon-left padding-vert-83"
+      <div class="item item-icon-left padding-vert-83 room-{{room.statusGlobal}}"
            ng-repeat="room in roomListCtrl.existingRooms"
            ng-click="roomListCtrl.toggleRoomDetails(room)">
-        <i class="icon ion-ios-people {{room.category}}"></i>
+        <i class="icon {{room.categoryIcon}}"></i>
         <b>{{room.topic}}</b>
         <div class="item-text-wrap row">
           <div class="col col-40">
             <p>Participants: {{room.joined}}</p>
           </div>
           <div class="col col-60 text-right">
-            <p>Status: {{room.status}}</p>
+            <p>{{room.statusText}}</p>
           </div>
         </div>
       </div>
@@ -40,7 +40,12 @@
        ng-show="roomListCtrl.shouldShowDetails">
     <room-list-details room="roomListCtrl.selectedRoom"></room-list-details>
     <div class="bottom-button">
-      <button class="button button-block button-assertive" ng-click="roomListCtrl.popupKeycodeInput()">Join</button>        
+      <button ng-if="roomListCtrl.selectedRoom.statusGlobal !== 'closed'"
+              class="button button-block category-{{roomListCtrl.selectedRoom.globalColor}}"
+              ng-click="roomListCtrl.popupKeycodeInput()"><b>Join</b></button>
+      <button ng-if="roomListCtrl.selectedRoom.statusGlobal === 'closed'"
+              class="button button-block category-{{roomListCtrl.selectedRoom.globalColor}}"
+              ng-click="roomListCtrl.popupKeycodeInput()"><b>Check final stats</b></button>
     </div>
   </div>
 </ion-view>

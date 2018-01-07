@@ -26,11 +26,11 @@ function roomListDetailsController($scope) {
 
   function initialize() {
     vm.listOfActors = '';
-    $scope.$watch('roomDetailsCtrl.room',layoutActors);
+    $scope.$watch('roomDetailsCtrl.room',layoutDetails);
   }
   
-  function layoutActors(newValue,oldValue){
-    if(!newValue ){
+  function layoutDetails(newValue,oldValue){
+    if(!newValue){
       vm.listOfActors = '';
     } else {
       if(newValue !== oldValue){

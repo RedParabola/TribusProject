@@ -13,7 +13,7 @@
           <h3 class="padding">
             Room basic info
           </h3>
-          <div class="list padding">
+          <div class="list">
             <label class="item item-input item-stacked-label">
               <span class="input-label"><b>*Main topic</b></span>
               <span class="input-label"><i>(maximum 42 characters)</i></span>
@@ -24,14 +24,14 @@
                         ng-model="roomCreationWizardCtrl.topic">
               </textarea>
             </label>
-            <label class="item item-input item-select">
+            <label class="item item-input item-select category-{{roomCreationWizardCtrl.globalColor}}">
               <span class="input-label"><b>*Choose a category</b></span>
-              <select style="font-size: 18px; line-height: 20px;">
+              <select style="font-size: 18px; line-height: 20px; background-color: transparent!important;"
+                      ng-model="roomCreationWizardCtrl.selectedCategory"
+                      ng-change="roomCreationWizardCtrl.updateSelectedCategory()">
                 <option value="" disabled selected>Please Select...</option>
-                <option ng-repeat="category in roomCreationWizardCtrl.categories">
-                  <div class=""
-                  <i class="icon {{category.icon}}"></i>
-                  <p>{{category.name}}</p>
+                <option ng-repeat="category in roomCreationWizardCtrl.categories" value="{{category.id}}">
+                  <p>{{category.text}}</p>
                 </option>
               </select>
             </label>

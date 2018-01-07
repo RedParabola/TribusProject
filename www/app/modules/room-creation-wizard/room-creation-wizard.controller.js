@@ -6,6 +6,7 @@ roomCreationWizardController.$inject = ['$rootScope', '$scope', '$log', '$state'
 function roomCreationWizardController($rootScope, $scope, $log, $state, CategoryConstants, PopupService) {
 
   var vm = this;
+  vm.updateSelectedCategory = _updateSelectedCategory;
   vm.addNewActor = _addNewActor;
   vm.editActor = _editActor;
   vm.removeActor = _removeActor;
@@ -18,7 +19,13 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, Category
   //////////////////
 
   function initialize(){
-    vm.categories = CategoryConstants;
+    var categoriesArray = _.keys(CategoryConstants);
+    angular.forEach(categoriesArray,function(category){
+      var tempCategory = CategoryConstants[category];
+      tempCategory.id = category;
+      vm.categories.push(tempCategory);
+    });
+
     vm.actors = [
       {
         name:'SGAE',
@@ -33,6 +40,12 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, Category
         motto: 'Brief sentence about the actor. A bit longer.'
       }
     ];
+  }
+
+  function _updateSelectedCategory(){
+    if(vm.selectedCategory){
+      vm.globalColor = vm.selectedCategory.toLowerCase();
+    }
   }
 
   function _addNewActor(){

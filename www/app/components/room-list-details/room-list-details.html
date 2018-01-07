@@ -2,15 +2,15 @@
 
   <div class="item item-icon-left item-text-wrap padding-vert-51">
 
-    <i class="icon ion-ios-people {{roomDetailsCtrl.room.category}}"></i>
-    <b>{{roomDetailsCtrl.room.topic}}</b>
+    <i class="icon {{roomDetailsCtrl.room.categoryIcon}} category-{{roomDetailsCtrl.room.globalColor}}"></i>
+    <b class="">{{roomDetailsCtrl.room.topic}}</b>
 
     <div class="item-text-wrap row">
       <div class="col col-40">
         Participants: {{roomDetailsCtrl.room.joined}}
       </div>
       <div class="col col-60 text-right">
-        Status: {{roomDetailsCtrl.room.status}}
+        <b>{{roomDetailsCtrl.room.statusText}}</b>
       </div>
     </div>
 

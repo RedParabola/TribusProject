@@ -9,6 +9,7 @@
 /*****             *****/
 /***********************/
 
+
 em,i{
   font-style:italic;
 }
@@ -134,6 +135,129 @@ label.item-input input, label.input-label input{
 }
 
 
+/********************/
+/****** COLORS ******/
+/********************/
+
+.text-dark {
+  color: #263238;
+}
+.text-clear {
+  color: #B0BEC5;
+}
+
+.room-pre {
+  background-color: #C5E1A5;
+}
+.room-progress {
+  background-color: #FFF9C4;
+}
+.room-ending {
+  background-color: #B0BEC5;
+}
+.room-closed {
+  background-color: #EEEEEE;
+}
+
+.status-not-started {
+  background-color: #4CAF50;
+}
+.status-presentation {
+  background-color: #CDDC39;
+}
+.status-prediction {
+  background-color: #4DB6AC;
+}
+.status-in_progress {
+  background-color: #FFEB3B;
+}
+.status-voting {
+  background-color: #00BCD4;
+}
+.status-pause {
+  background-color: #FFFDE7;
+}
+.status-last_words {
+  background-color: #D84315;
+}
+.status-questions {
+  background-color: #4E342E;
+}
+.status-final_stats {
+  background-color: #37474F;
+}
+.status-closed {
+  background-color: #424242;
+}
+
+.category-culture {
+  background-color: #FFCC80;
+  border-color: #FB8C00;
+}
+.category-economics {
+  background-color: #80CBC4;
+  border-color: #00897B;
+}
+.category-education {
+  background-color: #A5D6A7;
+  border-color: #43A047;
+}
+.category-environment {
+  background-color: #C5E1A5;
+  border-color: #7CB342;
+}
+.category-health {
+  background-color: #ef9a9a;
+  border-color: #e53935;
+}
+.category-history {
+  background-color: #BCAAA4;
+  border-color: #6D4C41;
+}
+.category-humanrights {
+  background-color: #9FA8DA;
+  border-color: #3949AB;
+}
+.category-lifestyle {
+  background-color: #90CAF9;
+  border-color: #1E88E5;
+}
+.category-moral {
+  background-color: #CE93D8;
+  border-color: #8E24AA;
+}
+.category-politics {
+  background-color: #FFAB91;
+  border-color: #F4511E;
+}
+.category-psychology {
+  background-color: #F48FB1;
+  border-color: #D81B60;
+}
+.category-science {
+  background-color: #E6EE9C;
+  border-color: #C0CA33;
+}
+.category-society {
+  background-color: #80DEEA;
+  border-color: #00ACC1;
+}
+.category-sports {
+  background-color: #81D4FA;
+  border-color: #039BE5;
+}
+.category-technology {
+  background-color: #B39DDB;
+  border-color: #5E35B1;
+}
+.category-work {
+  background-color: #B0BEC5;
+  border-color: #546E7A;
+}
+.category-others {
+  background-color: #E0E0E0;
+  border-color: #757575;
+}
 
 
 /************************/
@@ -168,9 +292,11 @@ label.item-input input, label.input-label input{
 .ion-content-over-details{
   margin-bottom:200px!important;
 }
+.ion-content-over-closed-room-details{
+  margin-bottom:150px!important;
+}
 
 .bottom-details{
-  padding-top: 5px;
   position: fixed;
   bottom: 0px;
   margin: 0 3%;
@@ -183,4 +309,8 @@ label.item-input input, label.input-label input{
   position: absolute;
   bottom: 0px;
   width: 100%;
+}
+
+.no-join-button{
+  height: 150px;  
 }

@@ -2,8 +2,8 @@ angular
 .module('starter.controllers')
 .controller('RoomListController', roomListController);
 
-roomListController.$inject = ['$rootScope', '$scope', '$log', '$state', '$ionicHistory', '$timeout', 'RoomService', 'PopupService'];
-function roomListController($rootScope, $scope, $log, $state, $ionicHistory, $timeout, RoomService, PopupService) {
+roomListController.$inject = ['$rootScope', '$scope', '$log', '$state', '$ionicHistory', '$timeout', 'RoomService', 'PopupService', 'CategoryConstants', 'RoomStatusConstants'];
+function roomListController($rootScope, $scope, $log, $state, $ionicHistory, $timeout, RoomService, PopupService, CategoryConstants, RoomStatusConstants) {
 
   var vm = this;
   var textToEncode = 'OMG! Tits';
@@ -25,10 +25,17 @@ function roomListController($rootScope, $scope, $log, $state, $ionicHistory, $ti
     RoomService.getExistentRooms().then(
       function(rooms){
         vm.existingRooms = rooms;
+        angular.forEach(vm.existingRooms,function(room){
+          room.categoryText = CategoryConstants[room.category].text;
+          room.categoryIcon = CategoryConstants[room.category].icon;
+          room.globalColor = room.category.toLowerCase();
+          room.statusText = RoomStatusConstants[room.status].text;
+          room.statusTextColor = RoomStatusConstants[room.status].textColor;
+          room.statusGlobal = RoomStatusConstants[room.status].roomPhase;
+        });
       }, function(error){
         $log.info('Could not retrieve the list of rooms');
     });
-    //TODO: Execute related actions
   }
 
   function _filterSearch(){
@@ -51,14 +58,12 @@ function roomListController($rootScope, $scope, $log, $state, $ionicHistory, $ti
 
   function _popupKeycodeInput(){
     vm.roomCode = undefined;
-
     var codePopup = PopupService.getPasswordPopup(
       $scope,
       'roomListCtrl.roomCode',
       'Room Code',
       "Please enter the 8 alphanumeric characters of this room's code"
     );
-
     //Show the popup and wait for results
     codePopup.then(function(res){
       if(res){
