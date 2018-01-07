@@ -76,7 +76,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         master: 'Pepe',
         accepted: 60,
         invited: 105,
-        category: 'SOCIETY',
+        category: 'ECONOMICS',
         topic: 'Consequences of globalization on underdeveloped countries',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
         status: 'NOT_STARTED',
@@ -113,7 +113,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         master: 'Carlos',
         accepted: 60,
         invited: 105,
-        category: 'SOCIETY',
+        category: 'MORAL',
         topic: 'Facebook friendships',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
         status: 'PRESENTATION',
@@ -150,7 +150,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         master: 'Lidia',
         accepted: 60,
         invited: 105,
-        category: 'SOCIETY',
+        category: 'CULTURE',
         topic: 'Male or female stereotypes in popular culture',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
         status: 'PREDICTION',
@@ -187,7 +187,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         master: 'Virginia',
         accepted: 60,
         invited: 105,
-        category: 'SOCIETY',
+        category: 'PSYCHOLOGY',
         topic: 'Are adults merely obsolete children?',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
         status: 'IN_PROGRESS',
@@ -224,7 +224,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         master: 'Sergio',
         accepted: 60,
         invited: 105,
-        category: 'SOCIETY',
+        category: 'LIFESTYLE',
         topic: 'What effect does social media have on interpersonal relationships?',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
         status: 'VOTING',
@@ -261,7 +261,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         master: 'Diego',
         accepted: 60,
         invited: 105,
-        category: 'SOCIETY',
+        category: 'HEALTH',
         topic: 'Genetically modified foods',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
         status: 'PAUSE',
@@ -298,10 +298,10 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         master: 'Juan',
         accepted: 60,
         invited: 105,
-        category: 'SOCIETY',
+        category: 'TECHNOLOGY',
         topic: 'Virtual reality as a world in our world',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
-        status: 'LAST_WORD',
+        status: 'LAST_WORDS',
         joined: 70,
         actors: [
           {
@@ -335,7 +335,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         master: 'Yu',
         accepted: 60,
         invited: 105,
-        category: 'SOCIETY',
+        category: 'EDUCATION',
         topic: 'What causes people to drop out of high school?',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
         status: 'QUESTIONS',
@@ -375,7 +375,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         category: 'SOCIETY',
         topic: 'Cyber bullying',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
-        status: 'ENDING_STATS',
+        status: 'FINAL_STATS',
         joined: 39,
         actors: [
           {
@@ -409,8 +409,45 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         master: 'Horseman',
         accepted: 60,
         invited: 105,
-        category: 'SOCIETY',
+        category: 'ENVIRONMENT',
         topic: 'Is horse-mankind a threat?',
+        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        status: 'CLOSED',
+        joined: 55,
+        actors: [
+          {
+            name:'SGAE',
+            motto: 'Brief sentence about the actor.'
+          },
+          {
+            name:'NSA',
+            motto: 'Brief sentence about the actor.'
+          },
+          {
+            name:'NETFLIX',
+            motto: 'Brief sentence about the actor.'
+          },
+          {
+            name:'The Pirate Bay',
+            motto: 'Brief sentence about the actor.'
+          },
+          {
+            name:'Users',
+            motto: 'Brief sentence about the actor.'
+          },
+          {
+            name:'CANAL+',
+            motto: 'Brief sentence about the actor.'
+          },
+        ]
+      },
+      {
+        id: 66666,
+        master: 'Loler',
+        accepted: 666,
+        invited: 666,
+        category: 'OTHERS',
+        topic: 'Is there anything more important than survival?',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
         status: 'CLOSED',
         joined: 55,
