@@ -2,8 +2,8 @@ angular
 .module('starter.controllers')
 .controller('RoomCreationWizardController', roomCreationWizardController);
 
-roomCreationWizardController.$inject = ['$rootScope', '$scope', '$log', '$state', 'CategoryConstants', 'PopupService'];
-function roomCreationWizardController($rootScope, $scope, $log, $state, CategoryConstants, PopupService) {
+roomCreationWizardController.$inject = ['$rootScope', '$scope', '$log', '$state', '$ionicHistory', '$ionicLoading', '$ionicSlideBoxDelegate', 'CategoryConstants', 'PopupService'];
+function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHistory, $ionicLoading, $ionicSlideBoxDelegate, CategoryConstants, PopupService) {
 
   var vm = this;
   vm.updateSelectedCategory = _updateSelectedCategory;
@@ -145,4 +145,37 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, Category
     qrcode.makeCode(textToEncode);
   }
 
+  //Slides logic
+  $scope.options = {
+    loop: false,
+    speed: 800,
+    pagination: false,
+  };
+
+  $scope.$on('$ionicSlides.sliderInitialized', function (event, data) {
+    // data.slider is the instance of Swiper
+    console.log('initialized');
+    $scope.slider = data.sliderItem;
+    $ionicSlideBoxDelegate.slide(0, 500);
+  });
+
+  $scope.$on('$ionicSlides.slideChangeStart', function (event, data) {
+    console.log('Slide change is beginning');
+    $ionicSlideBoxDelegate.currentIndex();
+    goToTestState();
+  });
+
+  $scope.$on('$ionicSlides.slideChangeEnd', function (event, data) {
+    // note: the indexes are 0-based
+    console.log('Slide change ended');
+    $scope.activeIndex = vm.sliderItem.activeIndex;
+    $scope.previousIndex = vm.sliderItem.previousIndex;
+  });
+
+  function goToTestState(){
+    $ionicHistory.nextViewOptions({
+      disableBack : false
+    });
+    $state.go('room-list');
+  }
 }

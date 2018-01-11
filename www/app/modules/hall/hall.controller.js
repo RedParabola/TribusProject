@@ -7,7 +7,7 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
 
   var vm = this;
   vm.scanBarCode = _scanBarCode;
-  vm.goToListOfRooms = _goToListOfRooms;
+  vm.goToJoiningRoom = _goToJoiningRoom;
   vm.createNewRoom = _createNewRoom;
   
   initialize();
@@ -31,11 +31,11 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
     }, 500);
   }
 
-  function _goToListOfRooms(){
+  function _goToJoiningRoom(){
     $ionicHistory.nextViewOptions({
       disableBack : false
     });
-    $state.go('room-list');
+    $state.go('joining-room');
   }
 
   function _createNewRoom(){

@@ -107,6 +107,13 @@ var app = angular.module('starter', [
       controllerAs: 'hallCtrl'
     })
 
+    .state('joining-room', {
+      url: '/joining-room',
+      templateUrl: 'app/modules/joining-room/joining-room.html',
+      controller: 'JoiningRoomController',
+      controllerAs: 'joiningRoomCtrl'
+    })
+
     .state('room-list', {
       url: '/room-list',
       templateUrl: 'app/modules/room-list/room-list.html',
@@ -119,6 +126,13 @@ var app = angular.module('starter', [
       templateUrl: 'app/modules/room-creation-wizard/room-creation-wizard.html',
       controller: 'RoomCreationWizardController',
       controllerAs: 'roomCreationWizardCtrl'
+    })
+    
+    .state('test-state', {
+      url: '/test-state',
+      templateUrl: 'app/modules/test-state/test-state.html',
+      controller: 'TestStateController',
+      controllerAs: 'testStateCtrl'
     });
 
     // if none of the above states are matched, use this as the fallback
