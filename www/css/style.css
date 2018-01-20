@@ -266,6 +266,28 @@ label.item-input input, label.input-label input{
 /*****              *****/
 /************************/
 
+.login-image {
+  background-image: url('../img/login-logo.png');  
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.login-image h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 4rem!important;
+  transform: translate(-50%, -50%);
+}
+
 .fixed-search-header label{
   padding: 2px;
   height: 46px;

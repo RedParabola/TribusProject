@@ -1,5 +1,10 @@
-<ion-view view-title="Login" name="login-view">
+<ion-view view-title="Login" name="login-view"
+          hide-nav-bar="true">
   <ion-content class="padding">
+    <div class="item login-image">
+      <h1>QUORUM</h1>
+    </div>
+    <br style="clear: both;">    
     <div class="list list-inset">
       <label class="item item-input">
         <span class="input-label">Email</span>
@@ -11,6 +16,10 @@
       </label>
     </div>
     <button class="button button-block button-positive" ng-click="loginCtrl.doLogin()">Login</button>
-    <button class="button button-block button-royal" ng-click="loginCtrl.goToRegister()">Register new account</button>
+    <div class="text-center padding">
+      <br><br>
+      <span style="font-size: 18px;">Don't have an account yet?</span><br>
+      <span style="font-size: 18px;" ng-click="loginCtrl.goToRegister()"><a><b>Register here</b></a></span>
+    </div>
   </ion-content>
 </ion-view>
