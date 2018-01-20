@@ -1,7 +1,13 @@
 <ion-view view-title="Room Creation" name="room-creation-wizard-view">
+  <ion-nav-bar class="bar-dark">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+  <div class="wizard-color-top-bar category-{{roomCreationWizardCtrl.globalColor}}"></div>
+
   <ion-content class="padding" scroll="false">
 
-    <ion-slides options="options" slider="roomCreationWizardCtrl.sliderItem">
+    <ion-slides class="slides-on-bottombar" options="roomCreationWizardCtrl.sliderOptions" slider="roomCreationWizardCtrl.sliderItem">
 
       <!-- 1. Room basic info -->
       <ion-slide-page>
@@ -46,20 +52,32 @@
               </textarea>
             </label>
           </div>
-          <div>
-            <button class="button button-assertive" ng-click="doClick()">Tap</button>
-          </div>
+
         </ion-content>
       </ion-slide-page>
 
       <!-- 2. List of actors -->
       <ion-slide-page>
-        <ion-content>            
-          <h3 class="padding">
-            List of actors
-          </h3>
-          <div class="list padding">
-            <div class="item item-button-right"
+        <ion-content>
+          <div class="row">
+            <div class="col col-50">
+              <h3 class="padding float-left">
+                List of actors
+              </h3>
+            </div>
+            <div class="col col-30">
+            </div>
+            <div class="col col-20">
+              <button class="button button-light"
+                      ng-click="roomCreationWizardCtrl.addNewActor()"
+                      ng-disabled="roomCreationWizardCtrl.actors.length === 6">
+                <i class="icon ion-person-add"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="list">
+            <div class="item item-button-right no-padding"
                  ng-repeat="actor in roomCreationWizardCtrl.actors track by $index">
               <div ng-click="roomCreationWizardCtrl.editActor(actor)">                
                 <p style="font-size: 20px;">{{ actor.name | limitTo: 20 }}{{actor.name.length > 20 ? '...' : ''}}</p>
@@ -70,18 +88,8 @@
                 <i class="icon ion-trash-b"></i>
               </button>
             </div>
-            <div class="item item-button-right">
-              <i>Add new actor</i>
-              <button class="button button-light"
-                      ng-click="roomCreationWizardCtrl.addNewActor()">
-                  <i class="icon ion-person-add"></i>
-              </button>
-            </div>
+          </div>
 
-          </div>
-          <div>
-            <button class="button button-assertive" ng-click="doClick()">Tap</button>
-          </div>
         </ion-content>
       </ion-slide-page>
 
@@ -128,9 +136,7 @@
               </textarea>
             </label>
           </div>
-          <div>
-            <button class="button button-assertive" ng-click="doClick()">Tap</button>
-          </div>
+
           <div class="card">
             <div class="item item-icon-left" ng-click="roomCreationWizardCtrl.makeCode()">
               <i class="icon ion-qr-scanner" name="qr"></i>
@@ -144,4 +150,24 @@
     </ion-slides>
 
   </ion-content>
+  <div class="wizard-color-bottom-bar category-{{roomCreationWizardCtrl.globalColor}}"></div>
+  <div class="item-text-wrap row wizard-bottombar">
+      <div class="col col-25">
+        <button class="button button-stable float-left"
+                ng-show="roomCreationWizardCtrl.sliderItem.activeIndex !== 0"
+                ng-click="roomCreationWizardCtrl.goPrevSlide()">
+          Previous
+        </button>
+      </div>
+      <div class="col col-50">
+      </div>
+      <div class="col col-25">
+        <button class="button button-stable float-right"
+                ng-disabled="!roomCreationWizardCtrl.selectedCategory"
+                ng-click="roomCreationWizardCtrl.goNextSlide()">
+          {{roomCreationWizardCtrl.sliderItem.activeIndex !== 2 ? 'Next' : 'Create'}}
+        </button>
+      </div>
+    </div>
+
 </ion-view>

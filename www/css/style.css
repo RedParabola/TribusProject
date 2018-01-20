@@ -14,6 +14,14 @@ em,i{
   font-style:italic;
 }
 
+.float-left{
+  float: left;
+}
+
+.float-right{
+  float: right;
+}
+
 label.item-input input, label.input-label input{
   font-size:20px;
   line-height: 22px;
@@ -336,3 +344,43 @@ label.item-input input, label.input-label input{
 .no-join-button{
   height: 150px;  
 }
+
+.wizard-color-top-bar{
+  position: fixed;
+  top: 44px;
+  height: 10px;
+  width: 100%;
+}
+
+.wizard-color-bottom-bar{
+  position: fixed;
+  bottom: 57px;
+  height: 10px;
+  width: 100%;
+}
+
+.slides-on-bottombar .swiper-container{
+  height: 92%;
+}
+
+.slides-on-bottombar div .swiper-pagination.swiper-pagination-clickable{
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+  position: fixed;
+  bottom: 15px;
+}
+
+.slides-on-bottombar div .swiper-pagination.swiper-pagination-clickable .swiper-pagination-bullet{
+  color: #f8f8f8;
+  border-color: #f8f8f8;
+  background-color: #f8f8f8;
+}
+
+.wizard-bottombar{
+  position: fixed;
+  bottom: 0px;
+  background-color: #444;
+  padding: 0px;
+}
+

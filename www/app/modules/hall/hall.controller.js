@@ -12,8 +12,6 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
   vm.filterSearch = _filterSearch;
   vm.toggleRoomDetails = _toggleRoomDetails;
   vm.popupKeycodeInput = _popupKeycodeInput;
-
-  var sliderItem;
   
   initialize();
 
@@ -61,7 +59,7 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
   }
 
   function _goToRoomList(){
-    sliderItem.slideTo(1, 250);
+    vm.sliderItem.slideTo(1, 250);
   }
 
   function _createNewRoom(){
@@ -128,19 +126,25 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
     }
   }
 
+  //Slides logic
+  vm.sliderOptions = {
+    speed: 200,
+    pagination: false,
+  };
+
   $scope.$on('$ionicSlides.sliderInitialized', function (event, data) {
     // data.slider is the instance of Swiper
-    sliderItem = data.slider;
-    $log.info('Slider initialized at ' + sliderItem.activeIndex);
+    vm.sliderItem = data.slider;
+    $log.info('Slider initialized at ' + vm.sliderItem.activeIndex);
   });
 
   $scope.$on('$ionicSlides.slideChangeStart', function (event, data) {
-    $log.info('Slide change is beginning, from ' + sliderItem.previousIndex + ' to ' + sliderItem.activeIndex);
-    if(sliderItem.previousIndex === 1){ slideOutOfList(); }
+    $log.info('Slide change is beginning, from ' + vm.sliderItem.previousIndex + ' to ' + vm.sliderItem.activeIndex);
+    if(vm.sliderItem.previousIndex === 1){ slideOutOfList(); }
   });
 
   $scope.$on('$ionicSlides.slideChangeEnd', function (event, data) {
-    $log.info('Slide change ended, from ' + sliderItem.previousIndex + ' to ' + sliderItem.activeIndex);
+    $log.info('Slide change ended, from ' + vm.sliderItem.previousIndex + ' to ' + vm.sliderItem.activeIndex);
   });
 
   function slideOutOfList(){

@@ -6,6 +6,8 @@ roomCreationWizardController.$inject = ['$rootScope', '$scope', '$log', '$state'
 function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHistory, $ionicLoading, $ionicSlideBoxDelegate, CategoryConstants, PopupService) {
 
   var vm = this;
+  vm.goPrevSlide = _goPrevSlide;
+  vm.goNextSlide = _goNextSlide;
   vm.updateSelectedCategory = _updateSelectedCategory;
   vm.addNewActor = _addNewActor;
   vm.editActor = _editActor;
@@ -13,7 +15,6 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   var textToEncode = 'OMG! Tits';
   vm.makeCode = _makeCode;
   vm.categories = [];
-  var sliderItem = {};
   
   initialize();
 
@@ -41,6 +42,14 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
         motto: 'Brief sentence about the actor. A bit longer.'
       }
     ];
+  }
+
+  function _goPrevSlide(){
+    vm.sliderItem.slideTo(vm.sliderItem.activeIndex - 1);
+  }
+
+  function _goNextSlide(){
+    vm.sliderItem.slideTo(vm.sliderItem.activeIndex + 1);
   }
 
   function _updateSelectedCategory(){
@@ -147,31 +156,23 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   }
 
   //Slides logic
-  $scope.options = {
-    loop: false,
-    speed: 800,
-    pagination: false,
+  vm.sliderOptions = {
+    speed: 350,
   };
 
   $scope.$on('$ionicSlides.sliderInitialized', function (event, data) {
     // data.slider is the instance of Swiper
-    sliderItem = data.slider;
-    $log.info('Slider initialized at ' + sliderItem.activeIndex);
+    vm.sliderItem = data.slider;
+    $log.info('Slider initialized at ' + vm.sliderItem.activeIndex);
   });
 
   $scope.$on('$ionicSlides.slideChangeStart', function (event, data) {
-    $log.info('Slide change is beginning, from ' + sliderItem.previousIndex + ' to ' + sliderItem.activeIndex);
-    if(sliderItem.previousIndex === 1){ /*slideOutOfList();*/ }
+    $log.info('Slide change is beginning, from ' + vm.sliderItem.previousIndex + ' to ' + vm.sliderItem.activeIndex);
+    if(vm.sliderItem.previousIndex === 1){ /*slideOutOfList();*/ }
   });
 
   $scope.$on('$ionicSlides.slideChangeEnd', function (event, data) {
-    $log.info('Slide change ended, from ' + sliderItem.previousIndex + ' to ' + sliderItem.activeIndex);
+    $log.info('Slide change ended, from ' + vm.sliderItem.previousIndex + ' to ' + vm.sliderItem.activeIndex);
   });
 
-  function goToTestState(){
-    $ionicHistory.nextViewOptions({
-      disableBack : false
-    });
-    $state.go('test-state');
-  }
 }
