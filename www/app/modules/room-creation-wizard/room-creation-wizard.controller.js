@@ -2,8 +2,10 @@ angular
 .module('starter.controllers')
 .controller('RoomCreationWizardController', roomCreationWizardController);
 
-roomCreationWizardController.$inject = ['$rootScope', '$scope', '$log', '$state', '$ionicHistory', '$ionicLoading', '$ionicSlideBoxDelegate', 'CategoryConstants', 'PopupService'];
-function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHistory, $ionicLoading, $ionicSlideBoxDelegate, CategoryConstants, PopupService) {
+roomCreationWizardController.$inject = ['$rootScope', '$scope', '$log', '$state', '$ionicHistory', '$ionicLoading',
+  '$ionicSlideBoxDelegate', 'CategoryConstants', 'RoomStatusConstants', 'PopupService'];
+function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHistory, $ionicLoading,
+  $ionicSlideBoxDelegate, CategoryConstants, RoomStatusConstants, PopupService) {
 
   var vm = this;
   vm.goPrevSlide = _goPrevSlide;

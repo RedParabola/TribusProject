@@ -65,14 +65,14 @@
                 List of actors
               </h3>
             </div>
-            <div class="col col-30">
-            </div>
-            <div class="col col-20">
-              <button class="button button-light"
-                      ng-click="roomCreationWizardCtrl.addNewActor()"
-                      ng-disabled="roomCreationWizardCtrl.actors.length === 6">
-                <i class="icon ion-person-add"></i>
-              </button>
+            <div class="col col-50">
+              <div class="float-right">
+                <button class="button button-light"
+                        ng-click="roomCreationWizardCtrl.addNewActor()"
+                        ng-disabled="roomCreationWizardCtrl.actors.length === 8">
+                  <i class="icon ion-person-add"></i>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -89,52 +89,132 @@
               </button>
             </div>
           </div>
+        </ion-content>
+      </ion-slide-page>
+
+      <!-- 3. Debate phases -->
+      <ion-slide-page>
+        <ion-content>
+          <div class="row">
+            <div class="col col-50">
+              <h3 class="padding float-left">
+                Debate phases
+              </h3>
+            </div>
+            <div class="col col-30">
+              <h3 class="padding float-right">
+                6h30
+              </h3>
+            </div>
+            <div class="col col-20">
+              <div class="float-left no-padding">
+                <button class="button button-light"
+                        ng-click="roomCreationWizardCtrl.addNewActor()"
+                        ng-disabled="roomCreationWizardCtrl.actors.length === 6">
+                  <i class="icon ion-ios-refresh "></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phases schema -->
+          <div class="item phases-bar">
+            <div class="row">
+              <div class="col col-20"
+                   ng-repeat="actor in roomCreationWizardCtrl.actors">
+                <div class="item">
+                  Bitch
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-20"
+                   ng-repeat="actor in roomCreationWizardCtrl.actors">
+                <div class="item">
+                Bitch
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col col-30"
+                  ng-click="roomCreationWizardCtrl.addDebate()">
+              <div class="item item-icon-right">
+                Debate
+                <i class="icon ion-chatboxes"></i>
+              </div>
+            </div>
+            <div class="col col-30"
+                  ng-click="roomCreationWizardCtrl.addVoting()">
+              <div class="item item-icon-right">
+                Voting
+                <i class="icon ion-pie-graph"></i>
+              </div>
+            </div>
+            <div class="col col-30"
+                  ng-click="roomCreationWizardCtrl.addPause()">
+              <div class="item item-icon-right">
+                Pause
+                <i class="icon ion-ios-pause"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="list"> 
+            <ion-checkbox class="item-checkbox-right item-icon-left"ng-model="filter.red">
+              <i class="icon ion-easel"></i>
+              PRESENTATION
+            </ion-checkbox>
+            <ion-checkbox class="item-checkbox-right item-icon-left"ng-model="filter.red">
+              <i class="icon ion-podium"></i>
+              PREDICTION
+            </ion-checkbox>
+            <ion-checkbox class="item-checkbox-right item-icon-left"ng-model="filter.red">
+              <i class="icon ion-chatbox"></i>
+              LAST_WORDS
+            </ion-checkbox>
+            <ion-checkbox class="item-checkbox-right item-icon-left"ng-model="filter.red">
+              <i class="icon ion-ios-help-outline"></i>
+              QUESTIONS
+            </ion-checkbox>
+          </div>
 
         </ion-content>
       </ion-slide-page>
 
-      <!-- 3. ??? -->
+      <!-- 4. Overview -->
       <ion-slide-page>
         <ion-content>
-          <h2>¡Welcome to the room creation wizard!</h2>
-          <p class="padding">
-            Through 3 simple steps, we will empower you as a <b>moderator</b> in the creation of your own debate room.
-          </p>             
-          <h3>
-            Room basic info
-          </h3>
-          <div class="list padding">
-            <label class="item item-input item-stacked-label">
-              <span class="input-label"><b>*Main topic</b></span>
-              <span class="input-label"><i>(maximum 42 characters)</i></span>
-              <textarea type="text"
-                        rows="3"
-                        style="font-size: 20px; line-height: 22px;"
-                        placeholder="Is Net Neutrality overrated?"
-                        ng-model="roomCreationWizardCtrl.topic">
-              </textarea>
-            </label>
-            <label class="item item-input item-select">
-              <span class="input-label"><b>*Choose a category</b></span>
-              <select style="font-size: 18px; line-height: 20px;">
-                <option value="" disabled selected>Please Select...</option>
-                <option ng-repeat="category in roomCreationWizardCtrl.categories">
-                  <i class="icon ion-close-round {{category.icon}}-icon"></i>
-                  <p>{{category.name}}</p>
-                </option>
-              </select>
+          <div class="row">
+            <div class="col col-50">
+              <h3 class="padding float-left">
+                Debate phases
+              </h3>
+            </div>
+            <div class="col col-30">
+              <h3 class="padding float-right">
+                6h30
+              </h3>
+            </div>
+            <div class="col col-20">
+              <div class="float-left no-padding">
+                <button class="button button-light"
+                        ng-click="roomCreationWizardCtrl.addNewActor()"
+                        ng-disabled="roomCreationWizardCtrl.actors.length === 6">
+                  <i class="icon ion-ios-refresh "></i>
+                </button>
+              </div>
+            </div>
+          </div>
 
-            </label>
-            <label class="item item-input item-stacked-label">
-              <span class="input-label">Short description</span>
-              <span class="input-label"><i>(maximum 180 characters)</i></span>
-              <textarea type="text"
-                        rows="5"
-                        style="font-size: 16px; line-height: 18px;"                  
-                        ng-model="roomCreationWizardCtrl.description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum tenetur obcaecati temporibus totam fugiat et quae quia quisquam asperiores esse eum ipsum porro officiis reiciendis unde molestias rerum molestiae. Perferendis. 
-              </textarea>
-            </label>
+          <div class="row">
+            <div class="col col-10"
+                  ng-repeat="actor in roomCreationWizardCtrl.actors track by $index">
+              <div class="item">
+                Bitch
+              </div>
+            </div>
           </div>
 
           <div class="card">
@@ -146,7 +226,7 @@
           <div id="qrcode"></div> 
         </ion-content>
       </ion-slide-page>
-
+      
     </ion-slides>
 
   </ion-content>
@@ -165,7 +245,7 @@
         <button class="button button-stable float-right"
                 ng-disabled="!roomCreationWizardCtrl.selectedCategory"
                 ng-click="roomCreationWizardCtrl.goNextSlide()">
-          {{roomCreationWizardCtrl.sliderItem.activeIndex !== 2 ? 'Next' : 'Create'}}
+          {{roomCreationWizardCtrl.sliderItem.activeIndex !== 3 ? 'Next' : 'Create'}}
         </button>
       </div>
     </div>

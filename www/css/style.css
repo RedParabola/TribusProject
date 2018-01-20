@@ -360,7 +360,7 @@ label.item-input input, label.input-label input{
 }
 
 .slides-on-bottombar .swiper-container{
-  height: 92%;
+  height: 90%;
 }
 
 .slides-on-bottombar div .swiper-pagination.swiper-pagination-clickable{
@@ -384,3 +384,15 @@ label.item-input input, label.input-label input{
   padding: 0px;
 }
 
+.phases-bar{
+  background-color: #EEE;
+  padding: 0px;
+  margin-bottom: 20px;
+}
+.phases-bar .row, .phases-bar .row .col{
+  padding: 1px;
+}
+
+.item-checkbox.item-checkbox-right.item-icon-left { 
+  padding-left:60px;
+}
