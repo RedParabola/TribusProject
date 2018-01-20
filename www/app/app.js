@@ -107,20 +107,6 @@ var app = angular.module('starter', [
       controllerAs: 'hallCtrl'
     })
 
-    .state('joining-room', {
-      url: '/joining-room',
-      templateUrl: 'app/modules/joining-room/joining-room.html',
-      controller: 'JoiningRoomController',
-      controllerAs: 'joiningRoomCtrl'
-    })
-
-    .state('room-list', {
-      url: '/room-list',
-      templateUrl: 'app/modules/room-list/room-list.html',
-      controller: 'RoomListController',
-      controllerAs: 'roomListCtrl'
-    })
-
     .state('room-creation-wizard', {
       url: '/room-creation-wizard',
       templateUrl: 'app/modules/room-creation-wizard/room-creation-wizard.html',

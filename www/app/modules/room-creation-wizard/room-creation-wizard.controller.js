@@ -13,6 +13,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   var textToEncode = 'OMG! Tits';
   vm.makeCode = _makeCode;
   vm.categories = [];
+  var sliderItem = {};
   
   initialize();
 
@@ -154,28 +155,23 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
 
   $scope.$on('$ionicSlides.sliderInitialized', function (event, data) {
     // data.slider is the instance of Swiper
-    console.log('initialized');
-    $scope.slider = data.sliderItem;
-    $ionicSlideBoxDelegate.slide(0, 500);
+    sliderItem = data.slider;
+    $log.info('Slider initialized at ' + sliderItem.activeIndex);
   });
 
   $scope.$on('$ionicSlides.slideChangeStart', function (event, data) {
-    console.log('Slide change is beginning');
-    $ionicSlideBoxDelegate.currentIndex();
-    goToTestState();
+    $log.info('Slide change is beginning, from ' + sliderItem.previousIndex + ' to ' + sliderItem.activeIndex);
+    if(sliderItem.previousIndex === 1){ /*slideOutOfList();*/ }
   });
 
   $scope.$on('$ionicSlides.slideChangeEnd', function (event, data) {
-    // note: the indexes are 0-based
-    console.log('Slide change ended');
-    $scope.activeIndex = vm.sliderItem.activeIndex;
-    $scope.previousIndex = vm.sliderItem.previousIndex;
+    $log.info('Slide change ended, from ' + sliderItem.previousIndex + ' to ' + sliderItem.activeIndex);
   });
 
   function goToTestState(){
     $ionicHistory.nextViewOptions({
       disableBack : false
     });
-    $state.go('room-list');
+    $state.go('test-state');
   }
 }

@@ -277,7 +277,7 @@ label.item-input input, label.input-label input{
 }
 
 .fixed-search-header{
-  margin-top:46px;
+  margin-top:4px;
   box-shadow: rgb(41, 41, 41) -1px 0px 6px 0px !important;
   /* 
    The ionic header bar is 43px in height,
@@ -286,7 +286,7 @@ label.item-input input, label.input-label input{
 }
 
 .ion-content-under-search{
-  margin-top:50px!important;
+  margin-top:52px!important;
 }
 
 .ion-content-over-details{
