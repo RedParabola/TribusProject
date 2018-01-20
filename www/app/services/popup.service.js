@@ -7,6 +7,7 @@ function popupService($ionicPopup) {
   return {
     getAddActorPopup: _getAddActorPopup,
     getPasswordPopup: _getPasswordPopup,
+    getConfirmPopup: _getConfirmPopup,
     getAlertPopup: _getAlertPopup
   };
 
@@ -58,6 +59,16 @@ function popupService($ionicPopup) {
       template: sentence
     });
     return alertPopup;
+  }
+
+  function _getConfirmPopup(title,sentence,customCancel,customOk){
+    var confirmPopup = $ionicPopup.confirm({
+      title: title,
+      template: sentence,
+      cancelText: customCancel,
+      okText: customOk
+    });
+    return confirmPopup;
   }
 
 }
