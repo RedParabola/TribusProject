@@ -130,7 +130,7 @@ angular.module('starter.services')
       text: 'Conclusions',
       needsTextColor: 'clear',
       roomPhase: 'ending',
-      icon: 'ion-ios-list-outline'
+      icon: 'ion-stats-bars'
     },
     CLOSED: {
       text: 'Closed',

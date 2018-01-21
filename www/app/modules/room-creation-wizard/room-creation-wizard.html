@@ -112,7 +112,7 @@
           <div class="card phases-bar margin-vert-92 category-{{roomCreationWizardCtrl.globalColor}}">
             <div class="row" ng-if="!roomCreationWizardCtrl.debatePhases.length">
               <div class="col text-center" style="margin-top: 14px;">
-                <p >This is the debate progress bar.</p>
+                <p >Add phases to this debate progress bar.</p>
               </div>
             </div>
             <div class="row">
@@ -131,7 +131,7 @@
             </div>
             <div class="row" ng-if="!(roomCreationWizardCtrl.debatePhases.length > 10)">
               <div class="col text-center" style="margin-top: 18px;">
-                <p >You can select below the phases you want to add.</p>
+                <p >You need at least one debating phase to start.</p>
               </div>
             </div>
             <div class="row">
@@ -178,22 +178,22 @@
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
                           ng-model="roomCreationWizardCtrl.opening"
                           ng-change="roomCreationWizardCtrl.toggleCheckbox('opening')">
-              <i class="icon ion-easel"></i><b>Opening.</b> Actors presentation.
+              <i class="icon ion-easel"></i><p><b>Opening.</b> Actors presentation.</p>
             </ion-checkbox>
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
                           ng-model="roomCreationWizardCtrl.prediction"
                           ng-change="roomCreationWizardCtrl.toggleCheckbox('prediction')">
-              <i class="icon ion-podium"></i><b>Prediction.</b> Spectator's winner guess.
+              <i class="icon ion-podium"></i><p><b>Prediction.</b> Spectator's winner guess.</p>
             </ion-checkbox>
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
                           ng-model="roomCreationWizardCtrl.closure"
                           ng-change="roomCreationWizardCtrl.toggleCheckbox('closure')">
-              <i class="icon ion-chatbox"></i><b>Closure.</b> Actors last argument.
+              <i class="icon ion-chatbox"></i><p><b>Closure.</b> Actors last argument.</p>
             </ion-checkbox>
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
                           ng-model="roomCreationWizardCtrl.questions"
                           ng-change="roomCreationWizardCtrl.toggleCheckbox('questions')">
-              <i class="icon ion-ios-help-outline"></i>Questions
+              <i class="icon ion-ios-help-outline"></i><p><b>Questions.</b> Spectator's Q&A round.</p>
             </ion-checkbox>
           </div>
 

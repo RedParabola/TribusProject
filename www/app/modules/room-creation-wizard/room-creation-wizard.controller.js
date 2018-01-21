@@ -27,7 +27,12 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   vm.goNextSlide = _goNextSlide;
 
   var textToEncode = 'OMG! Tits';
-  
+
+  $scope.$watch('roomCreationWizardCtrl.topic',checkSlidesRequirements);
+  $scope.$watch('roomCreationWizardCtrl.selectedCategory',checkSlidesRequirements);
+  $scope.$watch('roomCreationWizardCtrl.actors.length',checkSlidesRequirements);
+  $scope.$watch('roomCreationWizardCtrl.debatePhases.length',checkSlidesRequirements);
+
   initialize();
 
   //////////////////
@@ -345,21 +350,21 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   };
 
   $scope.$on('$ionicSlides.sliderInitialized', function (event, data) {
-    // data.slider is the instance of Swiper
     vm.sliderItem = data.slider;
-    $log.info('Slider initialized at ' + vm.sliderItem.activeIndex);
+    vm.sliderItem.lockSwipeToNext();
   });
 
   $scope.$on('$ionicSlides.slideChangeStart', function (event, data) {
-    $log.info('Slide change is beginning, from ' + vm.sliderItem.previousIndex + ' to ' + vm.sliderItem.activeIndex);
-    if(vm.sliderItem.previousIndex === 1){ /*slideOutOfList();*/ }
+    checkSlidesRequirements();
     if(vm.sliderItem.activeIndex === 3){ prepareOverview(); }
     $scope.$apply();
   });
 
+  /*
   $scope.$on('$ionicSlides.slideChangeEnd', function (event, data) {
     $log.info('Slide change ended, from ' + vm.sliderItem.previousIndex + ' to ' + vm.sliderItem.activeIndex);
   });
+  */
 
   function _goPrevSlide(){
     vm.sliderItem.slideTo(vm.sliderItem.activeIndex - 1);
@@ -367,6 +372,33 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
 
   function _goNextSlide(){
     vm.sliderItem.slideTo(vm.sliderItem.activeIndex + 1);
+  }
+
+  function checkSlidesRequirements(){
+    vm.sliderItem.lockSwipeToNext();
+    switch (vm.sliderItem.activeIndex) {
+      case 0:
+        if(vm.topic && vm.selectedCategory){
+          vm.sliderItem.unlockSwipeToNext();
+        }
+        break;
+      case 1:
+        if(vm.actors.length >= 2){
+          vm.sliderItem.unlockSwipeToNext();
+        }
+        break;
+      case 2:
+        var howMany = _.filter(vm.debatePhases,function(phase){
+          return phase.phase === 'debating';
+        }).length;
+        if(howMany >= 1){
+          vm.sliderItem.unlockSwipeToNext();
+        }
+        break;
+      default:
+        break;
+    }
+    //Something
   }
 
 }
