@@ -103,7 +103,7 @@
             </div>
             <div class="col col-30">
               <h3 class="padding float-right">
-                6h30
+                {{roomCreationWizardCtrl.totalHours}}h{{roomCreationWizardCtrl.totalMinutes}}
               </h3>
             </div>
             <div class="col col-20">
@@ -124,19 +124,19 @@
             <div class="row" ng-if="roomCreationWizardCtrl.debatePhases.length">
               <div class="col col-10"
                    ng-repeat="phase in roomCreationWizardCtrl.debatePhases track by $index"
-                   ng-click="roomCreationWizardCtrl.editPhase(phase,$index)">
+                   ng-click="roomCreationWizardCtrl.tapPhase(phase,$index)">
                 <div class="item">
                   Bitch
                 </div>
               </div>
             </div>
             <div class="row" ng-if="!(roomCreationWizardCtrl.debatePhases.length > 5)">
-                <p style="margin: auto; bottom: 0px;">Select the phases below you want to add.</p>
+                <p style="margin: auto;">Select the phases below you want to add.</p>
             </div>
             <div class="row" ng-if="roomCreationWizardCtrl.debatePhases.length > 5">
               <div class="col col-10"
                    ng-repeat="phase in roomCreationWizardCtrl.debatePhases track by $index"
-                   ng-click="roomCreationWizardCtrl.editPhase(phase,$index)">
+                   ng-click="roomCreationWizardCtrl.tapPhase(phase,$index)">
                 <div class="item">
                   Bitch
                 </div>

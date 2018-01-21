@@ -3,11 +3,12 @@ angular
 .controller('RoomCreationWizardController', roomCreationWizardController);
 
 roomCreationWizardController.$inject = ['$rootScope', '$scope', '$log', '$state', '$ionicHistory', '$ionicLoading',
-  '$ionicSlideBoxDelegate', 'CategoryConstants', 'RoomStatusConstants', 'PopupService'];
+  '$ionicSlideBoxDelegate', 'CategoryConstants', 'RoomStatusConstants', 'PopupService', '$window'];
 function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHistory, $ionicLoading,
-  $ionicSlideBoxDelegate, CategoryConstants, RoomStatusConstants, PopupService) {
+  $ionicSlideBoxDelegate, CategoryConstants, RoomStatusConstants, PopupService, $window) {
 
   var vm = this;
+  var moment = $window.moment;
 
   vm.updateSelectedCategory = _updateSelectedCategory;
 
@@ -18,7 +19,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   vm.resetPhases = _resetPhases;
   vm.addRepeatablePhase = _addRepeatablePhase;
   vm.toggleCheckbox = _toggleCheckbox;
-  vm.editPhase = _editPhase;
+  vm.tapPhase = _tapPhase;
 
   vm.makeCode = _makeCode;
 
@@ -34,6 +35,9 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   function initialize(){
 
     vm.categories = [];
+    vm.totalDuration = 0;
+    vm.totalHours = '00';
+    vm.totalMinutes = '00';
     vm.debatePhases = [];
     vm.presentation = false;
     vm.prediction = false;
@@ -215,6 +219,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
       vm.debatePhases = _.reject(vm.debatePhases, function(phase){
         return phase.phase === key;
       });
+      recalculateTotalTime();
     }
   }
 
@@ -255,9 +260,10 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
         }
         break;
     }
+    recalculateTotalTime();
   }
 
-  function _editPhase(phaseToEdit,index){
+  function _tapPhase(phaseToEdit,index){
     //Firt count to number the body phases
     var howMany = _.filter(_.take(vm.debatePhases,index),function(phase){
       return phaseToEdit.phase === phase.phase;
@@ -271,18 +277,33 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     );
     phasePopup.then(function(res){
       if (res){
-        if(res === 'REMOVE'){
-          vm.debatePhases = _.without(vm.debatePhases,phaseToEdit);
-          if(vm[phaseToEdit.phase]){
-            vm[phaseToEdit.phase] = false;
-          }
-        } else {
-          phaseToEdit.duration = res;
-        }
+        editPhase(phaseToEdit,res);
       }
     });
   }
 
+  function editPhase(phaseToEdit,value){
+    if(value === 'REMOVE'){
+      vm.debatePhases = _.without(vm.debatePhases,phaseToEdit);
+      recalculateTotalTime();
+      if(vm[phaseToEdit.phase]){
+        vm[phaseToEdit.phase] = false;
+      }
+    } else {
+      phaseToEdit.duration = value;
+      recalculateTotalTime();
+    }
+  }
+
+  function recalculateTotalTime(){
+    var recalculatedDuration = 0;
+    angular.forEach(vm.debatePhases,function(phase){
+      recalculatedDuration = recalculatedDuration + phase.duration;
+    });
+    vm.totalDuration = moment.duration({'minutes': recalculatedDuration});
+    vm.totalHours = moment.utc(recalculatedDuration*60*1000).format("HH");
+    vm.totalMinutes = moment.utc(recalculatedDuration*60*1000).format("mm");
+  }
 
   /*** 4. Overview ***/
   /*-----------------*/
