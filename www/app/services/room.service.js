@@ -308,7 +308,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         category: 'TECHNOLOGY',
         topic: 'Virtual reality as a world in our world',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
-        status: 'LAST_WORDS',
+        status: 'CLOSURE',
         joined: 70,
         actors: [
           {

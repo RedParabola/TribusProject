@@ -114,8 +114,8 @@ angular.module('starter.services')
       roomPhase: 'progress',
       icon: 'ion-ios-pause'
     },
-    LAST_WORDS: {
-      text: 'Last words',
+    CLOSURE: {
+      text: 'Closure',
       needsTextColor: 'clear',
       roomPhase: 'ending',
       icon: 'ion-chatbox'

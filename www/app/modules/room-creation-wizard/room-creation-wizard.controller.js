@@ -41,7 +41,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     vm.debatePhases = [];
     vm.presentation = false;
     vm.prediction = false;
-    vm.last_words = false;
+    vm.closure = false;
     vm.questions = false;
     
     var categoriesArray = _.keys(CategoryConstants);
@@ -182,7 +182,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
           vm.debatePhases = [];
           vm.presentation = false;
           vm.prediction = false;
-          vm.last_words = false;
+          vm.closure = false;
           vm.questions = false;
         }
       });
@@ -241,7 +241,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
           vm.debatePhases.splice(0, 0, newPhase);
         }
         break;
-      case 'last_words':
+      case 'closure':
         if (vm.questions) {
           vm.debatePhases.splice(vm.debatePhases.length - 1, 0, newPhase);
         } else {
@@ -252,9 +252,9 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
         vm.debatePhases.push(newPhase);
         break;
       default:
-        if(vm.last_words && vm.questions){
+        if(vm.closure && vm.questions){
           vm.debatePhases.splice(vm.debatePhases.length - 2, 0, newPhase);
-        } else if (vm.last_words || vm.questions) {
+        } else if (vm.closure || vm.questions) {
           vm.debatePhases.splice(vm.debatePhases.length - 1, 0, newPhase);
         } else {
           vm.debatePhases.push(newPhase);
