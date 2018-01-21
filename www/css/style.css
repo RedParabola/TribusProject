@@ -266,6 +266,160 @@ label.item-input input, label.input-label input{
   background-color: #E0E0E0;
   border-color: #757575;
 }
+.checkbox-culture input:before,
+.checkbox-culture .checkbox-icon:before {
+  border-color: #FB8C00;
+}
+.checkbox-culture input:checked:before,
+.checkbox-culture input:checked + .checkbox-icon:before {
+  background: #FB8C00;
+  border-color: #FB8C00;
+}
+.checkbox-economics input:before,
+.checkbox-economics .checkbox-icon:before {
+  border-color: #00897B;
+}
+.checkbox-economics input:checked:before,
+.checkbox-economics input:checked + .checkbox-icon:before {
+  background: #00897B;
+  border-color: #00897B;
+}
+.checkbox-education input:before,
+.checkbox-education .checkbox-icon:before {
+  border-color: #43A047;
+}
+.checkbox-education input:checked:before,
+.checkbox-education input:checked + .checkbox-icon:before {
+  background: #43A047;
+  border-color: #43A047;
+}
+.checkbox-environment input:before,
+.checkbox-environment .checkbox-icon:before {
+  border-color: #7CB342;
+}
+.checkbox-environment input:checked:before,
+.checkbox-environment input:checked + .checkbox-icon:before {
+  background: #7CB342;
+  border-color: #7CB342;
+}
+.checkbox-health input:before,
+.checkbox-health .checkbox-icon:before {
+  border-color: #e53935;
+}
+.checkbox-health input:checked:before,
+.checkbox-health input:checked + .checkbox-icon:before {
+  background: #e53935;
+  border-color: #e53935;
+}
+.checkbox-history input:before,
+.checkbox-history .checkbox-icon:before {
+  border-color: #6D4C41;
+}
+.checkbox-history input:checked:before,
+.checkbox-history input:checked + .checkbox-icon:before {
+  background: #6D4C41;
+  border-color: #6D4C41;
+}
+.checkbox-humanrights input:before,
+.checkbox-humanrights .checkbox-icon:before {
+  border-color: #3949AB;
+}
+.checkbox-humanrights input:checked:before,
+.checkbox-humanrights input:checked + .checkbox-icon:before {
+  background: #3949AB;
+  border-color: #3949AB;
+}
+.checkbox-lifestyle input:before,
+.checkbox-lifestyle .checkbox-icon:before {
+  border-color: #1E88E5;
+}
+.checkbox-lifestyle input:checked:before,
+.checkbox-lifestyle input:checked + .checkbox-icon:before {
+  background: #1E88E5;
+  border-color: #1E88E5;
+}
+.checkbox-moral input:before,
+.checkbox-moral .checkbox-icon:before {
+  border-color: #8E24AA;
+}
+.checkbox-moral input:checked:before,
+.checkbox-moral input:checked + .checkbox-icon:before {
+  background: #8E24AA;
+  border-color: #8E24AA;
+}
+.checkbox-politics input:before,
+.checkbox-politics .checkbox-icon:before {
+  border-color: #F4511E;
+}
+.checkbox-politics input:checked:before,
+.checkbox-politics input:checked + .checkbox-icon:before {
+  background: #F4511E;
+  border-color: #F4511E;
+}
+.checkbox-psychology input:before,
+.checkbox-psychology .checkbox-icon:before {
+  border-color: #D81B60;
+}
+.checkbox-psychology input:checked:before,
+.checkbox-psychology input:checked + .checkbox-icon:before {
+  background: #D81B60;
+  border-color: #D81B60;
+}
+.checkbox-science input:before,
+.checkbox-science .checkbox-icon:before {
+  border-color: #C0CA33;
+}
+.checkbox-science input:checked:before,
+.checkbox-science input:checked + .checkbox-icon:before {
+  background: #C0CA33;
+  border-color: #C0CA33;
+}
+.checkbox-society input:before,
+.checkbox-society .checkbox-icon:before {
+  border-color: #00ACC1;
+}
+.checkbox-society input:checked:before,
+.checkbox-society input:checked + .checkbox-icon:before {
+  background: #00ACC1;
+  border-color: #00ACC1;
+}
+.checkbox-sports input:before,
+.checkbox-sports .checkbox-icon:before {
+  border-color: #039BE5;
+}
+.checkbox-sports input:checked:before,
+.checkbox-sports input:checked + .checkbox-icon:before {
+  background: #039BE5;
+  border-color: #039BE5;
+}
+.checkbox-technology input:before,
+.checkbox-technology .checkbox-icon:before {
+  border-color: #5E35B1;
+}
+.checkbox-technology input:checked:before,
+.checkbox-technology input:checked + .checkbox-icon:before {
+  background: #5E35B1;
+  border-color: #5E35B1;
+}
+.checkbox-work input:before,
+.checkbox-work .checkbox-icon:before {
+  border-color: #546E7A;
+}
+.checkbox-work input:checked:before,
+.checkbox-work input:checked + .checkbox-icon:before {
+  background: #546E7A;
+  border-color: #546E7A;
+}
+.checkbox-others input:before,
+.checkbox-others .checkbox-icon:before {
+  border-color: #757575;
+}
+.checkbox-others input:checked:before,
+.checkbox-others input:checked + .checkbox-icon:before {
+  background: #757575;
+  border-color: #757575;
+}
+
 
 
 /************************/
@@ -385,9 +539,9 @@ label.item-input input, label.input-label input{
 }
 
 .phases-bar{
-  background-color: #EEE;
   padding: 0px;
   margin-bottom: 20px;
+  height: 110px;
 }
 .phases-bar .row, .phases-bar .row .col{
   padding: 1px;
@@ -395,4 +549,4 @@ label.item-input input, label.input-label input{
 
 .item-checkbox.item-checkbox-right.item-icon-left { 
   padding-left:60px;
-}
+}	  
