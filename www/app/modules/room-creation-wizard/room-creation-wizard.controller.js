@@ -39,7 +39,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     vm.totalHours = '00';
     vm.totalMinutes = '00';
     vm.debatePhases = [];
-    vm.presentation = false;
+    vm.opening = false;
     vm.prediction = false;
     vm.closure = false;
     vm.questions = false;
@@ -180,7 +180,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
       confirmPopup.then(function(res){
         if(res){
           vm.debatePhases = [];
-          vm.presentation = false;
+          vm.opening = false;
           vm.prediction = false;
           vm.closure = false;
           vm.questions = false;
@@ -231,11 +231,11 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     };
     angular.extend(newPhase,RoomStatusConstants[key.toUpperCase()]);
     switch (key) {
-      case 'presentation':
+      case 'opening':
         vm.debatePhases.splice(0, 0, newPhase);
         break;
       case 'prediction':
-        if (vm.presentation) {
+        if (vm.opening) {
           vm.debatePhases.splice(1, 0, newPhase);
         } else {
           vm.debatePhases.splice(0, 0, newPhase);

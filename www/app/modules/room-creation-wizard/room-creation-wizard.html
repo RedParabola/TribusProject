@@ -175,19 +175,19 @@
 
           <div class="list"> 
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
-                          ng-model="roomCreationWizardCtrl.presentation"
-                          ng-change="roomCreationWizardCtrl.toggleCheckbox('presentation')">
-              <i class="icon ion-easel"></i>Presentation
+                          ng-model="roomCreationWizardCtrl.opening"
+                          ng-change="roomCreationWizardCtrl.toggleCheckbox('opening')">
+              <i class="icon ion-easel"></i><b>Opening.</b> Actors presentation.
             </ion-checkbox>
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
                           ng-model="roomCreationWizardCtrl.prediction"
                           ng-change="roomCreationWizardCtrl.toggleCheckbox('prediction')">
-              <i class="icon ion-podium"></i>Prediction
+              <i class="icon ion-podium"></i><b>Prediction.</b> Spectator's winner guess.
             </ion-checkbox>
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
                           ng-model="roomCreationWizardCtrl.closure"
                           ng-change="roomCreationWizardCtrl.toggleCheckbox('closure')">
-              <i class="icon ion-chatbox"></i>Closure
+              <i class="icon ion-chatbox"></i><b>Closure.</b> Actors last argument.
             </ion-checkbox>
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
                           ng-model="roomCreationWizardCtrl.questions"

@@ -118,7 +118,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         category: 'MORAL',
         topic: 'Facebook friendships',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
-        status: 'PRESENTATION',
+        status: 'OPENING',
         joined: 49,
         actors: [
           {

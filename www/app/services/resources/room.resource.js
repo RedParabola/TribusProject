@@ -84,8 +84,8 @@ angular.module('starter.services')
       roomPhase: 'pre',
       icon: 'ion-load-a'
     },
-    PRESENTATION: {
-      text: 'Presentation',
+    OPENING: {
+      text: 'Opening',
       needsTextColor: 'dark',
       roomPhase: 'progress',
       icon: 'ion-easel'

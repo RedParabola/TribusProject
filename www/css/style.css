@@ -176,7 +176,7 @@ label.item-input input, label.input-label input{
 .status-not-started {
   background-color: #81C784;
 }
-.status-presentation {
+.status-opening {
   background-color: #DCE775;
 }
 .status-prediction {
