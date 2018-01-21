@@ -354,6 +354,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     $log.info('Slide change is beginning, from ' + vm.sliderItem.previousIndex + ' to ' + vm.sliderItem.activeIndex);
     if(vm.sliderItem.previousIndex === 1){ /*slideOutOfList();*/ }
     if(vm.sliderItem.activeIndex === 3){ prepareOverview(); }
+    $scope.$apply();
   });
 
   $scope.$on('$ionicSlides.slideChangeEnd', function (event, data) {
