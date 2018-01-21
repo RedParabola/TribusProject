@@ -43,6 +43,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     vm.prediction = false;
     vm.closure = false;
     vm.questions = false;
+    vm.chainedActorsString = 'Loading actors...';
     
     var categoriesArray = _.keys(CategoryConstants);
     angular.forEach(categoriesArray,function(category){
@@ -322,6 +323,19 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     qrcode.makeCode(textToEncode);
   }
 
+  function prepareOverview(){
+    var chainedString = '';
+    angular.forEach(vm.actors,function(actor,index){
+      chainedString = chainedString.concat(actor.name);
+      if(index !== vm.actors.length - 1){
+        chainedString = chainedString.concat(', ');          
+      }
+    });
+    $scope.$apply(function(){
+      vm.chainedActorsString = chainedString;
+    });
+  }
+
 
   /*** Slides logic and events ***/
   /*-----------------------------*/
@@ -339,6 +353,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   $scope.$on('$ionicSlides.slideChangeStart', function (event, data) {
     $log.info('Slide change is beginning, from ' + vm.sliderItem.previousIndex + ' to ' + vm.sliderItem.activeIndex);
     if(vm.sliderItem.previousIndex === 1){ /*slideOutOfList();*/ }
+    if(vm.sliderItem.activeIndex === 3){ prepareOverview(); }
   });
 
   $scope.$on('$ionicSlides.slideChangeEnd', function (event, data) {

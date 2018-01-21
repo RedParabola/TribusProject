@@ -13,13 +13,11 @@
       <ion-slide-page>
         <ion-content>
           <h2>¡Welcome to the room creation wizard!</h2>
-          <p>
-            Through 3 simple steps, we will empower you as a <b>moderator</b> in the creation of your own debate room.
-          </p>             
-          <h3 class="padding">
-            Room basic info
-          </h3>
-          <div class="list">
+          <p>Through 3 simple steps, we will empower you as a <b>moderator</b> in the creation of your own debate room.</p>
+          <div class="row padding-vert-no">
+            <h3 class="padding">Room basic info</h3>
+          </div>
+          <div class="card list margin-vert-92">
             <label class="item item-input item-stacked-label">
               <span class="input-label"><b>*Main topic</b></span>
               <span class="input-label"><i>(maximum 42 characters)</i></span>
@@ -59,13 +57,11 @@
       <!-- 2. List of actors -->
       <ion-slide-page>
         <ion-content>
-          <div class="row">
-            <div class="col col-50">
-              <h3 class="padding float-left">
-                List of actors
-              </h3>
+          <div class="row padding-vert-no">
+            <div class="col col-50 padding-vert-no">
+              <h3 class="padding float-left">List of actors</h3>
             </div>
-            <div class="col col-50">
+            <div class="col col-50 padding-vert-no">
               <div class="float-right">
                 <button class="button button-light"
                         ng-click="roomCreationWizardCtrl.addNewActor()"
@@ -76,7 +72,7 @@
             </div>
           </div>
 
-          <div class="list">
+          <div class="card list margin-vert-92">
             <div class="item item-button-right no-padding"
                  ng-repeat="actor in roomCreationWizardCtrl.actors track by $index">
               <div ng-click="roomCreationWizardCtrl.editActor(actor)">                
@@ -95,18 +91,14 @@
       <!-- 3. Debate phases -->
       <ion-slide-page>
         <ion-content>
-          <div class="row">
-            <div class="col col-50">
-              <h3 class="padding float-left">
-                Debate phases
-              </h3>
+          <div class="row padding-vert-no">
+            <div class="col col-50 padding-vert-no">
+              <h3 class="padding float-left">Debate phases</h3>
             </div>
-            <div class="col col-30">
-              <h3 class="padding float-right">
-                {{roomCreationWizardCtrl.totalHours}}h{{roomCreationWizardCtrl.totalMinutes}}
-              </h3>
+            <div class="col col-30 padding-vert-no">
+              <h3 class="padding float-right">{{roomCreationWizardCtrl.totalHours}}h{{roomCreationWizardCtrl.totalMinutes}}</h3>
             </div>
-            <div class="col col-20">
+            <div class="col col-20 padding-vert-no">
               <div class="float-left no-padding">
                 <button class="button button-light"
                         ng-click="roomCreationWizardCtrl.resetPhases()">
@@ -117,13 +109,15 @@
           </div>
 
           <!-- Phases schema -->
-          <div class="item phases-bar category-{{roomCreationWizardCtrl.globalColor}}">
+          <div class="card phases-bar margin-vert-92 category-{{roomCreationWizardCtrl.globalColor}}">
             <div class="row" ng-if="!roomCreationWizardCtrl.debatePhases.length">
-                  <p style="margin: auto;">This is the debate progress bar.</p>
+              <div class="col text-center" style="margin-top: 14px;">
+                <p >This is the debate progress bar.</p>
+              </div>
             </div>
-            <div class="row" ng-if="roomCreationWizardCtrl.debatePhases.length">
+            <div class="row">
               <div class="col col-10"
-                   ng-repeat="phase in roomCreationWizardCtrl.debatePhases track by $index"
+                   ng-repeat="phase in roomCreationWizardCtrl.debatePhases | limitTo:10:0 track by $index"
                    ng-click="roomCreationWizardCtrl.tapPhase(phase,$index)">
                 <div class="item item-icon status-{{phase.phase}}" style="padding: 0px">
                   <div class="row">
@@ -135,15 +129,22 @@
                 </div>
               </div>
             </div>
-            <div class="row" ng-if="!(roomCreationWizardCtrl.debatePhases.length > 5)">
-                <p style="margin: auto;">Select the phases below you want to add.</p>
+            <div class="row" ng-if="!(roomCreationWizardCtrl.debatePhases.length > 10)">
+              <div class="col text-center" style="margin-top: 18px;">
+                <p >You can select below the phases you want to add.</p>
+              </div>
             </div>
-            <div class="row" ng-if="roomCreationWizardCtrl.debatePhases.length > 5">
+            <div class="row">
               <div class="col col-10"
-                   ng-repeat="phase in roomCreationWizardCtrl.debatePhases track by $index"
+                   ng-repeat="phase in roomCreationWizardCtrl.debatePhases | limitTo:10:10 track by $index"
                    ng-click="roomCreationWizardCtrl.tapPhase(phase,$index)">
-                <div class="item">
-                  Bitch
+                <div class="item item-icon status-{{phase.phase}}" style="padding: 0px">
+                  <div class="row">
+                    <i class="icon {{phase.icon}} text-{{phase.needsTextColor}}"></i>
+                  </div>
+                  <div class="row">
+                    <p class="text-{{phase.needsTextColor}}">{{phase.duration}}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -151,21 +152,21 @@
 
           <div class="row">
             <div class="col col-30"
-                  ng-click="roomCreationWizardCtrl.addRepeatablePhase('debating')">
+                 ng-click="roomCreationWizardCtrl.addRepeatablePhase('debating')">
               <div class="item item-icon-right">
                 Debate
                 <i class="icon ion-chatboxes"></i>
               </div>
             </div>
             <div class="col col-30"
-                  ng-click="roomCreationWizardCtrl.addRepeatablePhase('voting')">
+                 ng-click="roomCreationWizardCtrl.addRepeatablePhase('voting')">
               <div class="item item-icon-right">
                 Voting
                 <i class="icon ion-pie-graph"></i>
               </div>
             </div>
             <div class="col col-30"
-                  ng-click="roomCreationWizardCtrl.addRepeatablePhase('pause')">
+                 ng-click="roomCreationWizardCtrl.addRepeatablePhase('pause')">
               <div class="item item-icon-right">
                 Pause
                 <i class="icon ion-ios-pause"></i>
@@ -202,34 +203,57 @@
       <!-- 4. Overview -->
       <ion-slide-page>
         <ion-content>
-          <div class="row">
-            <div class="col col-50">
-              <h3 class="padding float-left">
-                Debate phases
-              </h3>
+          <div class="row padding-vert-no">
+            <div class="col padding-vert-no">
+              <h3 class="padding text-center">Overview</h3>
             </div>
-            <div class="col col-30">
-              <h3 class="padding float-right">
-                6h30
-              </h3>
+          </div>
+
+          <!-- Phases schema -->
+          <div class="card phases-bar category-others margin-vert-92">
+            <div class="row">
+              <div class="col col-10"
+                    ng-repeat="phase in roomCreationWizardCtrl.debatePhases | limitTo:10:0 track by $index"
+                    ng-click="roomCreationWizardCtrl.tapPhase(phase,$index)">
+                <div class="item item-icon status-{{phase.phase}}" style="padding: 0px">
+                  <div class="row">
+                    <i class="icon {{phase.icon}} text-{{phase.needsTextColor}}"></i>
+                  </div>
+                  <div class="row">
+                    <p class="text-{{phase.needsTextColor}}">{{phase.duration}}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col col-20">
-              <div class="float-left no-padding">
-                <button class="button button-light"
-                        ng-click="roomCreationWizardCtrl.addNewActor()"
-                        ng-disabled="roomCreationWizardCtrl.actors.length === 6">
-                  <i class="icon ion-ios-refresh "></i>
-                </button>
+            <div class="row">
+              <div class="col col-10"
+                    ng-repeat="phase in roomCreationWizardCtrl.debatePhases | limitTo:10:10 track by $index"
+                    ng-click="roomCreationWizardCtrl.tapPhase(phase,$index)">
+                <div class="item item-icon status-{{phase.phase}}" style="padding: 0px">
+                  <div class="row">
+                    <i class="icon {{phase.icon}} text-{{phase.needsTextColor}}"></i>
+                  </div>
+                  <div class="row">
+                    <p class="text-{{phase.needsTextColor}}">{{phase.duration}}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col col-10"
-                  ng-repeat="actor in roomCreationWizardCtrl.actors track by $index">
-              <div class="item">
-                Bitch
-              </div>
+            <div class="col padding-vert-no">
+              <p class="text-center" style="font-size: 18px;">Total duration: <b>{{roomCreationWizardCtrl.totalHours}}h{{roomCreationWizardCtrl.totalMinutes}}</b></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4>{{roomCreationWizardCtrl.selectedCategory}}: "{{roomCreationWizardCtrl.topic}}"</h4>
+          </div>
+
+          <div class="card">
+            <div class="item">
+              <b>List of actors: </b><p>{{roomCreationWizardCtrl.chainedActorsString}}</p>
             </div>
           </div>
 

@@ -27,6 +27,11 @@ label.item-input input, label.input-label input{
   line-height: 22px;
 }
 
+.padding-vert-no{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 .padding-vert-51{
   padding-top: 5px;
   padding-bottom: 1px;
@@ -35,6 +40,16 @@ label.item-input input, label.input-label input{
 .padding-vert-83{
   padding-top: 10px;
   padding-bottom: 3px;
+}
+
+.margin-vert-no{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.margin-vert-92{
+  margin-top: 9px;
+  margin-bottom: 2px;
 }
 
 /* when hiding the thing */
@@ -547,10 +562,10 @@ label.item-input input, label.input-label input{
 .phases-bar{
   padding: 0px;
   margin-bottom: 20px;
-  height: 110px;
+  height: 117px;
 }
 .phases-bar .row, .phases-bar .row .col{
-  padding: 1px;
+  padding: 2px 1px;
 }
 
 .item-checkbox.item-checkbox-right.item-icon-left { 
