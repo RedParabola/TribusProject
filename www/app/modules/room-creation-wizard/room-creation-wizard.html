@@ -109,8 +109,7 @@
             <div class="col col-20">
               <div class="float-left no-padding">
                 <button class="button button-light"
-                        ng-click="roomCreationWizardCtrl.addNewActor()"
-                        ng-disabled="roomCreationWizardCtrl.actors.length === 6">
+                        ng-click="roomCreationWizardCtrl.resetPhases()">
                   <i class="icon ion-ios-refresh "></i>
                 </button>
               </div>
@@ -118,18 +117,28 @@
           </div>
 
           <!-- Phases schema -->
-          <div class="item phases-bar">
-            <div class="row">
-              <div class="col col-20"
-                   ng-repeat="actor in roomCreationWizardCtrl.actors">
+          <div class="item phases-bar category-{{roomCreationWizardCtrl.globalColor}}">
+            <div class="row" ng-if="!roomCreationWizardCtrl.debatePhases.length">
+              <div class="item" style="margin: auto;">
+                This is the debate progress bar.
+              </div>
+            </div>
+            <div class="row" ng-if="!(roomCreationWizardCtrl.debatePhases.length > 5)">
+              <div class="item" style="margin: auto;">
+                Select the phases below you want to add.
+              </div>
+            </div>
+            <div class="row" ng-if="roomCreationWizardCtrl.debatePhases.length">
+              <div class="col col-10"
+                   ng-repeat="actor in roomCreationWizardCtrl.debatePhases">
                 <div class="item">
                   Bitch
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col col-20"
-                   ng-repeat="actor in roomCreationWizardCtrl.actors">
+            <div class="row" ng-if="roomCreationWizardCtrl.debatePhases.length">
+              <div class="col col-10"
+                   ng-repeat="actor in roomCreationWizardCtrl.debatePhases">
                 <div class="item">
                 Bitch
                 </div>
@@ -139,21 +148,21 @@
 
           <div class="row">
             <div class="col col-30"
-                  ng-click="roomCreationWizardCtrl.addDebate()">
+                  ng-click="roomCreationWizardCtrl.addRepeatablePhase('debating')">
               <div class="item item-icon-right">
                 Debate
                 <i class="icon ion-chatboxes"></i>
               </div>
             </div>
             <div class="col col-30"
-                  ng-click="roomCreationWizardCtrl.addVoting()">
+                  ng-click="roomCreationWizardCtrl.addRepeatablePhase('voting')">
               <div class="item item-icon-right">
                 Voting
                 <i class="icon ion-pie-graph"></i>
               </div>
             </div>
             <div class="col col-30"
-                  ng-click="roomCreationWizardCtrl.addPause()">
+                  ng-click="roomCreationWizardCtrl.addRepeatablePhase('pause')">
               <div class="item item-icon-right">
                 Pause
                 <i class="icon ion-ios-pause"></i>
@@ -162,21 +171,25 @@
           </div>
 
           <div class="list"> 
-            <ion-checkbox class="item-checkbox-right item-icon-left"ng-model="filter.red">
-              <i class="icon ion-easel"></i>
-              PRESENTATION
+            <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
+                          ng-model="roomCreationWizardCtrl.presentation"
+                          ng-change="roomCreationWizardCtrl.toggleCheckbox('presentation')">
+              <i class="icon ion-easel"></i>PRESENTATION
             </ion-checkbox>
-            <ion-checkbox class="item-checkbox-right item-icon-left"ng-model="filter.red">
-              <i class="icon ion-podium"></i>
-              PREDICTION
+            <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
+                          ng-model="roomCreationWizardCtrl.prediction"
+                          ng-change="roomCreationWizardCtrl.toggleCheckbox('prediction')">
+              <i class="icon ion-podium"></i>PREDICTION
             </ion-checkbox>
-            <ion-checkbox class="item-checkbox-right item-icon-left"ng-model="filter.red">
-              <i class="icon ion-chatbox"></i>
-              LAST_WORDS
+            <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
+                          ng-model="roomCreationWizardCtrl.last_words"
+                          ng-change="roomCreationWizardCtrl.toggleCheckbox('last_words')">
+              <i class="icon ion-chatbox"></i>LAST_WORDS
             </ion-checkbox>
-            <ion-checkbox class="item-checkbox-right item-icon-left"ng-model="filter.red">
-              <i class="icon ion-ios-help-outline"></i>
-              QUESTIONS
+            <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
+                          ng-model="roomCreationWizardCtrl.questions"
+                          ng-change="roomCreationWizardCtrl.toggleCheckbox('questions')">
+              <i class="icon ion-ios-help-outline"></i>QUESTIONS
             </ion-checkbox>
           </div>
 

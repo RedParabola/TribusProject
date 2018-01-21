@@ -8,21 +8,37 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   $ionicSlideBoxDelegate, CategoryConstants, RoomStatusConstants, PopupService) {
 
   var vm = this;
-  vm.goPrevSlide = _goPrevSlide;
-  vm.goNextSlide = _goNextSlide;
+
   vm.updateSelectedCategory = _updateSelectedCategory;
+
   vm.addNewActor = _addNewActor;
   vm.editActor = _editActor;
   vm.removeActor = _removeActor;
-  var textToEncode = 'OMG! Tits';
+
+  vm.resetPhases = _resetPhases;
+  vm.addRepeatablePhase = _addRepeatablePhase;
+  vm.toggleCheckbox = _toggleCheckbox;
+
   vm.makeCode = _makeCode;
-  vm.categories = [];
+
+  vm.goPrevSlide = _goPrevSlide;
+  vm.goNextSlide = _goNextSlide;
+
+  var textToEncode = 'OMG! Tits';
   
   initialize();
 
   //////////////////
 
   function initialize(){
+
+    vm.categories = [];
+    vm.debatePhases = [];
+    vm.presentation = false;
+    vm.prediction = false;
+    vm.last_words = false;
+    vm.questions = false;
+    
     var categoriesArray = _.keys(CategoryConstants);
     angular.forEach(categoriesArray,function(category){
       var tempCategory = CategoryConstants[category];
@@ -46,19 +62,19 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     ];
   }
 
-  function _goPrevSlide(){
-    vm.sliderItem.slideTo(vm.sliderItem.activeIndex - 1);
-  }
-
-  function _goNextSlide(){
-    vm.sliderItem.slideTo(vm.sliderItem.activeIndex + 1);
-  }
-
+  
+  /*** 1. Basic info ***/
+  /*-------------------*/
+  
   function _updateSelectedCategory(){
     if(vm.selectedCategory){
       vm.globalColor = vm.selectedCategory.toLowerCase();
     }
   }
+
+
+  /*** 2. List of actors ***/
+  /*-----------------------*/
 
   function _addNewActor(){
     //1. Insert new name&motto
@@ -144,6 +160,97 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     vm.actors = _.without(vm.actors,actor);
   }
 
+
+  /*** 3. Debate phases ***/
+  /*----------------------*/
+
+  function _resetPhases(){
+    if(vm.debatePhases.length){
+      var confirmPopup = PopupService.getConfirmPopup(
+        'Are you sure?',
+        'You will remove all the debate phases you already added.',
+        'Cancel',
+        'Reset'
+      );
+      confirmPopup.then(function(res){
+        if(res){
+          vm.debatePhases = [];
+          vm.presentation = false;
+          vm.prediction = false;
+          vm.last_words = false;
+          vm.questions = false;
+        }
+      });
+    }
+  }
+
+  function _addRepeatablePhase(key){
+    var id= _.max(_.map(vm.debatePhases,'id')) + 1 || 1;
+    _toggleCheckbox(key,id);
+  }
+
+  function _toggleCheckbox(key,id){
+    //if vm[key] then it's a toggle set at true and must add
+    //if id, then it's not a toggle and must add anyway
+    if(vm[key] || id){
+      var phasePopup = PopupService.getAddPhasePopup(
+        $scope,
+        'roomCreationWizardCtrl.newPhaseTime',
+        'Add ' + key + ' phase',
+        'How long will this phase take?'
+      );
+      phasePopup.then(function(res){
+        if (res){
+          insertPhase(key,res,id || 0);
+        }
+      });
+    } else {
+      //Buscar en debatePhases y quitar el objeto
+    }
+  }
+
+  function insertPhase(key, duration, id){
+    var newPhase = {
+      id: id,
+      phase: key,
+      duration: duration,
+    };
+    switch (key) {
+      case 'presentation':
+        vm.debatePhases.splice(0, 0, newPhase);
+        break;
+      case 'prediction':
+        if (vm.presentation) {
+          vm.debatePhases.splice(1, 0, newPhase);
+        } else {
+          vm.debatePhases.splice(0, 0, newPhase);
+        }
+        break;
+      case 'last_words':
+        if (vm.questions) {
+          vm.debatePhases.splice(vm.debatePhases.length - 1, 0, newPhase);
+        } else {
+          vm.debatePhases.push(newPhase);
+        }
+        break;
+      case 'questions':
+        vm.debatePhases.push(newPhase);
+        break;
+      default:
+        if(vm.last_words && vm.questions){
+          vm.debatePhases.splice(vm.debatePhases.length - 2, 0, newPhase);
+        } else if (vm.last_words || vm.questions) {
+          vm.debatePhases.splice(vm.debatePhases.length - 1, 0, newPhase);
+        } else {
+          vm.debatePhases.push(newPhase);
+        }
+        break;
+    }
+  }
+
+  /*** 4. Overview ***/
+  /*-----------------*/
+
   function _makeCode(){
     var elemCode = document.getElementById('qrcode');
     var qrcode = new QRCode(elemCode, {
@@ -157,7 +264,10 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     qrcode.makeCode(textToEncode);
   }
 
-  //Slides logic
+
+  /*** Slides logic and events ***/
+  /*-----------------------------*/
+
   vm.sliderOptions = {
     speed: 350,
   };
@@ -176,5 +286,13 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   $scope.$on('$ionicSlides.slideChangeEnd', function (event, data) {
     $log.info('Slide change ended, from ' + vm.sliderItem.previousIndex + ' to ' + vm.sliderItem.activeIndex);
   });
+
+  function _goPrevSlide(){
+    vm.sliderItem.slideTo(vm.sliderItem.activeIndex - 1);
+  }
+
+  function _goNextSlide(){
+    vm.sliderItem.slideTo(vm.sliderItem.activeIndex + 1);
+  }
 
 }

@@ -6,6 +6,7 @@ function popupService($ionicPopup) {
 
   return {
     getAddActorPopup: _getAddActorPopup,
+    getAddPhasePopup: _getAddPhasePopup,
     getPasswordPopup: _getPasswordPopup,
     getConfirmPopup: _getConfirmPopup,
     getAlertPopup: _getAlertPopup
@@ -26,6 +27,27 @@ function popupService($ionicPopup) {
           text: '<b>Add actor</b>',
           type: 'button-positive',
           onTap: function(e){ return scope.$eval(actorNgModel); }
+        }
+      ]
+    });
+    return popup;
+  }
+
+  function _getAddPhasePopup(scope,timeNgModel,title,sentence) {
+    var popup = $ionicPopup.show({
+      template: '<label class="item item-input"><input type="number" placeholder="Time in minutes" ng-model="'.concat(timeNgModel,'"></label>'),
+      title: title,
+      subTitle: sentence,
+      scope: scope,
+      buttons: [
+        {
+          text: 'Cancel',
+          onTap: function(e){ return false; }
+        },
+        {
+          text: '<b>Add phase</b>',
+          type: 'button-positive',
+          onTap: function(e){ return scope.$eval(timeNgModel); }
         }
       ]
     });
