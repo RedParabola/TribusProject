@@ -38,17 +38,24 @@ function popupService($ionicPopup) {
       {
         text: 'Cancel',
         onTap: function(e){ return false; }
-      },
-      {
-        text: '<b>Set time</b>',
-        type: 'button-positive',
-        onTap: function(e){ return scope.$eval(timeNgModel); }
       }
     ];
     if(isEditing){
-      buttons.splice(1,0, {
-        text: 'Remove',
+      buttons.push({
+        text: 'Clear',
+        type: 'button-assertive',
         onTap: function(e){ return 'REMOVE'; }
+      });
+      buttons.push({
+        text: '<b>Edit</b>',
+        type: 'button-positive',
+        onTap: function(e){ return scope.$eval(timeNgModel); }
+      });
+    } else {
+      buttons.push({
+        text: '<b>Add phase</b>',
+        type: 'button-positive',
+        onTap: function(e){ return scope.$eval(timeNgModel); }
       });
     }
     var popup = $ionicPopup.show({
