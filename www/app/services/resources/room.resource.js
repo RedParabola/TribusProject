@@ -93,8 +93,8 @@ angular.module('starter.services')
       textColor: 'clear',
       roomPhase: 'progress',
     },
-    IN_PROGRESS: {
-      text: 'In progress',
+    DEBATING: {
+      text: 'Debating',
       textColor: 'clear',
       roomPhase: 'progress',
     },

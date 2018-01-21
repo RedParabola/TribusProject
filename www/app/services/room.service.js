@@ -194,7 +194,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         category: 'PSYCHOLOGY',
         topic: 'Are adults merely obsolete children?',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
-        status: 'IN_PROGRESS',
+        status: 'DEBATING',
         joined: 68,
         actors: [
           {
@@ -505,7 +505,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       category: 'SOCIETY',
       topic: 'Is piracy a solution?',
       description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
-      status: 'IN_PROGRESS',
+      status: 'DEBATING',
       joined: 45,
       actors: [
         {

@@ -42,7 +42,7 @@ angular.module('starter.services')
           accepted: 60,
           invited: 105,
           topic: 'Topic 2',
-          status: 'IN_PROGRESS',
+          status: 'DEBATING',
         },
         {
           master: 'Julio',

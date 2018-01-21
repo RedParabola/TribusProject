@@ -176,7 +176,7 @@ label.item-input input, label.input-label input{
 .status-prediction {
   background-color: #4DB6AC;
 }
-.status-in_progress {
+.status-debating {
   background-color: #FFEB3B;
 }
 .status-voting {
