@@ -118,8 +118,8 @@ angular.module('starter.services')
       textColor: 'dark',
       roomPhase: 'ending',
     } ,   
-    FINAL_STATS: {
-      text: 'Final stats',
+    CONCLUSIONS: {
+      text: 'Conclusions',
       textColor: 'dark',
       roomPhase: 'ending',
     },

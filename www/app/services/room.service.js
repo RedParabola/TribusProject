@@ -384,7 +384,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         category: 'SOCIETY',
         topic: 'Cyber bullying',
         description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
-        status: 'FINAL_STATS',
+        status: 'CONCLUSIONS',
         joined: 39,
         actors: [
           {
