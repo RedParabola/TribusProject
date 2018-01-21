@@ -229,6 +229,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
       phase: key,
       duration: duration,
     };
+    angular.extend(newPhase,RoomStatusConstants[key.toUpperCase()]);
     switch (key) {
       case 'presentation':
         vm.debatePhases.splice(0, 0, newPhase);

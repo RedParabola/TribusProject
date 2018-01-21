@@ -110,7 +110,7 @@
               <div class="float-left no-padding">
                 <button class="button button-light"
                         ng-click="roomCreationWizardCtrl.resetPhases()">
-                  <i class="icon ion-ios-refresh "></i>
+                  <i class="icon ion-ios-refresh"></i>
                 </button>
               </div>
             </div>
@@ -125,8 +125,13 @@
               <div class="col col-10"
                    ng-repeat="phase in roomCreationWizardCtrl.debatePhases track by $index"
                    ng-click="roomCreationWizardCtrl.tapPhase(phase,$index)">
-                <div class="item">
-                  Bitch
+                <div class="item item-icon status-{{phase.phase}}" style="padding: 0px">
+                  <div class="row">
+                    <i class="icon {{phase.icon}} text-{{phase.needsTextColor}}"></i>
+                  </div>
+                  <div class="row">
+                    <p class="text-{{phase.needsTextColor}}">{{phase.duration}}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -172,22 +177,22 @@
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
                           ng-model="roomCreationWizardCtrl.presentation"
                           ng-change="roomCreationWizardCtrl.toggleCheckbox('presentation')">
-              <i class="icon ion-easel"></i>PRESENTATION
+              <i class="icon ion-easel"></i>Presentation
             </ion-checkbox>
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
                           ng-model="roomCreationWizardCtrl.prediction"
                           ng-change="roomCreationWizardCtrl.toggleCheckbox('prediction')">
-              <i class="icon ion-podium"></i>PREDICTION
+              <i class="icon ion-podium"></i>Prediction
             </ion-checkbox>
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
                           ng-model="roomCreationWizardCtrl.last_words"
                           ng-change="roomCreationWizardCtrl.toggleCheckbox('last_words')">
-              <i class="icon ion-chatbox"></i>LAST_WORDS
+              <i class="icon ion-chatbox"></i>Last words
             </ion-checkbox>
             <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
                           ng-model="roomCreationWizardCtrl.questions"
                           ng-change="roomCreationWizardCtrl.toggleCheckbox('questions')">
-              <i class="icon ion-ios-help-outline"></i>QUESTIONS
+              <i class="icon ion-ios-help-outline"></i>Questions
             </ion-checkbox>
           </div>
 

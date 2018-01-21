@@ -80,53 +80,63 @@ angular.module('starter.services')
   .constant('RoomStatusConstants', {
     NOT_STARTED: {
       text: 'Not Started',
-      textColor: 'clear',
+      needsTextColor: 'dark',
       roomPhase: 'pre',
+      icon: 'ion-load-a'
     },
     PRESENTATION: {
       text: 'Presentation',
-      textColor: 'clear',
+      needsTextColor: 'dark',
       roomPhase: 'progress',
+      icon: 'ion-easel'
     },
     PREDICTION: {
       text: 'Prediction',
-      textColor: 'clear',
+      needsTextColor: 'dark',
       roomPhase: 'progress',
+      icon: 'ion-podium'
     },
     DEBATING: {
       text: 'Debating',
-      textColor: 'clear',
+      needsTextColor: 'dark',
       roomPhase: 'progress',
+      icon: 'ion-chatboxes'
     },
     VOTING: {
       text: 'Voting',
-      textColor: 'clear',
+      needsTextColor: 'dark',
       roomPhase: 'progress',
+      icon: 'ion-pie-graph'
     },
     PAUSE: {
       text: 'Pause',
-      textColor: 'clear',
+      needsTextColor: 'dark',
       roomPhase: 'progress',
+      icon: 'ion-ios-pause'
     },
     LAST_WORDS: {
       text: 'Last words',
-      textColor: 'dark',
+      needsTextColor: 'clear',
       roomPhase: 'ending',
+      icon: 'ion-chatbox'
     },
     QUESTIONS: {
       text: 'Questions',
-      textColor: 'dark',
+      needsTextColor: 'clear',
       roomPhase: 'ending',
+      icon: 'ion-ios-help'
     } ,   
     CONCLUSIONS: {
       text: 'Conclusions',
-      textColor: 'dark',
+      needsTextColor: 'clear',
       roomPhase: 'ending',
+      icon: 'ion-ios-list-outline'
     },
     CLOSED: {
       text: 'Closed',
-      textColor: 'dark',
+      needsTextColor: 'clear',
       roomPhase: 'closed',
+      icon: 'ion-ios-checkmark'
     }
   });
 

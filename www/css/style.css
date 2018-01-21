@@ -148,10 +148,16 @@ label.item-input input, label.input-label input{
 /********************/
 
 .text-dark {
-  color: #263238;
+  color: #37474F!important;
+  font-size: 32px;
+  font-weight: 600;
+  margin: auto;
 }
 .text-clear {
-  color: #B0BEC5;
+  color: #ECEFF1!important;
+  font-size: 32px;
+  font-weight: 600;
+  margin: auto;
 }
 
 .room-pre {
@@ -168,34 +174,34 @@ label.item-input input, label.input-label input{
 }
 
 .status-not-started {
-  background-color: #4CAF50;
+  background-color: #81C784;
 }
 .status-presentation {
-  background-color: #CDDC39;
+  background-color: #DCE775;
 }
 .status-prediction {
-  background-color: #4DB6AC;
+  background-color: #B39DDB;
 }
 .status-debating {
-  background-color: #FFEB3B;
+  background-color: #FFEE58;
 }
 .status-voting {
-  background-color: #00BCD4;
+  background-color: #64B5F6;
 }
 .status-pause {
   background-color: #FFFDE7;
 }
 .status-last_words {
-  background-color: #D84315;
+  background-color: #F4511E;
 }
 .status-questions {
-  background-color: #4E342E;
+  background-color: #795548;
 }
 .status-conclusions {
-  background-color: #37474F;
+  background-color: #546E7A;
 }
 .status-closed {
-  background-color: #424242;
+  background-color: #616161;
 }
 
 .category-culture {
