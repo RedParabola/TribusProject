@@ -18,6 +18,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   vm.resetPhases = _resetPhases;
   vm.addRepeatablePhase = _addRepeatablePhase;
   vm.toggleCheckbox = _toggleCheckbox;
+  vm.editPhase = _editPhase;
 
   vm.makeCode = _makeCode;
 
@@ -189,23 +190,31 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     _toggleCheckbox(key,id);
   }
 
-  function _toggleCheckbox(key,id){
+  function _toggleCheckbox(key, id){
     //if vm[key] then it's a toggle set at true and must add
     //if id, then it's not a toggle and must add anyway
     if(vm[key] || id){
-      var phasePopup = PopupService.getAddPhasePopup(
+      var howMany = _.filter(vm.debatePhases,function(phase){
+        return key === phase.phase;
+      }).length + 1;
+      var phasePopup = PopupService.getPhasePopup(
         $scope,
         'roomCreationWizardCtrl.newPhaseTime',
-        'Add ' + key + ' phase',
-        'How long will this phase take?'
+        'Add ' + key + ' ' + (howMany > 1? howMany:'') +' phase',
+        'How long will this phase take?',
+        false
       );
       phasePopup.then(function(res){
         if (res){
           insertPhase(key,res,id || 0);
+        } else {
+          vm[key]=false;
         }
       });
     } else {
-      //Buscar en debatePhases y quitar el objeto
+      vm.debatePhases = _.reject(vm.debatePhases, function(phase){
+        return phase.phase === key;
+      });
     }
   }
 
@@ -247,6 +256,33 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
         break;
     }
   }
+
+  function _editPhase(phaseToEdit,index){
+    //Firt count to number the body phases
+    var howMany = _.filter(_.take(vm.debatePhases,index),function(phase){
+      return phaseToEdit.phase === phase.phase;
+    }).length;
+    var phasePopup = PopupService.getPhasePopup(
+      $scope,
+      'roomCreationWizardCtrl.newPhaseTime',
+      'Edit ' + phaseToEdit.phase + ' ' + (howMany + 1),
+      'Set the desired duration for this phase or remove it.',
+      true
+    );
+    phasePopup.then(function(res){
+      if (res){
+        if(res === 'REMOVE'){
+          vm.debatePhases = _.without(vm.debatePhases,phaseToEdit);
+          if(vm[phaseToEdit.phase]){
+            vm[phaseToEdit.phase] = false;
+          }
+        } else {
+          phaseToEdit.duration = res;
+        }
+      }
+    });
+  }
+
 
   /*** 4. Overview ***/
   /*-----------------*/
