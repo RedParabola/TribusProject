@@ -243,7 +243,16 @@
 
           <div class="row">
             <div class="col padding-vert-no">
-              <p class="text-center" style="font-size: 18px;">Total duration: <b>{{roomCreationWizardCtrl.totalHours}}h{{roomCreationWizardCtrl.totalMinutes}}</b></p>
+              <p class="text-center" style="font-size: 18px;">
+                Birthday (date and time):
+                <input style="margin: auto;" type="datetime-local" name="bdaytime">
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col padding-vert-no">
+              <p class="text-center" style="font-size: 18px;">Duration: <b>{{roomCreationWizardCtrl.totalHours}}h{{roomCreationWizardCtrl.totalMinutes}}</b></p>
             </div>
           </div>
 
@@ -283,7 +292,7 @@
       </div>
       <div class="col col-25">
         <button class="button button-stable float-right"
-                ng-disabled="!roomCreationWizardCtrl.selectedCategory"
+                ng-disabled="!roomCreationWizardCtrl.canPressNext"
                 ng-click="roomCreationWizardCtrl.goNextSlide()">
           {{roomCreationWizardCtrl.sliderItem.activeIndex !== 3 ? 'Next' : 'Create'}}
         </button>

@@ -21,6 +21,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   vm.toggleCheckbox = _toggleCheckbox;
   vm.tapPhase = _tapPhase;
 
+  vm.showTimer = _showTimer;
   vm.makeCode = _makeCode;
 
   vm.goPrevSlide = _goPrevSlide;
@@ -28,10 +29,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
 
   var textToEncode = 'OMG! Tits';
 
-  $scope.$watch('roomCreationWizardCtrl.topic',checkSlidesRequirements);
-  $scope.$watch('roomCreationWizardCtrl.selectedCategory',checkSlidesRequirements);
-  $scope.$watch('roomCreationWizardCtrl.actors.length',checkSlidesRequirements);
-  $scope.$watch('roomCreationWizardCtrl.debatePhases.length',checkSlidesRequirements);
+  $scope.$watch('roomCreationWizardCtrl.actors.length',chainOverviewActors);
 
   initialize();
 
@@ -207,6 +205,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
       var howMany = _.filter(vm.debatePhases,function(phase){
         return key === phase.phase;
       }).length + 1;
+      vm.newPhaseTime = 0;
       var phasePopup = PopupService.getPhasePopup(
         $scope,
         'roomCreationWizardCtrl.newPhaseTime',
@@ -275,6 +274,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     var howMany = _.filter(_.take(vm.debatePhases,index),function(phase){
       return phaseToEdit.phase === phase.phase;
     }).length;
+    vm.newPhaseTime = phaseToEdit.duration;
     var phasePopup = PopupService.getPhasePopup(
       $scope,
       'roomCreationWizardCtrl.newPhaseTime',
@@ -329,6 +329,10 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   }
 
   function prepareOverview(){
+
+  }
+
+  function chainOverviewActors(){
     var chainedString = '';
     angular.forEach(vm.actors,function(actor,index){
       chainedString = chainedString.concat(actor.name);
@@ -336,9 +340,21 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
         chainedString = chainedString.concat(', ');          
       }
     });
-    $scope.$apply(function(){
-      vm.chainedActorsString = chainedString;
-    });
+    vm.chainedActorsString = chainedString;
+  }
+
+  function _showTimer(){
+    var options = {
+      date: new Date(),
+      mode: 'date'
+    };
+    function onSuccess(date) {
+      alert('Selected date: ' + date);
+    }
+    function onError(error) { // Android only
+      alert('Error: ' + error);
+    }
+    datePicker.show(options, onSuccess, onError);
   }
 
 
@@ -351,13 +367,15 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
 
   $scope.$on('$ionicSlides.sliderInitialized', function (event, data) {
     vm.sliderItem = data.slider;
-    vm.sliderItem.lockSwipeToNext();
+    $scope.$watch('roomCreationWizardCtrl.topic',checkSlidesRequirements);
+    $scope.$watch('roomCreationWizardCtrl.selectedCategory',checkSlidesRequirements);
+    $scope.$watch('roomCreationWizardCtrl.actors.length',checkSlidesRequirements);
+    $scope.$watch('roomCreationWizardCtrl.debatePhases.length',checkSlidesRequirements);
   });
 
   $scope.$on('$ionicSlides.slideChangeStart', function (event, data) {
     checkSlidesRequirements();
-    if(vm.sliderItem.activeIndex === 3){ prepareOverview(); }
-    $scope.$apply();
+    //if(vm.sliderItem.activeIndex === 3){ prepareOverview(); }
   });
 
   /*
@@ -376,15 +394,18 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
 
   function checkSlidesRequirements(){
     vm.sliderItem.lockSwipeToNext();
+    vm.canPressNext = false;
     switch (vm.sliderItem.activeIndex) {
       case 0:
         if(vm.topic && vm.selectedCategory){
           vm.sliderItem.unlockSwipeToNext();
+          vm.canPressNext = true;
         }
         break;
       case 1:
         if(vm.actors.length >= 2){
           vm.sliderItem.unlockSwipeToNext();
+          vm.canPressNext = true;
         }
         break;
       case 2:
@@ -393,9 +414,12 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
         }).length;
         if(howMany >= 1){
           vm.sliderItem.unlockSwipeToNext();
+          vm.canPressNext = true;
         }
         break;
       default:
+        vm.sliderItem.unlockSwipeToNext();
+        vm.canPressNext = true;
         break;
     }
     //Something
