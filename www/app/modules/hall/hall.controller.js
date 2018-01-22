@@ -11,6 +11,7 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
   vm.createNewRoom = _createNewRoom;
   vm.filterSearch = _filterSearch;
   vm.toggleRoomDetails = _toggleRoomDetails;
+  vm.closeDetails = closeDetails;
   vm.popupKeycodeInput = _popupKeycodeInput;
   
   initialize();
@@ -85,13 +86,17 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
       vm.shouldShowDetails = true;
       vm.selectedRoom = room;
     } else if (room.id === vm.selectedRoom.id){
-      vm.shouldShowDetails = false;
-      $timeout(function(){
-        vm.selectedRoom = undefined;
-      },250);
+      closeDetails();
     } else {
       vm.selectedRoom = room;
     }
+  }
+
+  function closeDetails(){
+    vm.shouldShowDetails = false;
+    $timeout(function(){
+      vm.selectedRoom = undefined;
+    },250);
   }
 
   function _popupKeycodeInput(){

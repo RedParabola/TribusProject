@@ -7,7 +7,8 @@ function roomListDetailsDirective() {
     replace: true,
     scope: {},
     bindToController: {
-      room: '='
+      room: '=',
+      closeFunction: '='
     },
     controller: roomListDetailsController,
     controllerAs: 'roomDetailsCtrl',
@@ -19,7 +20,7 @@ roomListDetailsController.$inject = ['$scope'];
 function roomListDetailsController($scope) {
   
   var vm = this;
-
+  
   initialize();
 
   //////////////////

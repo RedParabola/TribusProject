@@ -73,7 +73,7 @@
           <!-- Selected room details -->
           <div class="card bottom-details"
               ng-show="hallCtrl.shouldShowDetails">
-            <room-list-details room="hallCtrl.selectedRoom"></room-list-details>
+            <room-list-details room="hallCtrl.selectedRoom" close-function="hallCtrl.closeDetails"></room-list-details>
             <div class="bottom-button">
               <button ng-if="hallCtrl.selectedRoom.statusGlobal !== 'closed'"
                       class="button item-icon-right button-block category-{{hallCtrl.selectedRoom.globalColor}}"

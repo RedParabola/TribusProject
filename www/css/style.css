@@ -27,6 +27,10 @@ label.item-input input, label.input-label input{
   line-height: 22px;
 }
 
+.no-padding{
+  padding: 0px;
+}
+
 .padding-vert-no{
   padding-top: 0px;
   padding-bottom: 0px;
@@ -40,6 +44,10 @@ label.item-input input, label.input-label input{
 .padding-vert-83{
   padding-top: 10px;
   padding-bottom: 3px;
+}
+
+.no-margin{
+  margin: 0px;
 }
 
 .margin-vert-no{
