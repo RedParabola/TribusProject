@@ -46,7 +46,7 @@ angular.module('starter.services')
     },
     POLITICS: {
       text: 'Politics',
-      icon: 'ion-ios-pie'
+      icon: 'ion-android-chat'
     },
     PSYCHOLOGY: {
       text: 'Psychology',
@@ -106,7 +106,7 @@ angular.module('starter.services')
       text: 'Voting',
       needsTextColor: 'dark',
       roomPhase: 'progress',
-      icon: 'ion-pie-graph'
+      icon: 'ion-ios-pie'
     },
     PAUSE: {
       text: 'Pause',

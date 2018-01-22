@@ -391,7 +391,8 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   function _goNextSlide(){
     if(vm.sliderItem.activeIndex === 3){
       $ionicHistory.nextViewOptions({
-        disableBack : true
+        disableBack: true,
+        historyRoot: true
       });
       $state.go('tab.dash', {roomId: 'a0b1c2d3e4f5f6789', moderator: true});    
     } else {

@@ -54,7 +54,7 @@ var app = angular.module('starter', [
     // Each tab has its own nav history stack:
 
     .state('tab.overview', {
-      url: '/overview',
+      url: '/overview/:roomId/:moderator',
       views: {
         'tab-overview': {
           templateUrl: 'app/modules/overview/tab-overview.html',
@@ -68,10 +68,6 @@ var app = angular.module('starter', [
       url: '/dash/:roomId/:moderator',
       views: {
         'tab-dash': {
-          params: [
-            'roomId',
-            'moderator'
-          ],
           templateUrl: 'app/modules/dashboard/tab-dash.html',
           controller: 'DashController',
           controllerAs: 'dashCtrl'
@@ -79,13 +75,46 @@ var app = angular.module('starter', [
       }
     })
 
+    .state('tab.timers', {
+      url: '/timers/:roomId/:moderator',
+      views: {
+        'tab-timers': {
+          templateUrl: 'app/modules/timers/tab-timers.html',
+          controller: 'TimersController',
+          controllerAs: 'timersCtrl'
+        }
+      }
+    })
+
+    .state('tab.questions', {
+      url: '/questions/:roomId/:moderator',
+      views: {
+        'tab-questions': {
+          templateUrl: 'app/modules/questions/tab-questions.html',
+          controller: 'QuestionsController',
+          controllerAs: 'questionsCtrl'
+        }
+      }
+    })
+
     .state('tab.settings', {
-      url: '/settings',
+      url: '/settings/:roomId/:moderator',
       views: {
         'tab-settings': {
           templateUrl: 'app/modules/settings/tab-settings.html',
           controller: 'SettingsController',
           controllerAs: 'settingsCtrl'
+        }
+      }
+    })
+
+    .state('tab.profile', {
+      url: '/profile',
+      views: {
+        'tab-profile': {
+          templateUrl: 'app/modules/profile/tab-profile.html',
+          controller: 'ProfileController',
+          controllerAs: 'profileCtrl'
         }
       }
     })
