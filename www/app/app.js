@@ -133,6 +133,13 @@ var app = angular.module('starter', [
       controllerAs: 'registerCtrl'
     })
 
+    .state('tos', {
+      url: '/tos',
+      templateUrl: 'app/modules/tos/tos.html',
+      controller: 'TosController',
+      controllerAs: 'tosCtrl'
+    })
+
     .state('hall', {
       url: '/hall',
       templateUrl: 'app/modules/hall/hall.html',

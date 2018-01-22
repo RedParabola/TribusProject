@@ -2,12 +2,13 @@ angular
 .module('starter.controllers')
 .controller('RegisterController', registerController);
 
-registerController.$inject = ['$rootScope', '$log', 'UserService', '$timeout'];
-function registerController($rootScope, $log, UserService, $timeout) {
+registerController.$inject = ['$rootScope', '$log', 'UserService', '$timeout', '$ionicHistory', '$state'];
+function registerController($rootScope, $log, UserService, $timeout, $ionicHistory, $state) {
 
   var vm = this;
   vm.validateField = _validateField;
-  vm.doRegister = _doRegister;    
+  vm.doRegister = _doRegister;
+  vm.goToTermsOfService = _goToTermsOfService;
   
   initialize();
 
@@ -32,4 +33,12 @@ function registerController($rootScope, $log, UserService, $timeout) {
       
     },  100);
   }
+
+  function _goToTermsOfService(){
+    $ionicHistory.nextViewOptions({
+      disableBack : false
+    });
+    $state.go('tos', {});    
+  }
+
 }
