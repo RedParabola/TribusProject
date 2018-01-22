@@ -496,17 +496,20 @@ function roomService($q, RoomResource, ROOM_ENDP) {
 
   function getFakeInfo () {
     var deferred = $q.defer();
-    var roomInfo= {
-      id: 12345,
+
+
+    
+    var roomInfo=      {
+      id: 01234,
       master: 'Pepe',
-      private: true,
+      private: false,
       accepted: 60,
       invited: 105,
-      category: 'SOCIETY',
-      topic: 'Is piracy a solution?',
+      category: 'ECONOMICS',
+      topic: 'Consequences of globalization on underdeveloped countries',
       description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
-      status: 'DEBATING',
-      joined: 45,
+      status: 'NOT_STARTED',
+      joined: 50,
       actors: [
         {
           name:'SGAE',

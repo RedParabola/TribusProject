@@ -389,7 +389,14 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   }
 
   function _goNextSlide(){
-    vm.sliderItem.slideTo(vm.sliderItem.activeIndex + 1);
+    if(vm.sliderItem.activeIndex === 3){
+      $ionicHistory.nextViewOptions({
+        disableBack : true
+      });
+      $state.go('tab.dash', {roomId: 'a0b1c2d3e4f5f6789', moderator: true});    
+    } else {
+      vm.sliderItem.slideTo(vm.sliderItem.activeIndex + 1);
+    }
   }
 
   function checkSlidesRequirements(){

@@ -36,7 +36,7 @@ var app = angular.module('starter', [
     });
   })
 
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
@@ -65,9 +65,13 @@ var app = angular.module('starter', [
     })
 
     .state('tab.dash', {
-      url: '/dash',
+      url: '/dash/:roomId/:moderator',
       views: {
         'tab-dash': {
+          params: [
+            'roomId',
+            'moderator'
+          ],
           templateUrl: 'app/modules/dashboard/tab-dash.html',
           controller: 'DashController',
           controllerAs: 'dashCtrl'
@@ -123,5 +127,6 @@ var app = angular.module('starter', [
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
 
   })

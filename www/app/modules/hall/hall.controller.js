@@ -73,7 +73,7 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
     $ionicHistory.nextViewOptions({
       disableBack : true
     });
-    $state.go('tab.dash', {roomId: 'a0b1c2d3e4f5f6789'});    
+    $state.go('tab.dash', {roomId: 'a0b1c2d3e4f5f6789', moderator: false});    
   }
 
   function _filterSearch(){
