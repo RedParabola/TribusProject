@@ -2,26 +2,27 @@ angular
   .module('starter.controllers')
   .controller('DashController', dashController);
 
-  dashController.$inject = ['$scope', '$log', '$interval', 'RoomService'];
-  function dashController($scope, $log, $interval, RoomService) {
+  dashController.$inject = ['$scope', '$log', '$interval', 'RoomService', '$stateParams'];
+  function dashController($scope, $log, $interval, RoomService, $stateParams) {
 
     var vm = this;
     vm.voteActor = _voteActor;
+    vm.roomId = $stateParams.roomId;
+    vm.isUserModerator = $stateParams.moderator;
 
     initialize();
 
-    var roomId = 12345;
     //////////////////
 
     function initialize(){
 
       $scope.$on('$ionicView.beforeEnter',function () {
         //Initialize room
-        RoomService.getRoomInfo(roomId).then(initializeInfo);
+        RoomService.getRoomInfo(vm.roomId).then(initializeInfo);
 
         //Polling interval
         var pollingInterval = $interval(function () {
-          RoomService.getRoomStats(roomId).then(updateStatus);
+          RoomService.getRoomStats(vm.roomId).then(updateStatus);
           $log.info('Polling interval');        
         }, 3000);
 

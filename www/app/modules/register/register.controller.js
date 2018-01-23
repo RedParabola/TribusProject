@@ -24,9 +24,10 @@ function registerController($rootScope, $log, UserService, $timeout, $ionicHisto
 
   function _doRegister(){
     $timeout(function(){
-      UserService.tryRegister().then(
+      UserService.tryRegister(vm.email,vm.password).then(
         function(userInfo) {
           $log.info("Register successful");
+          $ionicGoBack();
         }, function(error) {
           $log.info("Register failed -> " + error);
       });

@@ -28,11 +28,12 @@ function userService($rootScope, $q, ShowResource) {
   function _tryRegister(userName,userPassword) {
     var deferred = $q.defer();
     if (userName == 'user@lol.com' && userPassword == 'secret') {
-      deferred.resolve({
+      $rootScope.mockUser = {
         email: userName,
         field1: 'A',
         field2: 'B'
-      });
+      };
+      deferred.resolve($rootScope.mockUser);
     } else {
       deferred.reject();
     }

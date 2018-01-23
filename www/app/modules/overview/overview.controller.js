@@ -6,7 +6,7 @@ angular
   function overviewController($scope, OverviewStatsService, TestService, $log) {
 
     var vm = this;
-    vm.test = _test;
+    //vm.test = _test;
 
     initialize();
 
@@ -17,6 +17,7 @@ angular
       vm.rooms = OverviewStatsService.getLinkedRooms();
     }
 
+    /*
     function _test(){
       TestService.getAllTVShows().then(
         function(shows){
@@ -27,5 +28,6 @@ angular
         }
       );
     }
+    */
 
   }
