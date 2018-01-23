@@ -6,32 +6,32 @@ navigation history that also transitions its views in and out.
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
   <!-- Overview Tab -->
-  <ion-tab title="Overview" icon-off="ion-ios-book-outline" icon-on="ion-ios-book" href="#/tab/overview/a0b1c2d3e4f5f6789/true"
-    ng-show="true">
+  <ion-tab title="Overview" icon-off="ion-ios-book-outline" icon-on="ion-ios-book" href="#/tab/overview/a0b1c2d3e4f5f6789"
+    hidden="{{!isUserModerator}}">
     <ion-nav-view name="tab-overview"></ion-nav-view>
   </ion-tab>
 
   <!-- Dashboard Tab -->
-  <ion-tab title="Let's vote!" icon-off="ion-ios-pie-outline" icon-on="ion-ios-pie" href="#/tab/dash/a0b1c2d3e4f5f6789/true"
-    ng-show="true">
+  <ion-tab title="Let's vote!" icon-off="ion-ios-pie-outline" icon-on="ion-ios-pie" href="#/tab/dash/a0b1c2d3e4f5f6789"
+    hidden="{{isUserModerator}}">
     <ion-nav-view name="tab-dash"></ion-nav-view>
   </ion-tab>
 
   <!-- Timers Tab -->
-  <ion-tab title="Timers" icon-off="ion-ios-stopwatch-outline" icon-on="ion-ios-stopwatch" href="#/tab/timers/a0b1c2d3e4f5f6789/true"
-    ng-show="true">
+  <ion-tab title="Timers" icon-off="ion-ios-stopwatch-outline" icon-on="ion-ios-stopwatch" href="#/tab/timers/a0b1c2d3e4f5f6789"
+    hidden="{{!isUserModerator}}">
     <ion-nav-view name="tab-timers"></ion-nav-view>
   </ion-tab>
 
   <!-- Settings Tab -->
   <!--
-  <ion-tab title="Settings" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/settings/a0b1c2d3e4f5f6789/true">
+  <ion-tab title="Settings" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/settings/a0b1c2d3e4f5f6789">
     <ion-nav-view name="tab-settings"></ion-nav-view>
   </ion-tab>
   -->
 
   <!-- Questions Tab -->
-  <ion-tab title="Questions" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/tab/questions/a0b1c2d3e4f5f6789/true">
+  <ion-tab title="Questions" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/tab/questions/a0b1c2d3e4f5f6789">
     <ion-nav-view name="tab-questions"></ion-nav-view>
   </ion-tab>
 

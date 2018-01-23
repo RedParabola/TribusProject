@@ -72,6 +72,9 @@ label.item-input input, label.input-label input{
   animation:0.3s flipInX ease; 
 }
 
+a.tab-item {
+  max-width: 100%;
+}
 a.tab-item:last-of-type {
   max-width: 50px!important;
   border-radius: 16px;

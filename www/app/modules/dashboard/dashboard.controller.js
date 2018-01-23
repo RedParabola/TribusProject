@@ -2,14 +2,13 @@ angular
   .module('starter.controllers')
   .controller('DashController', dashController);
 
-  dashController.$inject = ['$scope', '$log', '$interval', 'RoomService', '$stateParams'];
-  function dashController($scope, $log, $interval, RoomService, $stateParams) {
+  dashController.$inject = ['$rootScope', '$scope', '$log', '$interval', 'RoomService', '$stateParams'];
+  function dashController($rootScope, $scope, $log, $interval, RoomService, $stateParams) {
 
     var vm = this;
     vm.voteActor = _voteActor;
     vm.roomId = $stateParams.roomId;
-    vm.isUserModerator = $stateParams.moderator;
-
+    $scope.isUserModerator = $rootScope.user.isUserModerator;
     initialize();
 
     //////////////////

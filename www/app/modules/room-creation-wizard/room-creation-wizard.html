@@ -57,7 +57,7 @@
       <!-- 2. List of actors -->
       <ion-slide-page>
         <ion-content>
-          <div class="row padding-vert-no">
+          <div class="row padding-vert-no" style="margin-top: 2px;">
             <div class="col col-50 padding-vert-no">
               <h3 class="padding float-left">List of actors</h3>
             </div>
@@ -73,7 +73,7 @@
           </div>
 
           <div class="card list margin-vert-92">
-            <div class="item item-button-right no-padding"
+            <div class="item item-button-right"
                  ng-repeat="actor in roomCreationWizardCtrl.actors track by $index">
               <div ng-click="roomCreationWizardCtrl.editActor(actor)">                
                 <p style="font-size: 20px;">{{ actor.name | limitTo: 20 }}{{actor.name.length > 20 ? '...' : ''}}</p>
@@ -91,7 +91,7 @@
       <!-- 3. Debate phases -->
       <ion-slide-page>
         <ion-content>
-          <div class="row padding-vert-no">
+          <div class="row padding-vert-no" style="margin-top: 2px;">
             <div class="col col-50 padding-vert-no">
               <h3 class="padding float-left">Debate phases</h3>
             </div>
@@ -99,7 +99,7 @@
               <h3 class="padding float-right">{{roomCreationWizardCtrl.totalHours}}h{{roomCreationWizardCtrl.totalMinutes}}</h3>
             </div>
             <div class="col col-20 padding-vert-no">
-              <div class="float-left no-padding">
+              <div class="float-left">
                 <button class="button button-light"
                         ng-click="roomCreationWizardCtrl.resetPhases()">
                   <i class="icon ion-ios-refresh"></i>

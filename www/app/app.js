@@ -54,7 +54,7 @@ var app = angular.module('starter', [
     // Each tab has its own nav history stack:
 
     .state('tab.overview', {
-      url: '/overview/:roomId/:moderator',
+      url: '/overview/:roomId',
       views: {
         'tab-overview': {
           templateUrl: 'app/modules/overview/tab-overview.html',
@@ -65,7 +65,7 @@ var app = angular.module('starter', [
     })
 
     .state('tab.dash', {
-      url: '/dash/:roomId/:moderator',
+      url: '/dash/:roomId',
       views: {
         'tab-dash': {
           templateUrl: 'app/modules/dashboard/tab-dash.html',
@@ -76,7 +76,7 @@ var app = angular.module('starter', [
     })
 
     .state('tab.timers', {
-      url: '/timers/:roomId/:moderator',
+      url: '/timers/:roomId',
       views: {
         'tab-timers': {
           templateUrl: 'app/modules/timers/tab-timers.html',
@@ -87,7 +87,7 @@ var app = angular.module('starter', [
     })
 
     .state('tab.questions', {
-      url: '/questions/:roomId/:moderator',
+      url: '/questions/:roomId',
       views: {
         'tab-questions': {
           templateUrl: 'app/modules/questions/tab-questions.html',
@@ -98,7 +98,7 @@ var app = angular.module('starter', [
     })
 
     .state('tab.settings', {
-      url: '/settings/:roomId/:moderator',
+      url: '/settings/:roomId',
       views: {
         'tab-settings': {
           templateUrl: 'app/modules/settings/tab-settings.html',
