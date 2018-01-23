@@ -16,8 +16,8 @@ function userService($rootScope, $q, ShowResource) {
         (tempCredentials.email === '0' && tempCredentials.password === '0')) {
       deferred.resolve({
         email: userEmail,
-        field1: 'Campo 1',
-        field2: 'Campo 2'
+        isUserAnonymous: true,
+        isUserModerator: undefined
       });
     } else {
       deferred.reject();
@@ -33,7 +33,7 @@ function userService($rootScope, $q, ShowResource) {
         field1: 'A',
         field2: 'B'
       };
-      deferred.resolve($rootScope.mockUser);
+      deferred.resolve();
     } else {
       deferred.reject();
     }

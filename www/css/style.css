@@ -594,4 +594,39 @@ a.tab-item.tab-item-active:last-of-type {
 
 .item-checkbox.item-checkbox-right.item-icon-left { 
   padding-left:60px;
-}	  
+}
+
+/*************/
+/** Profile **/
+/*************/
+
+#profile-info {
+  width: 100%;
+  z-index: 2;
+  text-align: center;
+}
+#profile-name {
+  color: #444;
+  font-size: 26px;
+}
+#profile-image {
+  display: block;
+  border-radius: 100px;
+  border: 1px solid #fff;
+  width: 128px;
+  height: 128px;
+  margin: 30px auto 0;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+}
+
+#room-settings{
+  position: fixed;
+  width: 70%;
+  margin-left: 15%;
+  bottom: 50px;
+}
+
+#room-settings .item{
+  background: #ef9a9a;
+  text-align: center;
+}

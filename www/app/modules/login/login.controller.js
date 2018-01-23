@@ -41,6 +41,8 @@ function loginController($rootScope, $log, UserService, $timeout, $ionicHistory,
   function setupUserInfoAccount(userInfo){
     $log.info("Login successful. User profile -> " + userInfo);
     //Should setup user info account
+    //Mock global user setup
+    $rootScope.user = userInfo;
   }
 
   function _goToRegister(){

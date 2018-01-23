@@ -25,14 +25,17 @@ function registerController($rootScope, $log, UserService, $timeout, $ionicHisto
   function _doRegister(){
     $timeout(function(){
       UserService.tryRegister(vm.email,vm.password).then(
-        function(userInfo) {
+        function() {
           $log.info("Register successful");
-          $ionicGoBack();
+          $ionicHistory.nextViewOptions({
+            disableBack : true,
+            historyRoot: true
+          });
+          $state.go('login', {});  
         }, function(error) {
           $log.info("Register failed -> " + error);
       });
-      
-    },  100);
+    },  200);
   }
 
   function _goToTermsOfService(){

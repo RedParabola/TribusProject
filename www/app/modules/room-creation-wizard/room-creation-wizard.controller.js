@@ -394,7 +394,8 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
         disableBack: true,
         historyRoot: true
       });
-      $state.go('tab.dash', {roomId: 'a0b1c2d3e4f5f6789', moderator: true});    
+      $rootScope.user.isUserModerator = true;
+      $state.go('tab.overview', {roomId: 'a0b1c2d3e4f5f6789'});    
     } else {
       vm.sliderItem.slideTo(vm.sliderItem.activeIndex + 1);
     }

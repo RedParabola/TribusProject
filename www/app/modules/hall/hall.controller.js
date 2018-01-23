@@ -72,9 +72,11 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
 
   function joinRoom(){
     $ionicHistory.nextViewOptions({
-      disableBack : true
+      disableBack : true,
+      historyRoot: true
     });
-    $state.go('tab.dash', {roomId: 'a0b1c2d3e4f5f6789', moderator: false});    
+    $rootScope.user.isUserModerator = false;
+    $state.go('tab.dash', {roomId: 'a0b1c2d3e4f5f6789'});    
   }
 
   function _filterSearch(){
