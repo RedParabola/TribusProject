@@ -75,12 +75,12 @@ label.item-input input, label.input-label input{
 a.tab-item {
   max-width: 100%;
 }
-a.tab-item:last-of-type {
+a.tab-item:first-of-type {
   max-width: 50px!important;
   border-radius: 16px;
   background-color: #DDD;
 }
-a.tab-item.tab-item-active:last-of-type {
+a.tab-item.tab-item-active:first-of-type {
   max-width: 50px!important;
   border-radius: 4px;
   background-color: #555!important;
@@ -629,4 +629,13 @@ a.tab-item.tab-item-active:last-of-type {
 #room-settings .item{
   background: #ef9a9a;
   text-align: center;
+}
+
+/**************/
+/** Overview **/
+/**************/
+
+#qrcode{
+  height: 200px;
+  width: 200px;
 }

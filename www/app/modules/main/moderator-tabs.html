@@ -1,0 +1,23 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+  <!-- Overview Tab -->
+  <ion-tab title="Overview" icon-off="ion-ios-book-outline" icon-on="ion-ios-book" href="#/moderator/overview/a0b1c2d3e4f5f6789">
+    <ion-nav-view name="tab-overview"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Timers Tab -->
+  <ion-tab title="Timers" icon-off="ion-ios-stopwatch-outline" icon-on="ion-ios-stopwatch" href="#/moderator/timers/a0b1c2d3e4f5f6789">
+    <ion-nav-view name="tab-timers"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Questions Manager Tab -->
+  <ion-tab title="Q&A" icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/moderator/questions-manager/a0b1c2d3e4f5f6789">
+    <ion-nav-view name="tab-questions-manager"></ion-nav-view>
+  </ion-tab>
+
+</ion-tabs>

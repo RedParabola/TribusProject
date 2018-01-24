@@ -22,12 +22,10 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   vm.tapPhase = _tapPhase;
 
   vm.showTimer = _showTimer;
-  vm.makeCode = _makeCode;
 
   vm.goPrevSlide = _goPrevSlide;
   vm.goNextSlide = _goNextSlide;
 
-  var textToEncode = 'OMG! Tits';
 
   $scope.$watch('roomCreationWizardCtrl.actors.length',chainOverviewActors);
 
@@ -315,19 +313,6 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   /*** 4. Overview ***/
   /*-----------------*/
 
-  function _makeCode(){
-    var elemCode = document.getElementById('qrcode');
-    var qrcode = new QRCode(elemCode, {
-      width: 128,
-      height: 128,
-      colorDark : '#000000',
-      colorLight : '#ffffff',
-      correctLevel : QRCode.CorrectLevel.H
-    });
-    qrcode.clear();
-    qrcode.makeCode(textToEncode);
-  }
-
   function prepareOverview(){
 
   }
@@ -395,7 +380,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
         historyRoot: true
       });
       $rootScope.user.isUserModerator = true;
-      $state.go('tab.overview', {roomId: 'a0b1c2d3e4f5f6789'});    
+      $state.go('moderator.overview', {roomId: 'a0b1c2d3e4f5f6789'});    
     } else {
       vm.sliderItem.slideTo(vm.sliderItem.activeIndex + 1);
     }

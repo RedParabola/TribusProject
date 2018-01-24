@@ -2,19 +2,33 @@ angular
   .module('starter.controllers')
   .controller('OverviewController', overviewController);
 
-  overviewController.$inject = ['$scope', 'OverviewStatsService', 'TestService', '$log'];
-  function overviewController($scope, OverviewStatsService, TestService, $log) {
+  overviewController.$inject = ['$rootScope', '$scope', 'OverviewStatsService', '$log', '$stateParams'];
+  function overviewController($rootScope, $scope, OverviewStatsService, $log, $stateParams) {
 
     var vm = this;
-    //vm.test = _test;
+    $scope.isUserModerator = $rootScope.user.isUserModerator;
+    vm.roomId = $stateParams.roomId;
 
     initialize();
 
     //////////////////
 
     function initialize(){
-      vm.title = 'Generic title';
-      vm.rooms = OverviewStatsService.getLinkedRooms();
+      makeCode();
+      //vm.rooms = OverviewStatsService.getLinkedRooms();
+    }
+
+    function makeCode(){
+      var elemCode = document.getElementById('qrcode');
+      var qrcode = new QRCode(elemCode, {
+        width: 128,
+        height: 128,
+        colorDark : '#000000',
+        colorLight : '#ffffff',
+        correctLevel : QRCode.CorrectLevel.H
+      });
+      qrcode.clear();
+      qrcode.makeCode(vm.roomId);
     }
 
     /*

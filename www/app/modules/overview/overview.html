@@ -1,0 +1,16 @@
+<ion-view hide-nav-bar="true">
+  <ion-content class="padding">
+    <h2>{{overviewCtrl.title}}</h2>
+
+    <div class="card">
+      <div class="item item-icon-right">
+        <h3>Room QR</h3>
+        <i class="icon ion-qr-scanner" name="qr"></i>
+      </div>
+      <div class="item item-icon-left" ng-click="overviewCtrl.makeCode()">
+        <p>Generate Room QR</p>
+        <div id="qrcode"></div> 
+      </div>
+    
+  </ion-content>
+</ion-view>

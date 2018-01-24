@@ -45,76 +45,82 @@ var app = angular.module('starter', [
     $stateProvider
 
     // setup an abstract state for the tabs directive
-    .state('tab', {
-      url: '/tab',
+    .state('moderator', {
+      url: '/moderator',
       abstract: true,
-      templateUrl: 'app/modules/main/tabs.html'
+      templateUrl: 'app/modules/main/moderator-tabs.html'
     })
 
     // Each tab has its own nav history stack:
 
-    .state('tab.overview', {
+    .state('moderator.overview', {
       url: '/overview/:roomId',
       views: {
         'tab-overview': {
-          templateUrl: 'app/modules/overview/tab-overview.html',
+          templateUrl: 'app/modules/overview/overview.html',
           controller: 'OverviewController',
           controllerAs: 'overviewCtrl'
         }
       }
     })
 
-    .state('tab.dash', {
-      url: '/dash/:roomId',
-      views: {
-        'tab-dash': {
-          templateUrl: 'app/modules/dashboard/tab-dash.html',
-          controller: 'DashController',
-          controllerAs: 'dashCtrl'
-        }
-      }
-    })
-
-    .state('tab.timers', {
+    .state('moderator.timers', {
       url: '/timers/:roomId',
       views: {
         'tab-timers': {
-          templateUrl: 'app/modules/timers/tab-timers.html',
+          templateUrl: 'app/modules/timers/timers.html',
           controller: 'TimersController',
           controllerAs: 'timersCtrl'
         }
       }
     })
 
-    .state('tab.questions', {
-      url: '/questions/:roomId',
+    .state('moderator.questions-manager', {
+      url: '/questions-manager/:roomId',
       views: {
-        'tab-questions': {
-          templateUrl: 'app/modules/questions/tab-questions.html',
+        'tab-questions-manager': {
+          templateUrl: 'app/modules/questions/questions-manager.html',
           controller: 'QuestionsController',
           controllerAs: 'questionsCtrl'
         }
       }
     })
 
-    .state('tab.settings', {
-      url: '/settings/:roomId',
+    .state('spectator', {
+      url: '/spectator',
+      abstract: true,
+      templateUrl: 'app/modules/main/spectator-tabs.html'
+    })
+
+    .state('spectator.profile', {
+      url: '/profile',
       views: {
-        'tab-settings': {
-          templateUrl: 'app/modules/settings/tab-settings.html',
-          controller: 'SettingsController',
-          controllerAs: 'settingsCtrl'
+        'tab-profile': {
+          templateUrl: 'app/modules/profile/profile.html',
+          controller: 'ProfileController',
+          controllerAs: 'profileCtrl'
         }
       }
     })
 
-    .state('tab.profile', {
-      url: '/profile',
+    .state('spectator.dash', {
+      url: '/dash/:roomId',
       views: {
-        'tab-profile': {
-          templateUrl: 'app/modules/profile/tab-profile.html',
-          controller: 'ProfileController',
-          controllerAs: 'profileCtrl'
+        'tab-dash': {
+          templateUrl: 'app/modules/dashboard/dash.html',
+          controller: 'DashController',
+          controllerAs: 'dashCtrl'
+        }
+      }
+    })
+
+    .state('spectator.questions', {
+      url: '/questions/:roomId',
+      views: {
+        'tab-questions': {
+          templateUrl: 'app/modules/questions/questions.html',
+          controller: 'QuestionsController',
+          controllerAs: 'questionsCtrl'
         }
       }
     })

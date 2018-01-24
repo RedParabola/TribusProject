@@ -76,7 +76,7 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
       historyRoot: true
     });
     $rootScope.user.isUserModerator = false;
-    $state.go('tab.dash', {roomId: 'a0b1c2d3e4f5f6789'});    
+    $state.go('spectator.dash', {roomId: 'a0b1c2d3e4f5f6789'});    
   }
 
   function _filterSearch(){
