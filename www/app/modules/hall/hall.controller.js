@@ -13,7 +13,8 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
   vm.toggleRoomDetails = _toggleRoomDetails;
   vm.closeDetails = closeDetails;
   vm.popupKeycodeInput = _popupKeycodeInput;
-  
+  vm.goToProfile = _goToProfile;
+
   initialize();
 
   //////////////////
@@ -39,6 +40,13 @@ function hallController($rootScope, $scope, $log, $state, $ionicHistory, $cordov
       }, function(error){
         $log.info('Could not retrieve the list of rooms');
     });
+  }
+
+  function _goToProfile(){
+    $ionicHistory.nextViewOptions({
+      disableBack : false
+    });
+    $state.go('hall.profile');
   }
 
   function _scanBarCode(){

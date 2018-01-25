@@ -44,6 +44,48 @@ var app = angular.module('starter', [
     // Each state's controller can be found in controllers.js
     $stateProvider
 
+    .state('login', {
+      url: '/login',
+      templateUrl: 'app/modules/login/login.html',
+      controller: 'LoginController',
+      controllerAs: 'loginCtrl'
+    })
+
+    .state('register', {
+      url: '/register',
+      templateUrl: 'app/modules/register/register.html',
+      controller: 'RegisterController',
+      controllerAs: 'registerCtrl'
+    })
+
+    .state('tos', {
+      url: '/tos',
+      templateUrl: 'app/modules/tos/tos.html',
+      controller: 'TosController',
+      controllerAs: 'tosCtrl'
+    })
+
+    .state('hall', {
+      url: '/hall',
+      templateUrl: 'app/modules/hall/hall.html',
+      controller: 'HallController',
+      controllerAs: 'hallCtrl'
+    })
+
+    .state('hall.profile', {
+      url: '/hall-profile',
+      templateUrl: 'app/modules/profile/hall-profile.html',
+      controller: 'ProfileController',
+      controllerAs: 'profileCtrl'
+    })
+
+    .state('room-creation-wizard', {
+      url: '/room-creation-wizard',
+      templateUrl: 'app/modules/room-creation-wizard/room-creation-wizard.html',
+      controller: 'RoomCreationWizardController',
+      controllerAs: 'roomCreationWizardCtrl'
+    })
+
     // setup an abstract state for the tabs directive
     .state('moderator', {
       url: '/moderator',
@@ -123,41 +165,6 @@ var app = angular.module('starter', [
           controllerAs: 'questionsCtrl'
         }
       }
-    })
-
-    .state('login', {
-      url: '/login',
-      templateUrl: 'app/modules/login/login.html',
-      controller: 'LoginController',
-      controllerAs: 'loginCtrl'
-    })
-
-    .state('register', {
-      url: '/register',
-      templateUrl: 'app/modules/register/register.html',
-      controller: 'RegisterController',
-      controllerAs: 'registerCtrl'
-    })
-
-    .state('tos', {
-      url: '/tos',
-      templateUrl: 'app/modules/tos/tos.html',
-      controller: 'TosController',
-      controllerAs: 'tosCtrl'
-    })
-
-    .state('hall', {
-      url: '/hall',
-      templateUrl: 'app/modules/hall/hall.html',
-      controller: 'HallController',
-      controllerAs: 'hallCtrl'
-    })
-
-    .state('room-creation-wizard', {
-      url: '/room-creation-wizard',
-      templateUrl: 'app/modules/room-creation-wizard/room-creation-wizard.html',
-      controller: 'RoomCreationWizardController',
-      controllerAs: 'roomCreationWizardCtrl'
     })
     
     .state('test-state', {
