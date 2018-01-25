@@ -9,7 +9,8 @@ function popupService($ionicPopup) {
     getPhasePopup: _getPhasePopup,
     getPasswordPopup: _getPasswordPopup,
     getConfirmPopup: _getConfirmPopup,
-    getAlertPopup: _getAlertPopup
+    getAlertPopup: _getAlertPopup,
+    getQRPopup: _getQRPopup
   };
 
   function _getAddActorPopup(scope,actorNgModel,mottoNgModel,title,sentence) {
@@ -90,21 +91,37 @@ function popupService($ionicPopup) {
   }
 
   function _getAlertPopup(title,sentence){
-    var alertPopup = $ionicPopup.alert({
+    var popup = $ionicPopup.alert({
       title: title,
       template: sentence
     });
-    return alertPopup;
+    return popup;
   }
 
   function _getConfirmPopup(title,sentence,customCancel,customOk){
-    var confirmPopup = $ionicPopup.confirm({
+    var popup = $ionicPopup.confirm({
       title: title,
       template: sentence,
       cancelText: customCancel,
       okText: customOk
     });
-    return confirmPopup;
+    return popup;
   }
 
+  function _getQRPopup(scope,title) {
+    var popup = $ionicPopup.show({
+      template: '<div id="bigqr" class="big-qrcode"></div>',
+      title: title,
+      cssClass: 'QRpopup',
+      scope: scope,
+      buttons: [
+        {
+          text: '<b>Close expanded view</b>',
+          type: 'button-positive',
+        }
+      ]
+    });
+    return popup;
+  }
+  
 }

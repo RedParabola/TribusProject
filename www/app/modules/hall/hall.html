@@ -1,34 +1,59 @@
-<ion-view view-title="Hall" name="hall-view">
+<ion-view view-title="Hall" name="hall-view" hide-nav-bar="true">
   <ion-content>
 
       <ion-slides options="hallCtrl.sliderOptions" slider="hallCtrl.sliderItem">
         
         <!-- 1. Basic Join/Create -->
         <ion-slide-page>
-          <ion-content class="padding">
-            <div class="list">
-                
-              <div class="card">
-                <div class="item item-icon-left" ng-click="hallCtrl.scanBarCode()">
-                  <i class="icon ion-qr-scanner" name="qr"></i>
-                  <p>Scan the QR Code & join the room</p>
+          <ion-content class="padding" scroll="false">
+
+            <div class="row padding-vert-no" style="margin-top: 2px;">
+              <div class="col col-10 padding-vert-no">
+              </div>
+              <div class="col col-70 padding-vert-no">
+                <h1 class="padding text-center" style="font-size: 50px;">QUORUM</h1>
+              </div>
+              <div class="col col-10 padding-vert-no">
+                <div class="float-right margin-vert-92">
+                  <button class="button button-profile no-padding"
+                          ng-click="hallCtrl.addNewActor()">
+                    <i class="icon ion-ios-person" style="font-size: 30px;"></i>
+                  </button>
                 </div>
               </div>
-              <div class="card">
-                <div class="item item-icon-left" ng-click="hallCtrl.goToRoomList()">
-                  <i class="icon ion-qr-scanner" name="qr"></i>
-                  <h2>Browse a room</h2>
-                  <p>in the room list</p>
-                </div>
-              </div>
-              <div class="card">
-                <div class="item item-icon-left" ng-click="hallCtrl.createNewRoom()">
-                  <i class="icon ion-qr-scanner" name="qr"></i>
-                  <p>Create new room</p>
-                </div>
-              </div>
-        
             </div>
+
+            <div class="row">
+              <div class="button-round bigger-button text-center" ng-click="hallCtrl.scanBarCode()">
+                <div class="buttonContainer">
+                  <h3>QR Code scanner</h3>
+                  <i class="icon ion-qr-scanner" style="font-size: 50px;"></i>
+                  <h3 class="margin-vert-92">Join</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row no-padding">
+              <div class="col no-padding">
+                <div class="float-right" ng-click="hallCtrl.goToRoomList()">
+                  <div class="right-drag item item-icon-right">
+                    <i class="icon ion-chevron-left"></i>
+                    <h2><b>Browse</b></h2>
+                    <h3>the room list</h3>
+                    <p>Drag or click</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="button-round text-center" ng-click="hallCtrl.createNewRoom()">
+                <div class="buttonContainer">
+                  <h4 class="margin-vert-no">Room wizard</h4>
+                  <i class="icon ion-ios-compose" style="font-size: 40px;"></i>
+                  <h4 class="margin-vert-no">Create</h4>
+                </div>
+              </div>
+            </div>
+                       
           </ion-content>
         </ion-slide-page>
   

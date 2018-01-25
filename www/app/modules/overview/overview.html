@@ -1,16 +1,30 @@
 <ion-view hide-nav-bar="true">
-  <ion-content class="padding">
-    <h2>{{overviewCtrl.title}}</h2>
-
-    <div class="card">
-      <div class="item item-icon-right">
-        <h3>Room QR</h3>
-        <i class="icon ion-qr-scanner" name="qr"></i>
+  <ion-content has-header="true" scroll="false">
+    <div>
+      <div class="profile-info">
+        <img class="profile-image" src="../img/hermenegildo.jpg">
+        <h3 class="profile-name">{{overviewCtrl.userEmail}}</h3>
+        <h4 ng-click="overviewCtrl.doLogout()"><a>Logout</a></h4>
       </div>
-      <div class="item item-icon-left" ng-click="overviewCtrl.makeCode()">
-        <p>Generate Room QR</p>
-        <div id="qrcode"></div> 
+      <div class="profile-settings card">
+        <ion-toggle ng-model="overviewCtrl.isAnonymous"
+          ng-change="overviewCtrl.anonymousToggle()">
+          I want my profile to be <b>anonymous</b>
+        </ion-toggle>
       </div>
-    
+      <div class="overview-room-settings card" ng-click="overviewCtrl.expandQR()">
+        <div class="item item-icon-right">
+          <b>Room QR. Tap to expand</b>
+          <i class="icon ion-qr-scanner"></i>
+        </div>
+        <div id="smallqr" class="mini-qrcode"></div> 
+      </div>
+      <div class="overview-room-settings card">
+        <div class="item item-icon-right light-red-back" ng-click="overviewCtrl.leaveRoom()">
+          <i class="icon ion-android-exit"></i>
+          <b>Close current room</b>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

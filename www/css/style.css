@@ -2,11 +2,14 @@
 
 
 
-
 /***********************/
+/***********************/
+/*******         *******/
 /*****             *****/
 /****  Generic CSS  ****/
 /*****             *****/
+/*******         *******/
+/***********************/
 /***********************/
 
 
@@ -272,7 +275,7 @@ a.tab-item.tab-item-active:first-of-type {
   border-color: #3949AB;
 }
 .category-lifestyle {
-  background-color: #90CAF9;
+  background-color: #64B5F6;
   border-color: #1E88E5;
 }
 .category-moral {
@@ -466,12 +469,16 @@ a.tab-item.tab-item-active:first-of-type {
 }
 
 
-
 /************************/
+/************************/
+/*******          *******/
 /*****              *****/
 /****  Specific CSS  ****/
 /*****              *****/
+/*******          *******/
 /************************/
+/************************/
+
 
 .login-image {
   background-image: url('../img/login-logo.png');  
@@ -493,6 +500,49 @@ a.tab-item.tab-item-active:first-of-type {
   left: 50%;
   font-size: 4rem!important;
   transform: translate(-50%, -50%);
+}
+
+/**********************/
+/** Hall & Room-list **/
+/**********************/
+
+.button-profile {
+  display: block;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+}
+
+.button-round {
+  display: block;
+  border-radius: 100px;
+  border: 1px solid #777;
+  width: 136px;
+  height: 136px;
+  margin: 5px auto;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.8);
+  background-color: #7986CB;
+}
+
+.bigger-button{
+  width: 212px;
+  height: 212px;
+  border-radius: 120px;
+  margin: 5px auto;
+  background-color: #9CCC65;
+}
+
+.right-drag{
+  border-radius: 30px 0px 0px 30px;
+  border: 1px solid #777;
+  box-shadow: -2px 2px 4px rgba(0,0,0,0.9);
+  background-color: #C5E1A5;
+}
+
+.buttonContainer{
+  margin: 15%;
 }
 
 .fixed-search-header label{
@@ -543,6 +593,10 @@ a.tab-item.tab-item-active:first-of-type {
 .no-join-button{
   height: 150px;  
 }
+
+/**************************/
+/** Room Creation Wizard **/
+/**************************/
 
 .wizard-color-top-bar{
   position: fixed;
@@ -596,46 +650,61 @@ a.tab-item.tab-item-active:first-of-type {
   padding-left:60px;
 }
 
-/*************/
-/** Profile **/
-/*************/
+/************************/
+/** Profile & Overview **/
+/************************/
 
-#profile-info {
+.profile-info {
   width: 100%;
   z-index: 2;
   text-align: center;
 }
-#profile-name {
+.profile-name {
   color: #444;
   font-size: 26px;
 }
-#profile-image {
+.profile-image {
   display: block;
   border-radius: 100px;
   border: 1px solid #fff;
   width: 128px;
   height: 128px;
-  margin: 30px auto 0;
+  margin: 20px auto 0;
   box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
 }
 
-#room-settings{
-  position: fixed;
+.overview-room-settings{
   width: 70%;
   margin-left: 15%;
-  bottom: 50px;
 }
-
-#room-settings .item{
-  background: #ef9a9a;
+.overview-room-settings .item{
   text-align: center;
 }
+.light-red-back{
+  background: #ef9a9a;
+}
 
-/**************/
-/** Overview **/
-/**************/
+.mini-qrcode{
+  padding: 10px;
+  text-align: center;
+}
+.mini-qrcode img{
+  margin: 0px auto;
+  height: 80px;
+}
 
-#qrcode{
-  height: 200px;
-  width: 200px;
+.big-qrcode{
+  padding: 5px;
+  text-align: center;
+}
+.big-qrcode img{
+  margin: 0px auto;
+  height: 300px;
+}
+.QRpopup .popup{
+  width: 371px!important;
+  height: 444px!important;
+}
+.QRpopup .popup .popup-body{
+  height: 330px!important;
 }
