@@ -2,12 +2,13 @@ angular
   .module('starter.controllers')
   .controller('QuestionsController', questionsController);
 
-  questionsController.$inject = ['$scope'];
-  function questionsController($scope) {
+  questionsController.$inject = ['$scope', 'PopupService'];
+  function questionsController($scope, PopupService) {
 
     var vm = this;
-    vm.edit = _edit;
-    vm.markAsNotAnswered = _markAsNotAnswered;
+    vm.addQuestion = _addQuestion;
+    vm.markAsAcceptedAnswer = _markAsAcceptedAnswer;
+    vm.markAsRejectedAnswer = _markAsRejectedAnswer;
     vm.moveItem = _moveItem;
     vm.onItemDelete = _onItemDelete;
     vm.downVote = _downVote;
@@ -86,16 +87,32 @@ angular
       }
     }
 
-    function _markAsNotAnswered(question){
-
+    function _markAsAcceptedAnswer(question){
+      if(!angular.isDefined(question.acceptedAnswer) &&
+         !angular.isDefined(question.rejectedAnswer)){
+          question.acceptedAnswer = true;
+        } else {
+          question.acceptedAnswer = !question.acceptedAnswer;
+        }
     }
+
+    function _markAsRejectedAnswer(question){
+      if(!angular.isDefined(question.acceptedAnswer) &&
+         !angular.isDefined(question.rejectedAnswer)){
+          question.rejectedAnswer = true;
+        } else {
+          question.rejectedAnswer = !question.rejectedAnswer;
+        }
+    }
+
+
 
     vm.questions = [
       { id: 0,
         content: 'The underdeveloped countries governments are promoting slavery labors. What is ZARA\'s position on this?',
         upVotes: 4,
         downVotes: 3,
-        status: 'UNANSWERED',
+        status: 'ANSWERED',
         author: 'Florilda',
       },
       { id: 1,
@@ -123,7 +140,7 @@ angular
         content: 'For UNESCO. Are we losing culture diversity in favor of global markets?',
         upVotes: 9,
         downVotes: 8,
-        status: 'UNANSWERED',
+        status: 'CHOSEN',
         author: 'anonymous',
       },
       { id: 5,
@@ -144,7 +161,7 @@ angular
         content: 'For everyone. Is any of you considering globalisation\'s impact on global warming?',
         upVotes: 3,
         downVotes: 0,
-        status: 'UNANSWERED',
+        status: 'ANSWERED',
         author: 'GinTonic89',
       },
       { id: 8,
@@ -152,6 +169,13 @@ angular
         upVotes: 3,
         downVotes: 0,
         status: 'UNANSWERED',
+        author: 'anonymous',
+      },
+      { id: 8,
+        content: 'ANYBODY WANTS SOME HAPPYNESS GOT TONS OF THEM YOU WANNA GET GLOBALLY HIGH?',
+        upVotes: 1,
+        downVotes: 0,
+        status: 'BANNED',
         author: 'anonymous',
       }
     ];

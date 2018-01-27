@@ -767,3 +767,17 @@ a.tab-item.tab-item-active:first-of-type {
   color: #4CAF50;
   font-weight: 600;
 }
+
+.question-side-button{
+  width: 70px;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.badAnswered{
+  background-color: #FFA726;
+}
+
+.rightAnswered{
+  background-color: #9CCC65;
+}

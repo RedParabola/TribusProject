@@ -34,15 +34,19 @@
           </div>
           
           <ion-option-button
-            class="button-positive"
-            ng-click="questionsCtrl.share(question)">
-            Share
+            class="question-side-button rightAnswered text-center"
+            ng-disabled="question.status !== 'ANSWERED' || question.rejectedAnswer"
+            ng-click="questionsCtrl.markAsAcceptedAnswer(question)">
+              <i class="ion-android-happy"></i>
+              <i class="ion-checkmark-round"></i>
           </ion-option-button>
 
           <ion-option-button
-            class="button-info"
-            ng-click="questionsCtrl.edit(question)">
-            Edit
+            class="question-side-button badAnswered"
+            ng-disabled="question.status !== 'ANSWERED' || question.acceptedAnswer"
+            ng-click="questionsCtrl.markAsRejectedAnswer(question)">
+            <i class="ion-android-sad"></i>
+            <i class="ion-alert"></i>
           </ion-option-button>
 
         </ion-item>
