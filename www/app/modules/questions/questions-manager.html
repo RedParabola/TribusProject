@@ -1,9 +1,64 @@
 <ion-view hide-nav-bar="true">
+
+  <ion-header-bar class="bar-positive">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-minus-outline"
+        ng-click="questionsCtrl.shouldShowDelete = !questionsCtrl.shouldShowDelete; questionsCtrl.shouldShowReorder = false"></button>
+    </div>
+    <h1 class="title">Questions</h1>
+    <div class="buttons">
+      <button class="button" ng-click="questionsCtrl.shouldShowDelete = false; questionsCtrl.shouldShowReorder = !questionsCtrl.shouldShowReorder">
+        Reorder
+      </button>
+    </div>
+  </ion-header-bar>
+
+  <div class="float-button" ng-click="">
+    <span class="height-fix">
+      <div class="content">
+        <i class="ion-help"> </i>
+      </div>
+    </span>
+  </div>
+
   <ion-content>
-    <ion-list>
-      <ion-toggle  ng-model="settingsCtrl.settings.enableRandom">
-          Random distribution
-      </ion-toggle>
-    </ion-list>   
+    <div class="list">
+      
+      <ion-list show-delete="questionsCtrl.shouldShowDelete"
+                show-reorder="questionsCtrl.shouldShowReorder"
+                can-swipe="questionsCtrl.listCanSwipe">
+        <ion-item ng-repeat="item in questionsCtrl.items"
+                  class="item-thumbnail-left"
+                  item="item"
+                  href="#/item/{{item.id}}"
+                  class="item-remove-animate">
+          Item {{ item.id }}
+
+          <img ng-src="{{item.img}}">
+          <h2>{{item.title}}</h2>
+          <p>{{item.description}}</p>
+          <ion-option-button
+            class="button-positive"
+            ng-click="questionsCtrl.share(item)">
+            Share
+          </ion-option-button>
+          <ion-option-button
+            class="button-info"
+            ng-click="questionsCtrl.edit(item)">
+            Edit
+          </ion-option-button>
+          <ion-delete-button
+            class="ion-minus-circled"
+            ng-click="questionsCtrl.onItemDelete(item)">
+          </ion-delete-button>
+          <ion-reorder-button
+            class="ion-navicon"
+            on-reorder="questionsCtrl.reorderItem(item, $fromIndex, $toIndex)">
+          </ion-reorder-button>
+
+        </ion-item>
+      </ion-list>
+
+    </div>
   </ion-content>
 </ion-view>

@@ -708,3 +708,62 @@ a.tab-item.tab-item-active:first-of-type {
 .QRpopup .popup .popup-body{
   height: 330px!important;
 }
+
+/****************************/
+/** Questions & Management **/
+/****************************/
+
+.float-button {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 30px;
+  padding: 30px;
+  font-size: 40px;
+  background-color: #43A047;
+  position: fixed;
+  bottom: 66px; /* Adjust to where you want it */
+  right: 20px; /* Adjust to where you want it */
+  z-index: 9999;
+}
+
+.float-button .height_fix {
+  margin-top: 100%;
+}
+
+.float-button .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -20px; /* Note, this must be half the font size */
+  color: #222;
+}
+
+.question-item{
+
+}
+
+.question-item .item-content{
+  padding: 8px 5px 0 5px;
+  font-size: 18px;
+}
+.question-item .item-content .row{
+  margin-bottom: 3px;
+}
+
+.question-item .item-content .row .col{
+  font-size: 16px;
+}
+
+.downvoted{
+  color: #f44336;
+  font-weight: 600;
+}
+
+.upvoted{
+  color: #4CAF50;
+  font-weight: 600;
+}

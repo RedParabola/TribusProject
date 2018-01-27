@@ -1,9 +1,53 @@
 <ion-view hide-nav-bar="true">
+
+  <div class="float-button" ng-click="">
+    <span class="height-fix">
+      <div class="content">
+        <i class="ion-help"></i>
+      </div>
+    </span>
+  </div>
+
   <ion-content>
-    <ion-list>
-      <ion-toggle  ng-model="settingsCtrl.settings.enableRandom">
-          Random distribution
-      </ion-toggle>
-    </ion-list>   
+    <div class="list">
+      
+      <ion-list can-swipe="questionsCtrl.listCanSwipe">
+        <ion-item ng-repeat="question in questionsCtrl.questions"
+                  class="item-text-wrap question-item"
+                  item="question"
+                  class="item-remove-animate">
+          <div class="row">
+              {{question.content}}
+          </div>
+          <div class="row">
+            <div class="col col-25 text-center" ng-class="{'downvoted': question.downVoted}"
+                 ng-click="questionsCtrl.downVote(question)">
+              <span>{{question.downVotes}}  </span><i class="ion-thumbsdown"></i>
+            </div>
+            <div class="col col-25 text-center" ng-class="{'upvoted': question.upVoted}"
+                 ng-click="questionsCtrl.upVote(question)">
+                <span>{{question.upVotes}}  </span><i class="ion-thumbsup"></i>
+            </div>
+            <div class="col col-50 text-right" style="font-style: italic;">
+                <span>{{question.author}}</span>
+            </div>
+          </div>
+          
+          <ion-option-button
+            class="button-positive"
+            ng-click="questionsCtrl.share(question)">
+            Share
+          </ion-option-button>
+
+          <ion-option-button
+            class="button-info"
+            ng-click="questionsCtrl.edit(question)">
+            Edit
+          </ion-option-button>
+
+        </ion-item>
+      </ion-list>
+
+    </div>
   </ion-content>
 </ion-view>
