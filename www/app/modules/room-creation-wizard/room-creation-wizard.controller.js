@@ -375,15 +375,25 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
 
   function _goNextSlide(){
     if(vm.sliderItem.activeIndex === 3){
-      $ionicHistory.nextViewOptions({
-        disableBack: true,
-        historyRoot: true
-      });
-      $rootScope.user.isUserModerator = true;
-      $state.go('moderator.overview', {roomId: 'a0b1c2d3e4f5f6789'});    
+      createRoom();
     } else {
       vm.sliderItem.slideTo(vm.sliderItem.activeIndex + 1);
     }
+  }
+
+  function createRoom(){
+    $ionicHistory.nextViewOptions({
+      disableBack: true,
+      historyRoot: true
+    });
+    $rootScope.actualRoom = {
+      topic: vm.topic,
+      category: vm.selectedCategory,
+      actors: vm.actors,
+      phases: vm.debatePhases
+    };
+    $rootScope.user.isUserModerator = true;
+    $state.go('moderator.overview', {roomId: 'a0b1c2d3e4f5f6789'});
   }
 
   function checkSlidesRequirements(){

@@ -1,9 +1,59 @@
 <ion-view hide-nav-bar="true">
+
+    <div class="card fixed-search-header">
+      <div class="card timer-progress-bar margin-vert-92">
+        <div class="row">
+          <div class="col col-20"
+               ng-model="timersCtrl.debatePhases[0]">
+            <div id="actual-phase" class="item item-icon status-{{timersCtrl.debatePhases[0].phase}}" style="padding: 0px">
+              <div class="row">
+                <i class="icon {{timersCtrl.debatePhases[0].icon}} text-{{timersCtrl.debatePhases[0].needsTextColor}}"></i>
+                <span class="text-{{timersCtrl.debatePhases[0].needsTextColor}}">{{timersCtrl.debatePhases[0].duration}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col col-20"
+               ng-model="timersCtrl.debatePhases[1]">
+            <div class="item item-icon status-{{timersCtrl.debatePhases[1].phase}}" style="padding: 0px">
+              <div class="row">
+                <i class="icon {{timersCtrl.debatePhases[1].icon}} text-{{timersCtrl.debatePhases[1].needsTextColor}}"></i>
+                <span class="text-{{timersCtrl.debatePhases[1].needsTextColor}}">{{timersCtrl.debatePhases[1].duration}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col col-20"
+               ng-model="timersCtrl.debatePhases[2]">
+            <div class="item item-icon status-{{timersCtrl.debatePhases[2].phase}}" style="padding: 0px">
+              <div class="row">
+                <i class="icon {{timersCtrl.debatePhases[2].icon}} text-{{timersCtrl.debatePhases[2].needsTextColor}}"></i>
+                <span class="text-{{timersCtrl.debatePhases[2].needsTextColor}}">{{timersCtrl.debatePhases[2].duration}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col col-20"
+               ng-model="timersCtrl.debatePhases[3]">
+            <div class="item item-icon status-{{timersCtrl.debatePhases[3].phase}}" style="padding: 0px">
+              <div class="row">
+                <i class="icon {{timersCtrl.debatePhases[3].icon}} text-{{timersCtrl.debatePhases[3].needsTextColor}}"></i>
+                <span class="text-{{timersCtrl.debatePhases[3].needsTextColor}}">{{timersCtrl.debatePhases[3].duration}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col col-20"
+               ng-click="timersCtrl.nextPhase()">
+            <div class="item item-icon" style="padding: 0px">
+              <div class="row">
+                <i class="icon ion-ios-skipforward text-dark"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <ion-content>
-    <ion-list>
-      <ion-toggle  ng-model="settingsCtrl.settings.enableRandom">
-          Random distribution
-      </ion-toggle>
-    </ion-list>   
+
+    
+
   </ion-content>
 </ion-view>

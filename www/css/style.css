@@ -732,6 +732,42 @@ a.tab-item.tab-item-active:first-of-type {
   height: 330px!important;
 }
 
+
+/***********************/
+/** Timers Management **/
+/***********************/
+
+.timer-progress-bar{
+  margin: 0;
+  height: 45px;
+}
+.timer-progress-bar .row, .timer-progress-bar .row .col{
+  padding: 2px 1px;
+}
+#actual-phase{
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes parpadeo {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+@-webkit-keyframes parpadeo {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+}
+
+
 /****************************/
 /** Questions & Management **/
 /****************************/

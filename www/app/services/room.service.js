@@ -107,6 +107,33 @@ function roomService($q, RoomResource, ROOM_ENDP) {
             name:'CANAL+',
             motto: 'Brief sentence about the actor.'
           },
+        ],
+        phases: [
+          {
+            id: 0,
+            phase: 'OPENING',
+            duration: 5,
+          },
+          {
+            id: 1,
+            phase: 'DEBATING',
+            duration: 10,
+          },
+          {
+            id: 2,
+            phase: 'VOTING',
+            duration: 2,
+          },
+          {
+            id: 0,
+            phase: 'CLOSURE',
+            duration: 5,
+          },
+          {
+            id: 0,
+            phase: 'QUESTIONS',
+            duration: 5,
+          }
         ]
       },
       {

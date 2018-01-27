@@ -23,7 +23,7 @@ angular
         var pollingInterval = $interval(function () {
           RoomService.getRoomStats(vm.roomId).then(updateStatus);
           $log.info('Polling interval');        
-        }, 3000);
+        }, 6000);
 
         $scope.$on('$ionicView.beforeLeave',function () {
           $interval.cancel(pollingInterval);
