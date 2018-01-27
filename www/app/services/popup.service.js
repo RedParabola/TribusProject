@@ -10,7 +10,8 @@ function popupService($ionicPopup) {
     getPasswordPopup: _getPasswordPopup,
     getConfirmPopup: _getConfirmPopup,
     getAlertPopup: _getAlertPopup,
-    getQRPopup: _getQRPopup
+    getQRPopup: _getQRPopup,
+    getAddQuestionPopup: _getAddQuestionPopup,
   };
 
   function _getAddActorPopup(scope,actorNgModel,mottoNgModel,title,sentence) {
@@ -123,5 +124,26 @@ function popupService($ionicPopup) {
     });
     return popup;
   }
-  
+
+  function _getAddQuestionPopup(scope,questionNgModel,title,sentence) {
+    var popup = $ionicPopup.show({
+      template: '<label class="item item-input"><textarea rows="4" type="text" placeholder="Your question goes here" ng-model="'.concat(questionNgModel,'"></textarea></label>'),
+      title: title,
+      subTitle: sentence,
+      scope: scope,
+      buttons: [
+        {
+          text: 'Discard',
+          onTap: function(e){ return false; }
+        },
+        {
+          text: '<b>Add question</b>',
+          type: 'button-positive',
+          onTap: function(e){ return true; }          
+        }
+      ]
+    });
+    return popup;
+  }
+
 }

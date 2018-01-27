@@ -468,6 +468,29 @@ a.tab-item.tab-item-active:first-of-type {
   border-color: #757575;
 }
 
+.text-Unanswered {
+  color: #00796B!important;
+}
+.text-Chosen {
+  color: #303F9F!important;
+  font-weight: 700;
+}
+.text-Banned {
+  color: #d32f2f!important;
+  font-weight: 300;
+}
+.text-Answered {
+  color: #AFB42B!important;
+}
+.text-rejected {
+  color: #F57C00!important;
+  font-weight: 600;
+}
+.text-accepted {
+  color: #689F38!important;
+  font-weight: 600;
+}
+
 
 /************************/
 /************************/
@@ -747,7 +770,7 @@ a.tab-item.tab-item-active:first-of-type {
 }
 
 .question-item .item-content{
-  padding: 8px 5px 0 5px;
+  padding: 8px 5px 1px 5px;
   font-size: 18px;
 }
 .question-item .item-content .row{
@@ -768,16 +791,31 @@ a.tab-item.tab-item-active:first-of-type {
   font-weight: 600;
 }
 
+.swipe-disabled div.item-content {
+  -webkit-transition: none !important;
+  -webkit-transform: none !important;
+  transform: none !important;
+}
+
 .question-side-button{
   width: 70px;
+  padding-left: 17px;
+  padding-right: 17px;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .badAnswered{
   background-color: #FFA726;
 }
-
+.badAnswered-selected{
+  background-color: #e5e5e5!important;
+  color: #F57C00!important;
+}
 .rightAnswered{
   background-color: #9CCC65;
+}
+.rightAnswered-selected{
+  background-color: #e5e5e5!important;
+  color: #689F38!important;
 }
