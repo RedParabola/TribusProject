@@ -2,8 +2,8 @@ angular
   .module('starter.controllers')
   .controller('QuestionsController', questionsController);
 
-  questionsController.$inject = ['$scope', 'PopupService', 'QuestionsService', 'QuestionConstants'];
-  function questionsController($scope, PopupService, QuestionsService, QuestionConstants) {
+  questionsController.$inject = ['$rootScope', '$scope', 'PopupService', 'QuestionsService', 'QuestionConstants'];
+  function questionsController($rootScope, $scope, PopupService, QuestionsService, QuestionConstants) {
 
     var vm = this;
     vm.addQuestion = _addQuestion;
@@ -19,7 +19,7 @@ angular
     //////////////////
 
     function initialize(){
-      vm. questionConstants = QuestionConstants;
+      vm.questionConstants = QuestionConstants;
       QuestionsService.getQuestions().then(
         function(questions){
           vm.questions = questions;

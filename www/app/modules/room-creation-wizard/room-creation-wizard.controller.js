@@ -55,15 +55,35 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
 
     vm.actors = [
       {
-        name:'SGAE',
+        name:'SGAE1',
         motto: 'Brief sentence.'
       },
       {
-        name:'NSA',
+        name:'NSA2',
         motto: 'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM'
       },
       {
-        name:'NETFLIX',
+        name:'NETFLIX3',
+        motto: 'Brief sentence about the actor. A bit longer.'
+      },
+      {
+        name:'SGAE4',
+        motto: 'Brief sentence.'
+      },
+      {
+        name:'NSA5',
+        motto: 'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM'
+      },
+      {
+        name:'NETFLIX6',
+        motto: 'Brief sentence about the actor. A bit longer.'
+      },
+      {
+        name:'NSA7',
+        motto: 'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM'
+      },
+      {
+        name:'NETFLIX8',
         motto: 'Brief sentence about the actor. A bit longer.'
       }
     ];

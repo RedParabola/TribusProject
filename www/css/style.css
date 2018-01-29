@@ -491,6 +491,9 @@ a.tab-item.tab-item-active:first-of-type {
   font-weight: 600;
 }
 
+.ion-ios-pulse-strong:before {
+  content: url('../img/hammer.ico') !important;
+} 
 
 /************************/
 /************************/
