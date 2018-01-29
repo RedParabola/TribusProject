@@ -1,59 +1,120 @@
 <ion-view hide-nav-bar="true">
 
-    <div class="card fixed-search-header">
-      <div class="card timer-progress-bar margin-vert-92">
-        <div class="row">
-          <div class="col col-20"
-               ng-model="timersCtrl.debatePhases[0]">
-            <div id="actual-phase" class="item item-icon status-{{timersCtrl.debatePhases[0].phase}}" style="padding: 0px">
-              <div class="row">
-                <i class="icon {{timersCtrl.debatePhases[0].icon}} text-{{timersCtrl.debatePhases[0].needsTextColor}}"></i>
-                <span class="text-{{timersCtrl.debatePhases[0].needsTextColor}}">{{timersCtrl.debatePhases[0].duration}}</span>
-              </div>
+  <div class="card fixed-search-header">
+    <div class="card timer-progress-bar margin-vert-92">
+      <div class="row">
+        <div class="col col-20"
+              ng-model="timersCtrl.debatePhases[0]">
+          <div id="actual-phase" class="item item-icon status-{{timersCtrl.debatePhases[0].phase}}" style="padding: 0px">
+            <div class="row">
+              <i class="icon {{timersCtrl.debatePhases[0].icon}} text-{{timersCtrl.debatePhases[0].needsTextColor}}"></i>
+              <span class="text-{{timersCtrl.debatePhases[0].needsTextColor}}">{{timersCtrl.debatePhases[0].duration}}</span>
             </div>
           </div>
-          <div class="col col-20"
-               ng-model="timersCtrl.debatePhases[1]">
-            <div class="item item-icon status-{{timersCtrl.debatePhases[1].phase}}" style="padding: 0px">
-              <div class="row">
-                <i class="icon {{timersCtrl.debatePhases[1].icon}} text-{{timersCtrl.debatePhases[1].needsTextColor}}"></i>
-                <span class="text-{{timersCtrl.debatePhases[1].needsTextColor}}">{{timersCtrl.debatePhases[1].duration}}</span>
-              </div>
+        </div>
+        <div class="col col-20"
+              ng-model="timersCtrl.debatePhases[1]">
+          <div class="item item-icon status-{{timersCtrl.debatePhases[1].phase}}" style="padding: 0px">
+            <div class="row">
+              <i class="icon {{timersCtrl.debatePhases[1].icon}} text-{{timersCtrl.debatePhases[1].needsTextColor}}"></i>
+              <span class="text-{{timersCtrl.debatePhases[1].needsTextColor}}">{{timersCtrl.debatePhases[1].duration}}</span>
             </div>
           </div>
-          <div class="col col-20"
-               ng-model="timersCtrl.debatePhases[2]">
-            <div class="item item-icon status-{{timersCtrl.debatePhases[2].phase}}" style="padding: 0px">
-              <div class="row">
-                <i class="icon {{timersCtrl.debatePhases[2].icon}} text-{{timersCtrl.debatePhases[2].needsTextColor}}"></i>
-                <span class="text-{{timersCtrl.debatePhases[2].needsTextColor}}">{{timersCtrl.debatePhases[2].duration}}</span>
-              </div>
+        </div>
+        <div class="col col-20"
+              ng-model="timersCtrl.debatePhases[2]">
+          <div class="item item-icon status-{{timersCtrl.debatePhases[2].phase}}" style="padding: 0px">
+            <div class="row">
+              <i class="icon {{timersCtrl.debatePhases[2].icon}} text-{{timersCtrl.debatePhases[2].needsTextColor}}"></i>
+              <span class="text-{{timersCtrl.debatePhases[2].needsTextColor}}">{{timersCtrl.debatePhases[2].duration}}</span>
             </div>
           </div>
-          <div class="col col-20"
-               ng-model="timersCtrl.debatePhases[3]">
-            <div class="item item-icon status-{{timersCtrl.debatePhases[3].phase}}" style="padding: 0px">
-              <div class="row">
-                <i class="icon {{timersCtrl.debatePhases[3].icon}} text-{{timersCtrl.debatePhases[3].needsTextColor}}"></i>
-                <span class="text-{{timersCtrl.debatePhases[3].needsTextColor}}">{{timersCtrl.debatePhases[3].duration}}</span>
-              </div>
+        </div>
+        <div class="col col-20"
+              ng-model="timersCtrl.debatePhases[3]">
+          <div class="item item-icon status-{{timersCtrl.debatePhases[3].phase}}" style="padding: 0px">
+            <div class="row">
+              <i class="icon {{timersCtrl.debatePhases[3].icon}} text-{{timersCtrl.debatePhases[3].needsTextColor}}"></i>
+              <span class="text-{{timersCtrl.debatePhases[3].needsTextColor}}">{{timersCtrl.debatePhases[3].duration}}</span>
             </div>
           </div>
-          <div class="col col-20"
-               ng-click="timersCtrl.nextPhase()">
-            <div class="item item-icon" style="padding: 0px">
-              <div class="row">
-                <i class="icon ion-ios-skipforward text-dark"></i>
-              </div>
+        </div>
+        <div class="col col-20"
+              ng-click="timersCtrl.nextPhase()">
+          <div class="item item-icon" style="padding: 0px">
+            <div class="row">
+              <i class="icon ion-ios-skipforward text-dark"></i>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-  <ion-content>
+  <ion-content class="ion-content-under-search">
 
+    <!-- Phase timer -->
+    <div class="row padding-vert-no" style="margin-top: 2px;">
+      <div class="col col-10 padding-vert-no">
+      </div>
+      <div class="col col-70 padding-vert-no">
+        <h1 class="padding text-center" style="font-size: 50px;">
+          <!--
+          <custom-timer timer-id="10"
+                        total-time="timersCtrl.actors[$index].totalTime"
+                        actual-running-timer="timersCtrl.actualRunningTimer"
+                        broadcast-function="timersCtrl.thisTimerStarted">
+          </custom-timer>
+          -->
+        </h1>
+      </div>
+      <div class="col col-10 padding-vert-no">
+        <div class="float-right margin-vert-92">
+          <button class="button button-profile no-padding"
+                  ng-click="hallCtrl.goToProfile()">
+            <i class="icon ion-ios-person" style="font-size: 30px;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid of Actors Timers-->
+    <div ng-if="timersCtrl.actors" class="list row-no-padding">
+        <div ng-repeat="actor in timersCtrl.actors track by $index">
+          <!-- A row each pair of actors -->
+          <div class="row" style="padding-top: 0px;" ng-if="$even">
+            <div ng-if="timersCtrl.actors[$index]" class="col col-50">
+              <div class="card" style="margin: 0px;"
+                  ng-click="timersCtrl.startTimer($index)">
+                <div class="item item-text-wrap">
+                  {{timersCtrl.actors[$index].name}}
+                </div>
+                <custom-timer timer-id="$index"
+                              total-time="timersCtrl.actors[$index].totalTime"
+                              actual-running-timer="timersCtrl.actualRunningTimer"
+                              broadcast-function="timersCtrl.thisTimerStarted">
+                </custom-timer>
+                <b>{{timersCtrl.actors[$index].totalTime}}</b>
+              </div>
+            </div>
+            <div ng-if="timersCtrl.actors[$index+1]" class="col col-50">
+              <div class="card" style="margin: 0px;"
+              ng-click="timersCtrl.startTimer($index+1)">
+              <div class="item item-text-wrap">
+                {{timersCtrl.actors[$index+1].name}}
+              </div>
+              <custom-timer timer-id="$index+1"
+                            total-time="timersCtrl.actors[$index+1].totalTime"
+                            actual-running-timer="timersCtrl.actualRunningTimer"
+                            broadcast-function="timersCtrl.thisTimerStarted">
+              </custom-timer>
+              <b>{{timersCtrl.actors[$index+1].totalTime}}</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
-
   </ion-content>
+
 </ion-view>
