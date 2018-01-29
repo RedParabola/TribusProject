@@ -17,7 +17,8 @@ var app = angular.module('starter', [
   //'flux',
   //'edomus.stores',
   //'edomus.stores.things',
-  'restangular'
+  'restangular',
+  'timer'
   ])
   
   .run(function($ionicPlatform) {
