@@ -12,7 +12,9 @@ function timerDirective() {
       timerId: '=',
       totalTime: '=',
       actualRunningTimer: '=',
-      broadcastFunction: '='
+      broadcastFunction: '=',
+      requestedTurn: '=',
+      independant: '='
     },
     controller: timerController,
     controllerAs: 'timerCtrl',
@@ -26,6 +28,7 @@ function timerController($scope) {
   
   initialize();
   vm.toggleTimer = _toggleTimer;
+  vm.requestTurn = _requestTurn;
 
   //////////////////////////////
 
@@ -49,8 +52,13 @@ function timerController($scope) {
   function checkPauseTimer(newValue,oldValue){
     if(newValue !== oldValue){
       if(newValue !== vm.timerId){
-        if(vm.isThisRunning){
+        if(vm.isThisRunning && !vm.independant){
           stopTimer();
+        }
+      } else {
+        if(vm.independant){
+          stopTimer();
+          startTimer();
         }
       }
     }
@@ -58,9 +66,10 @@ function timerController($scope) {
 
   function startTimer(){
     $scope.$broadcast('timer-start');
-    vm.broadcastFunction(vm.timerId);
+    if(!vm.independant){ vm.broadcastFunction(vm.timerId); }
     vm.hasStarted = true;
     vm.isThisRunning = true;
+    vm.requestedTurn = false;
   }
 
   function stopTimer(){
@@ -74,4 +83,7 @@ function timerController($scope) {
     vm.lapsedSeconds = data.millis/1000;
   }
 
+  function _requestTurn(){
+    vm.requestedTurn = true;
+  }
 }

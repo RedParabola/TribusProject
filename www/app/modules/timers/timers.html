@@ -51,30 +51,27 @@
     </div>
   </div>
 
-  <ion-content class="ion-content-under-search">
+  <ion-content class="ion-content-under-search" scroll="false">
 
     <!-- Phase timer -->
     <div class="row padding-vert-no" style="margin-top: 2px;">
       <div class="col col-10 padding-vert-no">
       </div>
       <div class="col col-70 padding-vert-no">
-        <h1 class="padding text-center" style="font-size: 50px;">
-          <!--
-          <custom-timer timer-id="10"
-                        total-time="timersCtrl.actors[$index].totalTime"
+        <p class="padding-vert-83 text-center" style="font-size: 30px;">
+          <custom-timer timer-id="timersCtrl.debateTimer"
+                        total-time="timersCtrl.totalDebateTime"
                         actual-running-timer="timersCtrl.actualRunningTimer"
-                        broadcast-function="timersCtrl.thisTimerStarted">
+                        broadcast-function="timersCtrl.thisTimerStarted"
+                        independant="true">
           </custom-timer>
-          -->
-        </h1>
+        </p>
+        <p class="padding-vert-52 text-center"
+           style="font-size: 20px; font-weight: 300;">
+          {{timersCtrl.totalDebateTime}}
+        </p>
       </div>
       <div class="col col-10 padding-vert-no">
-        <div class="float-right margin-vert-92">
-          <button class="button button-profile no-padding"
-                  ng-click="hallCtrl.goToProfile()">
-            <i class="icon ion-ios-person" style="font-size: 30px;"></i>
-          </button>
-        </div>
       </div>
     </div>
 
@@ -84,7 +81,7 @@
           <!-- A row each pair of actors -->
           <div class="row" style="padding-top: 0px;" ng-if="$even">
             <div ng-if="timersCtrl.actors[$index]" class="col col-50">
-              <div class="card" style="margin: 0px;"
+              <div class="card grid-timer text-center"
                   ng-click="timersCtrl.startTimer($index)">
                 <div class="item item-text-wrap">
                   {{timersCtrl.actors[$index].name}}
@@ -92,23 +89,45 @@
                 <custom-timer timer-id="$index"
                               total-time="timersCtrl.actors[$index].totalTime"
                               actual-running-timer="timersCtrl.actualRunningTimer"
-                              broadcast-function="timersCtrl.thisTimerStarted">
+                              broadcast-function="timersCtrl.thisTimerStarted"
+                              requested-turn="timersCtrl.actors[$index].requestedTurn">
                 </custom-timer>
-                <b>{{timersCtrl.actors[$index].totalTime}}</b>
+                <div class="no-padding row">
+                  <div class="col col-30 no-padding">
+                  </div>
+                  <div class="col col-30 no-padding">
+                    <p>{{timersCtrl.actors[$index].totalTime}}</p>
+                  </div>
+                  <div class="col col-30 no-padding text-center" ng-class="{'next-turn': timersCtrl.actors[$index].turn < 2}">
+                    <span ng-show="timersCtrl.actors[$index].requestedTurn">{{timersCtrl.actors[$index].turn}}</span>
+                    <i class="icon ion-android-hand" ng-show="timersCtrl.actors[$index].requestedTurn"></i>
+                  </div>
+                </div>
               </div>
             </div>
             <div ng-if="timersCtrl.actors[$index+1]" class="col col-50">
-              <div class="card" style="margin: 0px;"
-              ng-click="timersCtrl.startTimer($index+1)">
+              <div class="card grid-timer text-center"
+                   ng-click="timersCtrl.startTimer($index+1)">
               <div class="item item-text-wrap">
                 {{timersCtrl.actors[$index+1].name}}
               </div>
               <custom-timer timer-id="$index+1"
                             total-time="timersCtrl.actors[$index+1].totalTime"
                             actual-running-timer="timersCtrl.actualRunningTimer"
-                            broadcast-function="timersCtrl.thisTimerStarted">
+                            broadcast-function="timersCtrl.thisTimerStarted"
+                            requested-turn="timersCtrl.actors[$index+1].requestedTurn">
               </custom-timer>
-              <b>{{timersCtrl.actors[$index+1].totalTime}}</b>
+              <div class="no-padding row">
+                <div class="col col-30 no-padding">
+                </div>
+                <div class="col col-30 no-padding">
+                  <p>{{timersCtrl.actors[$index+1].totalTime}}</p>
+                </div>
+                <div class="col col-30 no-padding text-center" ng-class="{'next-turn': timersCtrl.actors[$index+1].turn < 2}">
+                  <span ng-show="timersCtrl.actors[$index+1].requestedTurn">{{timersCtrl.actors[$index+1].turn}}</span>
+                  <i class="icon ion-android-hand" ng-show="timersCtrl.actors[$index+1].requestedTurn"></i>
+                </div>
+              </div>
             </div>
           </div>
         </div>

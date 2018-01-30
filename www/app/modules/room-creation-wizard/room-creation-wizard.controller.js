@@ -402,10 +402,14 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   }
 
   function createRoom(){
-    $ionicHistory.nextViewOptions({
-      disableBack: true,
-      historyRoot: true
-    });
+    var newPhase = {
+      id: 0,
+      phase: 'NOT_STARTED',
+      duration: 0,
+    };
+    angular.extend(newPhase,RoomStatusConstants['NOT_STARTED']);
+    vm.debatePhases.splice(0, 0, newPhase);
+
     $rootScope.actualRoom = {
       topic: vm.topic,
       category: vm.selectedCategory,
@@ -413,6 +417,11 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
       phases: vm.debatePhases
     };
     $rootScope.user.isUserModerator = true;
+    
+    $ionicHistory.nextViewOptions({
+      disableBack: true,
+      historyRoot: true
+    });
     $state.go('moderator.overview', {roomId: 'a0b1c2d3e4f5f6789'});
   }
 

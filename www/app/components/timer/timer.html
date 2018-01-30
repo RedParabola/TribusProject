@@ -1,4 +1,7 @@
-<div ng-click="timerCtrl.toggleTimer()">
+<div class="custom-timer"
+     ng-class="{'running':timerCtrl.isThisRunning}"
+     ng-click="timerCtrl.toggleTimer()"
+     on-hold="timerCtrl.requestTurn()">
   <timer id="timer{{$index}}" interval="1000"
          autostart="false">
     {{hhours}}:{{mminutes}}:{{sseconds}}

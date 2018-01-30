@@ -749,27 +749,53 @@ a.tab-item.tab-item-active:first-of-type {
 }
 #actual-phase{
   animation-name: parpadeo;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 
   -webkit-animation-name:parpadeo;
   -webkit-animation-duration: 2s;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: infinite;
 }
 
 @keyframes parpadeo {  
   0% { opacity: 1.0; }
-   50% { opacity: 0.0; }
+   50% { opacity: 0.1; }
   100% { opacity: 1.0; }
 }
 @-webkit-keyframes parpadeo {  
   0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
+  50% { opacity: 0.1; }
    100% { opacity: 1.0; }
 }
 
+.grid-timer{
+  margin: 0px;
+}
+.grid-timer .item{
+padding: 2px 5px;
+}
+.grid-timer .custom-timer{
+  padding: 20px;
+  font-size: 30px;
+  background-color: #FFDDAA;
+}
+.grid-timer .custom-timer:active{
+  background-color: #FF8A65;
+}
+.grid-timer .running{
+  color: #3E2723;
+  background-color: #FFB74D;
+}
+.grid-timer p{
+  margin: 2px;
+}
+.next-turn{
+  color: #d32f2f;
+  font-size: 20px;
+  font-weight: 800;
+}
 
 /****************************/
 /** Questions & Management **/
