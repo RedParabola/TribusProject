@@ -54,6 +54,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
     });
 
     vm.actors = [
+      /*
       {
         name:'SGAE1',
         motto: 'Brief sentence.'
@@ -85,7 +86,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
       {
         name:'NETFLIX8',
         motto: 'Brief sentence about the actor. A bit longer.'
-      }
+      }*/
     ];
   }
 

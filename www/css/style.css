@@ -850,12 +850,12 @@ padding: 2px 5px;
   font-size: 16px;
 }
 
-.downvoted{
+.downvoted, .not-enough{
   color: #f44336;
   font-weight: 600;
 }
 
-.upvoted{
+.upvoted, .good-to-go{
   color: #4CAF50;
   font-weight: 600;
 }
