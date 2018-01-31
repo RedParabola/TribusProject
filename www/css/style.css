@@ -511,7 +511,7 @@ a.tab-item.tab-item-active:first-of-type {
 
 
 .login-image {
-  background-image: url('../img/login-logo.png');  
+  background-image: url('../img/icon.png');  
   background-size: cover;
   width: 200px;
   height: 200px;
@@ -901,4 +901,36 @@ padding: 2px 5px;
 .bannedAnswer-selected{
   background-color: #e5e5e5!important;
   color: #d32f2f!important;
+}
+
+
+/***************/
+/** Dashboard **/
+/***************/
+
+.selected-actor{
+  animation-name: voted;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+
+  -webkit-animation-name:voted;
+  -webkit-animation-duration: 0.25s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 3;
+}
+
+@keyframes voted {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.3; }
+  100% { opacity: 1.0; }
+}
+@-webkit-keyframes voted {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.3; }
+   100% { opacity: 1.0; }
+}
+
+.not-selected-actor{
+  opacity: 0.5;
 }

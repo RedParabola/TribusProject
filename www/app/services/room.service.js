@@ -79,7 +79,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         invited: 105,
         category: 'ECONOMICS',
         topic: 'Consequences of globalization on underdeveloped countries',
-        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        description: 'A slight description of the topic, set by the moderator when creating the room.',
         status: 'NOT_STARTED',
         joined: 50,
         actors: [
@@ -144,7 +144,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         invited: 105,
         category: 'MORAL',
         topic: 'Facebook friendships',
-        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        description: 'A slight description of the topic, set by the moderator when creating the room.',
         status: 'OPENING',
         joined: 49,
         actors: [
@@ -182,7 +182,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         invited: 105,
         category: 'CULTURE',
         topic: 'Male or female stereotypes in popular culture',
-        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        description: 'A slight description of the topic, set by the moderator when creating the room.',
         status: 'PREDICTION',
         joined: 73,
         actors: [
@@ -220,7 +220,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         invited: 105,
         category: 'PSYCHOLOGY',
         topic: 'Are adults merely obsolete children?',
-        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        description: 'A slight description of the topic, set by the moderator when creating the room.',
         status: 'DEBATING',
         joined: 68,
         actors: [
@@ -258,7 +258,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         invited: 105,
         category: 'LIFESTYLE',
         topic: 'What effect does social media have on interpersonal relationships?',
-        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        description: 'A slight description of the topic, set by the moderator when creating the room.',
         status: 'VOTING',
         joined: 66,
         actors: [
@@ -296,7 +296,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         invited: 105,
         category: 'HEALTH',
         topic: 'Genetically modified foods',
-        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        description: 'A slight description of the topic, set by the moderator when creating the room.',
         status: 'PAUSE',
         joined: 33,
         actors: [
@@ -334,7 +334,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         invited: 105,
         category: 'TECHNOLOGY',
         topic: 'Virtual reality as a world in our world',
-        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        description: 'A slight description of the topic, set by the moderator when creating the room.',
         status: 'CLOSURE',
         joined: 70,
         actors: [
@@ -372,7 +372,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         invited: 105,
         category: 'EDUCATION',
         topic: 'What causes people to drop out of high school?',
-        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        description: 'A slight description of the topic, set by the moderator when creating the room.',
         status: 'QUESTIONS',
         joined: 63,
         actors: [
@@ -410,7 +410,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         invited: 105,
         category: 'SOCIETY',
         topic: 'Cyber bullying',
-        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        description: 'A slight description of the topic, set by the moderator when creating the room.',
         status: 'CONCLUSIONS',
         joined: 39,
         actors: [
@@ -448,7 +448,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         invited: 105,
         category: 'ENVIRONMENT',
         topic: 'Is horse-mankind a threat?',
-        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        description: 'A slight description of the topic, set by the moderator when creating the room.',
         status: 'CLOSED',
         joined: 55,
         actors: [
@@ -486,7 +486,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
         invited: 666,
         category: 'OTHERS',
         topic: 'Is there anything more important than survival?',
-        description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+        description: 'A slight description of the topic, set by the moderator when creating the room.',
         status: 'CLOSED',
         joined: 55,
         actors: [
@@ -534,7 +534,7 @@ function roomService($q, RoomResource, ROOM_ENDP) {
       invited: 105,
       category: 'ECONOMICS',
       topic: 'Consequences of globalization on underdeveloped countries',
-      description: 'Here could be shown a small sum up of the topic. Find more useful information inside the debate.',
+      description: 'A slight description of the topic, set by the moderator when creating the room.',
       status: 'NOT_STARTED',
       joined: 50,
       actors: [

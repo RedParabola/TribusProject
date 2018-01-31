@@ -6,11 +6,16 @@
 
     <div class="card">
       <div class="item item-text-wrap" style="height: 212px;">
-        <canvas id="pie"
+        <canvas ng-show="dashCtrl.selectedRoom.data.length"
+                id="pie"
                 class="chart chart-pie"
                 chart-data="dashCtrl.selectedRoom.data"
-                chart-labels="dashCtrl.selectedRoom.labels">
+                chart-labels="dashCtrl.selectedRoom.labels"
+                chart-colors="dashCtrl.colors">
         </canvas>
+        <div class="text-center" ng-show="!dashCtrl.selectedRoom.data.length">
+          Waiting for your vote input...
+        </div>
       </div>
     </div>
 
@@ -21,16 +26,20 @@
         <div class="row" style="padding-top: 0px;" ng-if="$even">
           <div ng-if="dashCtrl.selectedRoom.actors[$index]" class="col col-50">
             <div class="card" style="margin: 0px;"
-                 ng-click="dashCtrl.voteActor($index)">
-              <div class="item item-text-wrap">
+                 ng-class="{'selected-actor': dashCtrl.selectedRoom.actors[$index].votedByUser, 'not-selected-actor': !dashCtrl.selectedRoom.actors[$index].votedByUser && dashCtrl.userHasVoted}"
+                 ng-click="dashCtrl.voteActor($index)"
+                 ng-disabled="dashCtrl.userHasVoted">
+              <div class="item item-text-wrap text-center" ng-style="dashCtrl.selectedRoom.actors[$index].color">
                 {{dashCtrl.selectedRoom.actors[$index].name}}
               </div>
             </div>
           </div>
           <div ng-if="dashCtrl.selectedRoom.actors[$index+1]" class="col col-50">
             <div class="card" style="margin: 0px;"
-                 ng-click="dashCtrl.voteActor($index+1)">
-              <div class="item item-text-wrap">
+                 ng-class="{'selected-actor': dashCtrl.selectedRoom.actors[$index+1].votedByUser, 'not-selected-actor': !dashCtrl.selectedRoom.actors[$index+1].votedByUser && dashCtrl.userHasVoted}"
+                 ng-click="dashCtrl.voteActor($index+1)"
+                 ng-disabled="dashCtrl.userHasVoted">
+              <div class="item item-text-wrap text-center" ng-style="dashCtrl.selectedRoom.actors[$index+1].color">
                 {{dashCtrl.selectedRoom.actors[$index+1].name}}
               </div>
             </div>
