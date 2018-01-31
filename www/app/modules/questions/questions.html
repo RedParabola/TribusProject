@@ -29,14 +29,14 @@
             </div>
             <div class="col col-20 text-center" ng-class="{'upvoted': question.upVoted}"
                  ng-click="questionsCtrl.upVote(question)">
-                <span>{{question.upVotes}}  </span><i class="ion-thumbsup"></i>
+              <span>{{question.upVotes}}  </span><i class="ion-thumbsup"></i>
             </div>
             <div class="col col-30 text-right" style="font-style: italic;">
-                <span>{{question.author}}</span>
+              <span>{{question.author}}</span>
             </div>
             <div class="col col-30 text-right text-{{question.status}}"
                  ng-class="{'text-rejected':question.rejectedAnswer, 'text-accepted':question.acceptedAnswer}">
-                <span>{{question.status}}</span>
+              <span>{{question.status}}</span>
             </div>
           </div>
           
@@ -45,7 +45,7 @@
             ng-class="{'rightAnswered-selected': question.acceptedAnswer}"
             ng-disabled="question.status !== questionsCtrl.questionConstants.ANSWERED || question.rejectedAnswer"
             ng-click="questionsCtrl.markAsAcceptedAnswer(question)">
-              <i class="ion-android-happy text-center"></i>
+            <i class="ion-android-happy text-center"></i>
           </ion-option-button>
 
           <ion-option-button

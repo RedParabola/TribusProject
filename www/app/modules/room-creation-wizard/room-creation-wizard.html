@@ -244,7 +244,7 @@
           <div class="row">
             <div class="col padding-vert-no">
               <p class="text-center" style="font-size: 18px;">
-                Birthday (date and time):
+                When will debate start?
                 <input style="margin: auto;" type="datetime-local" name="bdaytime">
               </p>
             </div>
@@ -257,11 +257,11 @@
           </div>
 
           <div class="row">
-            <h4>{{roomCreationWizardCtrl.selectedCategory}}: "{{roomCreationWizardCtrl.topic}}"</h4>
+            <h4>{{roomCreationWizardCtrl.selectedCategoryFormatted}}: "{{roomCreationWizardCtrl.topic}}"</h4>
           </div>
 
           <div class="card">
-            <div class="item">
+            <div class="item item-text-wrap">
               <b>List of actors: </b><p>{{roomCreationWizardCtrl.chainedActorsString}}</p>
             </div>
           </div>

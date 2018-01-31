@@ -3,41 +3,47 @@
   <ion-content>
     <div class="list">
       
-      <ion-list show-delete="questionsCtrl.shouldShowDelete"
-                show-reorder="questionsCtrl.shouldShowReorder"
-                can-swipe="questionsCtrl.listCanSwipe">
-        <ion-item ng-repeat="item in questionsCtrl.items"
-                  class="item-thumbnail-left"
-                  item="item"
-                  href="#/item/{{item.id}}"
+      <ion-list can-swipe="questionsCtrl.listCanSwipe">
+        <ion-item ng-repeat="question in questionsCtrl.questions"
+                  class="item-text-wrap question-item"
+                  item="question"
                   class="item-remove-animate">
-          Item {{ item.id }}
+          <div class="row">
+              {{question.content}}
+          </div>
+          <div class="row">
+            <div class="col col-20 text-center" ng-class="{'downvoted': question.downVoted}">
+              <span>{{question.downVotes + question.upVotes}}  </span><i class="icon ion-ios-speedometer"></i>
+            </div>
+            <div class="col col-30 text-right" style="font-style: italic;">
+              <span>{{question.author}}</span>
+            </div>
+            <div class="col col-30 text-right text-{{question.status}}"
+                 ng-class="{'text-rejected':question.rejectedAnswer, 'text-accepted':question.acceptedAnswer}">
+              <span>{{question.status}}</span>
+            </div>
+          </div>
+          
+          <ion-option-button
+            class="question-side-button chosenAnswer text-center"
+            ng-class="{'chosenAnswer-selected': question.chosenAnswer}"
+            ng-disabled="(question.status !== questionsCtrl.questionConstants.UNANSWERED && question.status !== questionsCtrl.questionConstants.CHOSEN) || question.bannedAnswer"
+            ng-click="questionsCtrl.chooseQuestion(question)">
+            <i class="ion-flag text-center" style="color: black;"></i>
+          </ion-option-button>
 
-          <img ng-src="{{item.img}}">
-          <h2>{{item.title}}</h2>
-          <p>{{item.description}}</p>
           <ion-option-button
-            class="button-positive"
-            ng-click="questionsCtrl.share(item)">
-            Share
+            class="question-side-button bannedAnswer text-center"
+            ng-class="{'bannedAnswer-selected': question.bannedAnswer}"
+            ng-disabled="(question.status !== questionsCtrl.questionConstants.UNANSWERED && question.status !== questionsCtrl.questionConstants.BANNED) || question.chosenAnswer"
+            ng-click="questionsCtrl.banUser(question)">
+            <i class="ion-ios-pulse-strong text-center"></i>
           </ion-option-button>
-          <ion-option-button
-            class="button-info"
-            ng-click="questionsCtrl.edit(item)">
-            Edit
-          </ion-option-button>
-          <ion-delete-button
-            class="ion-minus-circled"
-            ng-click="questionsCtrl.onItemDelete(item)">
-          </ion-delete-button>
-          <ion-reorder-button
-            class="ion-navicon"
-            on-reorder="questionsCtrl.reorderItem(item, $fromIndex, $toIndex)">
-          </ion-reorder-button>
 
         </ion-item>
       </ion-list>
 
     </div>
   </ion-content>
+
 </ion-view>

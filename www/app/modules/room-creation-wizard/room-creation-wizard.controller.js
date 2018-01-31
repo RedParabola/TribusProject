@@ -96,6 +96,7 @@ function roomCreationWizardController($rootScope, $scope, $log, $state, $ionicHi
   function _updateSelectedCategory(){
     if(vm.selectedCategory){
       vm.globalColor = vm.selectedCategory.toLowerCase();
+      vm.selectedCategoryFormatted = CategoryConstants[vm.selectedCategory].text;
     }
   }
 

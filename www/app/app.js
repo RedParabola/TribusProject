@@ -34,6 +34,10 @@ var app = angular.module('starter', [
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
+      $ionicPlatform.onHardwareBackButton(function() {
+        event.preventDefault();
+        event.stopPropagation();
+      });
     });
   })
 

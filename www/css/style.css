@@ -492,7 +492,11 @@ a.tab-item.tab-item-active:first-of-type {
 }
 
 .ion-ios-pulse-strong:before {
-  content: url('../img/hammer.ico') !important;
+  content: " "!important;
+  height: 34px;
+  width: 34px;
+  background: url("../img/hammer.ico") no-repeat 0 0;
+  background-size: 100%;
 } 
 
 /************************/
@@ -883,4 +887,18 @@ padding: 2px 5px;
 .rightAnswered-selected{
   background-color: #e5e5e5!important;
   color: #689F38!important;
+}
+.chosenAnswer{
+  background-color: #5C6BC0;
+}
+.chosenAnswer-selected{
+  background-color: #e5e5e5!important;
+  color: #303F9F!important;
+}
+.bannedAnswer{
+  background-color: #e57373;
+}
+.bannedAnswer-selected{
+  background-color: #e5e5e5!important;
+  color: #d32f2f!important;
 }

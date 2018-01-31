@@ -6,12 +6,6 @@
         <h3 class="profile-name">{{overviewCtrl.userEmail}}</h3>
         <h4 ng-click="overviewCtrl.doLogout()"><a>Logout</a></h4>
       </div>
-      <div class="profile-settings card">
-        <ion-toggle ng-model="overviewCtrl.isAnonymous"
-          ng-change="overviewCtrl.anonymousToggle()">
-          I want my profile to be <b>anonymous</b>
-        </ion-toggle>
-      </div>
       <div class="overview-room-settings card" ng-click="overviewCtrl.expandQR()">
         <div class="item item-icon-right">
           <b>Room QR. Tap to expand</b>

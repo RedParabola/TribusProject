@@ -13,6 +13,8 @@ angular
     vm.onItemDelete = _onItemDelete;
     vm.downVote = _downVote;
     vm.upVote = _upVote;
+    vm.banUser = _banUser;
+    vm.chooseQuestion = _chooseQuestion;
 
     initialize();
 
@@ -37,9 +39,13 @@ angular
     function adaptQuestionsCharacteristics(){
       _.each(vm.questions,function(question){
         question.status = QuestionConstants[question.status];
-
         if(question.yours && question.status !== QuestionConstants.ANSWERED){
           vm.canAddQuestion = false;
+        }
+        if(question.status === QuestionConstants.CHOSEN){
+          question.chosenAnswer = true;
+        } else if(question.status === QuestionConstants.BANNED){
+          question.bannedAnswer = true;
         }
         vm.highestId = (question.id > vm.highestId)? question.id: vm.highestId;
       });
@@ -144,19 +150,40 @@ angular
     function _markAsAcceptedAnswer(question){
       if(!angular.isDefined(question.acceptedAnswer) &&
          !angular.isDefined(question.rejectedAnswer)){
-          question.acceptedAnswer = true;
-        } else {
-          question.acceptedAnswer = !question.acceptedAnswer;
-        }
+        question.acceptedAnswer = true;
+      } else {
+        question.acceptedAnswer = !question.acceptedAnswer;
+      }
     }
 
     function _markAsRejectedAnswer(question){
       if(!angular.isDefined(question.acceptedAnswer) &&
          !angular.isDefined(question.rejectedAnswer)){
-          question.rejectedAnswer = true;
-        } else {
-          question.rejectedAnswer = !question.rejectedAnswer;
-        }
+        question.rejectedAnswer = true;
+      } else {
+        question.rejectedAnswer = !question.rejectedAnswer;
+      }
     }
 
+    function _banUser(question){
+      if(!angular.isDefined(question.bannedAnswer) &&
+         !angular.isDefined(question.chosenAnswer)){
+        question.bannedAnswer = true;
+        question.status = QuestionConstants.BANNED;
+      } else {
+        question.bannedAnswer = !question.bannedAnswer;
+        question.status = (question.status === QuestionConstants.UNANSWERED)? QuestionConstants.BANNED : QuestionConstants.UNANSWERED;
+      }
+    }
+
+    function _chooseQuestion(question){
+      if(!angular.isDefined(question.chosenAnswer) &&
+         !angular.isDefined(question.bannedAnswer)){
+        question.chosenAnswer = true;
+        question.status = QuestionConstants.CHOSEN;
+      } else {
+        question.chosenAnswer = !question.chosenAnswer;
+        question.status = (question.status === QuestionConstants.UNANSWERED)? QuestionConstants.CHOSEN : QuestionConstants.UNANSWERED;
+      }
+    }
   }
