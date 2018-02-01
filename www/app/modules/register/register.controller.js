@@ -2,8 +2,8 @@ angular
 .module('starter.controllers')
 .controller('RegisterController', registerController);
 
-registerController.$inject = ['$rootScope', '$log', 'UserService', '$timeout', '$ionicHistory', '$state'];
-function registerController($rootScope, $log, UserService, $timeout, $ionicHistory, $state) {
+registerController.$inject = ['$rootScope', '$log', 'UserService', '$timeout', '$ionicHistory', '$state', 'PopupService'];
+function registerController($rootScope, $log, UserService, $timeout, $ionicHistory, $state, PopupService) {
 
   var vm = this;
   vm.validateField = _validateField;
@@ -23,19 +23,26 @@ function registerController($rootScope, $log, UserService, $timeout, $ionicHisto
   }
 
   function _doRegister(){
-    $timeout(function(){
-      UserService.tryRegister(vm.email,vm.password).then(
-        function() {
-          $log.info("Register successful");
-          $ionicHistory.nextViewOptions({
-            disableBack : true,
-            historyRoot: true
-          });
-          $state.go('login', {});  
-        }, function(error) {
-          $log.info("Register failed -> " + error);
-      });
-    },  200);
+    if(!vm.email || !vm.password || !vm.confirmPassword || (vm.password !== vm.confirmPassword)){
+      PopupService.getAlertPopup(
+        'Register failed!',
+        'Please check that all fields are correctly filled.'
+      );
+    } else {
+      $timeout(function(){
+        UserService.tryRegister(vm.email,vm.password).then(
+          function() {
+            $log.info("Register successful");
+            $ionicHistory.nextViewOptions({
+              disableBack : true,
+              historyRoot: true
+            });
+            $state.go('login', {});  
+          }, function(error) {
+            $log.info("Register failed -> " + error);
+        });
+      },  200);
+    }
   }
 
   function _goToTermsOfService(){

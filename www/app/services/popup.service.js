@@ -27,7 +27,7 @@ function popupService($ionicPopup) {
         },
         {
           text: '<b>Add actor</b>',
-          type: 'button-positive',
+          type: 'button-balanced',
           onTap: function(e){ return scope.$eval(actorNgModel); }
         }
       ]
@@ -50,13 +50,13 @@ function popupService($ionicPopup) {
       });
       buttons.push({
         text: '<b>Edit</b>',
-        type: 'button-positive',
+        type: 'button-balanced',
         onTap: function(e){ return scope.$eval(timeNgModel); }
       });
     } else {
       buttons.push({
         text: '<b>Add phase</b>',
-        type: 'button-positive',
+        type: 'button-balanced',
         onTap: function(e){ return scope.$eval(timeNgModel); }
       });
     }
@@ -83,7 +83,7 @@ function popupService($ionicPopup) {
         },
         {
           text: '<b>Join</b>',
-          type: 'button-positive',
+          type: 'button-balanced',
           onTap: function(e){ return true; }          
         }
       ]
@@ -94,7 +94,13 @@ function popupService($ionicPopup) {
   function _getAlertPopup(title,sentence){
     var popup = $ionicPopup.alert({
       title: title,
-      template: sentence
+      template: sentence,
+      buttons: [
+        {
+          text: 'OK',
+          type: 'button-balanced',
+        }
+      ]
     });
     return popup;
   }
@@ -118,7 +124,7 @@ function popupService($ionicPopup) {
       buttons: [
         {
           text: '<b>Close expanded view</b>',
-          type: 'button-positive',
+          type: 'button-balanced',
         }
       ]
     });
@@ -138,7 +144,7 @@ function popupService($ionicPopup) {
         },
         {
           text: '<b>Add question</b>',
-          type: 'button-positive',
+          type: 'button-balanced',
           onTap: function(e){ return true; }          
         }
       ]
