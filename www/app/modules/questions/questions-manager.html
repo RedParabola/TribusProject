@@ -23,7 +23,15 @@
               <span>{{question.status}}</span>
             </div>
           </div>
-          
+
+          <ion-option-button
+            class="question-side-button answeredAnswer text-center"
+            ng-class="{'answeredAnswer-selected': question.answeredAnswer}"
+            ng-disabled="question.status === questionsCtrl.questionConstants.ANSWERED || question.answeredAnswer"
+            ng-click="questionsCtrl.markAsAnswered(question)">
+            <i class="ion-checkmark-round text-center"></i>
+          </ion-option-button>
+
           <ion-option-button
             class="question-side-button chosenAnswer text-center"
             ng-class="{'chosenAnswer-selected': question.chosenAnswer}"

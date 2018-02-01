@@ -30,7 +30,7 @@ function questionsService($q) {
         content: 'The underdeveloped countries governments are promoting slavery labors. What is ZARA\'s position on this?',
         upVotes: 4,
         downVotes: 3,
-        status: 'ANSWERED',
+        status: 'UNANSWERED',
         author: 'Florilda'
       },
       { id: 1,
@@ -58,7 +58,7 @@ function questionsService($q) {
         content: 'For UNESCO. Are we losing culture diversity in favor of global markets?',
         upVotes: 9,
         downVotes: 8,
-        status: 'CHOSEN',
+        status: 'UNANSWERED',
         author: 'anonymous',
       },
       { id: 5,
@@ -79,7 +79,7 @@ function questionsService($q) {
         content: 'For everyone. Is any of you considering globalisation\'s impact on global warming?',
         upVotes: 3,
         downVotes: 0,
-        status: 'ANSWERED',
+        status: 'UNANSWERED',
         author: 'GinTonic89',
       },
       { id: 8,
@@ -93,7 +93,7 @@ function questionsService($q) {
         content: 'ANYBODY WANTS SOME HAPPYNESS GOT TONS OF THEM YOU WANNA GET GLOBALLY HIGH?',
         upVotes: 1,
         downVotes: 0,
-        status: 'BANNED',
+        status: 'UNANSWERED',
         author: 'anonymous',
       }
     ];

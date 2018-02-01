@@ -888,6 +888,13 @@ padding: 2px 5px;
   background-color: #e5e5e5!important;
   color: #689F38!important;
 }
+.answeredAnswer{
+  background-color: #DCE775;
+}
+.answeredAnswer-selected{
+  background-color: #e5e5e5!important;
+  color: #AFB42B!important;
+}
 .chosenAnswer{
   background-color: #5C6BC0;
 }
