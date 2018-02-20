@@ -1,7 +1,593 @@
 /* Empty. Add your own CSS if you like */
 
+
+
+/***********************/
+/***********************/
+/*******         *******/
+/*****             *****/
+/****  Generic CSS  ****/
+/*****             *****/
+/*******         *******/
+/***********************/
+/***********************/
+
+
+em,i{
+  font-style:italic;
+}
+
+.float-left{
+  float: left;
+}
+
+.float-right{
+  float: right;
+}
+
+label.item-input input, label.input-label input{
+  font-size:20px;
+  line-height: 22px;
+}
+
+.no-padding{
+  padding: 0px;
+}
+
+.padding-vert-no{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.padding-vert-51{
+  padding-top: 5px;
+  padding-bottom: 1px;
+}
+
+.padding-vert-83{
+  padding-top: 10px;
+  padding-bottom: 3px;
+}
+
+.no-margin{
+  margin: 0px;
+}
+
+.margin-vert-no{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.margin-vert-92{
+  margin-top: 9px;
+  margin-bottom: 2px;
+}
+
+/* when hiding the thing */
+.ng-hide-add {
+  -webkit-animation:0.25s fadeOut ease; 
+  animation:0.25s fadeOut ease; 
+}
+
+/* when showing the thing */
+.ng-hide-remove {
+  -webkit-animation:0.3s flipInX ease; 
+  animation:0.3s flipInX ease; 
+}
+
+a.tab-item {
+  max-width: 100%;
+}
+a.tab-item:first-of-type {
+  max-width: 50px!important;
+  border-radius: 16px;
+  background-color: #DDD;
+}
+a.tab-item.tab-item-active:first-of-type {
+  max-width: 50px!important;
+  border-radius: 4px;
+  background-color: #555!important;
+  border-color: #222!important;
+  color: #EEE!important;
+}
+
+/* flip in */
+@-webkit-keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  25% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 30deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 30deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+  }
+
+  50% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 10deg);
+  }
+
+  75% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 3deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 3deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+@keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 90deg);
+    -ms-transform: perspective(400px) rotate3d(-1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  25% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 30deg);
+    -ms-transform: perspective(400px) rotate3d(-1, 0, 0, 30deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 30deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+  }
+
+  50% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 10deg);
+    -ms-transform: perspective(400px) rotate3d(-1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 10deg);
+  }
+
+  75% {
+    -webkit-transform: perspective(400px) rotate3d(-1, 0, 0, 3deg);
+    -ms-transform: perspective(400px) rotate3d(-1, 0, 0, 3deg);
+    transform: perspective(400px) rotate3d(-1, 0, 0, 3deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+    -ms-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+/* fade out */
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/********************/
+/****** COLORS ******/
+/********************/
+
+.text-dark {
+  color: #37474F!important;
+  font-size: 32px;
+  font-weight: 600;
+  margin: auto;
+}
+.text-clear {
+  color: #ECEFF1!important;
+  font-size: 32px;
+  font-weight: 600;
+  margin: auto;
+}
+
+.room-pre {
+  background-color: #C5E1A5;
+}
+.room-progress {
+  background-color: #FFF9C4;
+}
+.room-ending {
+  background-color: #B0BEC5;
+}
+.room-closed {
+  background-color: #EEEEEE;
+}
+
+.status-not-started {
+  background-color: #81C784;
+}
+.status-opening {
+  background-color: #DCE775;
+}
+.status-prediction {
+  background-color: #B39DDB;
+}
+.status-debating {
+  background-color: #FFEE58;
+}
+.status-voting {
+  background-color: #64B5F6;
+}
+.status-pause {
+  background-color: #FFFDE7;
+}
+.status-closure {
+  background-color: #F4511E;
+}
+.status-questions {
+  background-color: #795548;
+}
+.status-conclusions {
+  background-color: #546E7A;
+}
+.status-closed {
+  background-color: #616161;
+}
+
+.category-culture {
+  background-color: #FFCC80;
+  border-color: #FB8C00;
+}
+.category-economics {
+  background-color: #80CBC4;
+  border-color: #00897B;
+}
+.category-education {
+  background-color: #A5D6A7;
+  border-color: #43A047;
+}
+.category-environment {
+  background-color: #C5E1A5;
+  border-color: #7CB342;
+}
+.category-health {
+  background-color: #ef9a9a;
+  border-color: #e53935;
+}
+.category-history {
+  background-color: #BCAAA4;
+  border-color: #6D4C41;
+}
+.category-humanrights {
+  background-color: #9FA8DA;
+  border-color: #3949AB;
+}
+.category-lifestyle {
+  background-color: #64B5F6;
+  border-color: #1E88E5;
+}
+.category-moral {
+  background-color: #CE93D8;
+  border-color: #8E24AA;
+}
+.category-politics {
+  background-color: #FFAB91;
+  border-color: #F4511E;
+}
+.category-psychology {
+  background-color: #F48FB1;
+  border-color: #D81B60;
+}
+.category-science {
+  background-color: #E6EE9C;
+  border-color: #C0CA33;
+}
+.category-society {
+  background-color: #80DEEA;
+  border-color: #00ACC1;
+}
+.category-sports {
+  background-color: #81D4FA;
+  border-color: #039BE5;
+}
+.category-technology {
+  background-color: #B39DDB;
+  border-color: #5E35B1;
+}
+.category-work {
+  background-color: #B0BEC5;
+  border-color: #546E7A;
+}
+.category-others {
+  background-color: #E0E0E0;
+  border-color: #757575;
+}
+.checkbox-culture input:before,
+.checkbox-culture .checkbox-icon:before {
+  border-color: #FB8C00;
+}
+.checkbox-culture input:checked:before,
+.checkbox-culture input:checked + .checkbox-icon:before {
+  background: #FB8C00;
+  border-color: #FB8C00;
+}
+.checkbox-economics input:before,
+.checkbox-economics .checkbox-icon:before {
+  border-color: #00897B;
+}
+.checkbox-economics input:checked:before,
+.checkbox-economics input:checked + .checkbox-icon:before {
+  background: #00897B;
+  border-color: #00897B;
+}
+.checkbox-education input:before,
+.checkbox-education .checkbox-icon:before {
+  border-color: #43A047;
+}
+.checkbox-education input:checked:before,
+.checkbox-education input:checked + .checkbox-icon:before {
+  background: #43A047;
+  border-color: #43A047;
+}
+.checkbox-environment input:before,
+.checkbox-environment .checkbox-icon:before {
+  border-color: #7CB342;
+}
+.checkbox-environment input:checked:before,
+.checkbox-environment input:checked + .checkbox-icon:before {
+  background: #7CB342;
+  border-color: #7CB342;
+}
+.checkbox-health input:before,
+.checkbox-health .checkbox-icon:before {
+  border-color: #e53935;
+}
+.checkbox-health input:checked:before,
+.checkbox-health input:checked + .checkbox-icon:before {
+  background: #e53935;
+  border-color: #e53935;
+}
+.checkbox-history input:before,
+.checkbox-history .checkbox-icon:before {
+  border-color: #6D4C41;
+}
+.checkbox-history input:checked:before,
+.checkbox-history input:checked + .checkbox-icon:before {
+  background: #6D4C41;
+  border-color: #6D4C41;
+}
+.checkbox-humanrights input:before,
+.checkbox-humanrights .checkbox-icon:before {
+  border-color: #3949AB;
+}
+.checkbox-humanrights input:checked:before,
+.checkbox-humanrights input:checked + .checkbox-icon:before {
+  background: #3949AB;
+  border-color: #3949AB;
+}
+.checkbox-lifestyle input:before,
+.checkbox-lifestyle .checkbox-icon:before {
+  border-color: #1E88E5;
+}
+.checkbox-lifestyle input:checked:before,
+.checkbox-lifestyle input:checked + .checkbox-icon:before {
+  background: #1E88E5;
+  border-color: #1E88E5;
+}
+.checkbox-moral input:before,
+.checkbox-moral .checkbox-icon:before {
+  border-color: #8E24AA;
+}
+.checkbox-moral input:checked:before,
+.checkbox-moral input:checked + .checkbox-icon:before {
+  background: #8E24AA;
+  border-color: #8E24AA;
+}
+.checkbox-politics input:before,
+.checkbox-politics .checkbox-icon:before {
+  border-color: #F4511E;
+}
+.checkbox-politics input:checked:before,
+.checkbox-politics input:checked + .checkbox-icon:before {
+  background: #F4511E;
+  border-color: #F4511E;
+}
+.checkbox-psychology input:before,
+.checkbox-psychology .checkbox-icon:before {
+  border-color: #D81B60;
+}
+.checkbox-psychology input:checked:before,
+.checkbox-psychology input:checked + .checkbox-icon:before {
+  background: #D81B60;
+  border-color: #D81B60;
+}
+.checkbox-science input:before,
+.checkbox-science .checkbox-icon:before {
+  border-color: #C0CA33;
+}
+.checkbox-science input:checked:before,
+.checkbox-science input:checked + .checkbox-icon:before {
+  background: #C0CA33;
+  border-color: #C0CA33;
+}
+.checkbox-society input:before,
+.checkbox-society .checkbox-icon:before {
+  border-color: #00ACC1;
+}
+.checkbox-society input:checked:before,
+.checkbox-society input:checked + .checkbox-icon:before {
+  background: #00ACC1;
+  border-color: #00ACC1;
+}
+.checkbox-sports input:before,
+.checkbox-sports .checkbox-icon:before {
+  border-color: #039BE5;
+}
+.checkbox-sports input:checked:before,
+.checkbox-sports input:checked + .checkbox-icon:before {
+  background: #039BE5;
+  border-color: #039BE5;
+}
+.checkbox-technology input:before,
+.checkbox-technology .checkbox-icon:before {
+  border-color: #5E35B1;
+}
+.checkbox-technology input:checked:before,
+.checkbox-technology input:checked + .checkbox-icon:before {
+  background: #5E35B1;
+  border-color: #5E35B1;
+}
+.checkbox-work input:before,
+.checkbox-work .checkbox-icon:before {
+  border-color: #546E7A;
+}
+.checkbox-work input:checked:before,
+.checkbox-work input:checked + .checkbox-icon:before {
+  background: #546E7A;
+  border-color: #546E7A;
+}
+.checkbox-others input:before,
+.checkbox-others .checkbox-icon:before {
+  border-color: #757575;
+}
+.checkbox-others input:checked:before,
+.checkbox-others input:checked + .checkbox-icon:before {
+  background: #757575;
+  border-color: #757575;
+}
+
+.text-Unanswered {
+  color: #00796B!important;
+}
+.text-Chosen {
+  color: #303F9F!important;
+  font-weight: 700;
+}
+.text-Banned {
+  color: #d32f2f!important;
+  font-weight: 300;
+}
+.text-Answered {
+  color: #AFB42B!important;
+}
+.text-rejected {
+  color: #F57C00!important;
+  font-weight: 600;
+}
+.text-accepted {
+  color: #689F38!important;
+  font-weight: 600;
+}
+
+.ion-ios-pulse-strong:before {
+  content: " "!important;
+  height: 34px;
+  width: 34px;
+  background: url("../img/hammer.ico") no-repeat 0 0;
+  background-size: 100%;
+} 
+
+/************************/
+/************************/
+/*******          *******/
+/*****              *****/
+/****  Specific CSS  ****/
+/*****              *****/
+/*******          *******/
+/************************/
+/************************/
+
+
+.login-image {
+  background-image: url('../img/quorumblabla.jpg');  
+  background-size: cover;
+  width: 392px;
+  height: 140px;
+  margin: 80px 0 20px 0;
+  position: relative;
+}
+
+.login-image h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 4rem!important;
+  transform: translate(-50%, -50%);
+}
+
+/**********************/
+/** Hall & Room-list **/
+/**********************/
+
+.button-profile {
+  display: block;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+}
+
+.button-round {
+  display: block;
+  border-radius: 100px;
+  border: 1px solid #777;
+  width: 136px;
+  height: 136px;
+  margin: 5px auto;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.8);
+  background-color: #7986CB;
+}
+
+.bigger-button{
+  width: 212px;
+  height: 212px;
+  border-radius: 120px;
+  margin: 5px auto;
+  background-color: #9CCC65;
+}
+
+.right-drag{
+  border-radius: 30px 0px 0px 30px;
+  border: 1px solid #777;
+  box-shadow: -2px 2px 4px rgba(0,0,0,0.9);
+  background-color: #C5E1A5;
+}
+
+.buttonContainer{
+  margin: 15%;
+}
+
+.fixed-search-header label{
+  padding: 2px;
+  height: 46px;
+}
+
+.fixed-search-header label input{
+  font-size: auto;
+  padding: 0 5px!important;
+}
+
 .fixed-search-header{
-  margin-top:43px;
+  margin-top:4px;
+  box-shadow: rgb(41, 41, 41) -1px 0px 6px 0px !important;
   /* 
    The ionic header bar is 43px in height,
    put your content below the header bar.
@@ -9,18 +595,349 @@
 }
 
 .ion-content-under-search{
-  margin-top:43px!important;
+  margin-top:52px!important;
 }
 
 .ion-content-over-details{
   margin-bottom:200px!important;
 }
+.ion-content-over-closed-room-details{
+  margin-bottom:150px!important;
+}
 
 .bottom-details{
   position: fixed;
   bottom: 0px;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin: 0 3%;
   width: 94%;
   height: 200px;
+  box-shadow: rgb(41, 41, 41) 0px -10px 10px -10px !important;
+}
+
+.bottom-details .bottom-button{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.no-join-button{
+  height: 150px;  
+}
+
+/**************************/
+/** Room Creation Wizard **/
+/**************************/
+
+.wizard-color-top-bar{
+  position: fixed;
+  top: 44px;
+  height: 10px;
+  width: 100%;
+}
+
+.wizard-color-bottom-bar{
+  position: fixed;
+  bottom: 57px;
+  height: 10px;
+  width: 100%;
+}
+
+.slides-on-bottombar .swiper-container{
+  height: 90%;
+}
+
+.slides-on-bottombar div .swiper-pagination.swiper-pagination-clickable{
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+  position: fixed;
+  bottom: 15px;
+}
+
+.slides-on-bottombar div .swiper-pagination.swiper-pagination-clickable .swiper-pagination-bullet{
+  color: #f8f8f8;
+  border-color: #f8f8f8;
+  background-color: #f8f8f8;
+}
+
+.wizard-bottombar{
+  position: fixed;
+  bottom: 0px;
+  background-color: #444;
+  padding: 0px;
+}
+
+.phases-bar{
+  padding: 0px;
+  margin-bottom: 20px;
+  height: 117px;
+}
+.phases-bar .row, .phases-bar .row .col{
+  padding: 2px 1px;
+}
+
+.item-checkbox.item-checkbox-right.item-icon-left { 
+  padding-left:60px;
+}
+
+/************************/
+/** Profile & Overview **/
+/************************/
+
+.profile-info {
+  width: 100%;
+  z-index: 2;
+  text-align: center;
+}
+.profile-name {
+  color: #444;
+  font-size: 26px;
+}
+.profile-image {
+  display: block;
+  border-radius: 100px;
+  border: 1px solid #fff;
+  width: 128px;
+  height: 128px;
+  margin: 20px auto 0;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+}
+
+.overview-room-settings{
+  width: 70%;
+  margin-left: 15%;
+}
+.overview-room-settings .item{
+  text-align: center;
+}
+.light-red-back{
+  background: #ef9a9a;
+}
+
+.mini-qrcode{
+  padding: 10px;
+  text-align: center;
+}
+.mini-qrcode img{
+  margin: 0px auto;
+  height: 80px;
+}
+
+.big-qrcode{
+  padding: 5px;
+  text-align: center;
+}
+.big-qrcode img{
+  margin: 0px auto;
+  height: 300px;
+}
+.QRpopup .popup{
+  width: 371px!important;
+  height: 444px!important;
+}
+.QRpopup .popup .popup-body{
+  height: 330px!important;
+}
+
+
+/***********************/
+/** Timers Management **/
+/***********************/
+
+.timer-progress-bar{
+  margin: 0;
+  height: 45px;
+}
+.timer-progress-bar .row, .timer-progress-bar .row .col{
+  padding: 2px 1px;
+}
+#actual-phase{
+  animation-name: parpadeo;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes parpadeo {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.1; }
+  100% { opacity: 1.0; }
+}
+@-webkit-keyframes parpadeo {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.1; }
+   100% { opacity: 1.0; }
+}
+
+.grid-timer{
+  margin: 0px;
+}
+.grid-timer .item{
+padding: 2px 5px;
+}
+.grid-timer .custom-timer{
+  padding: 20px;
+  font-size: 30px;
+  background-color: #FFDDAA;
+}
+.grid-timer .custom-timer:active{
+  background-color: #FF8A65;
+}
+.grid-timer .running{
+  color: #3E2723;
+  background-color: #FFB74D;
+}
+.grid-timer p{
+  margin: 2px;
+}
+.next-turn{
+  color: #d32f2f;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/****************************/
+/** Questions & Management **/
+/****************************/
+
+.float-button {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 30px;
+  padding: 30px;
+  font-size: 40px;
+  background-color: #43A047;
+  position: fixed;
+  bottom: 66px; /* Adjust to where you want it */
+  right: 20px; /* Adjust to where you want it */
+  z-index: 9999;
+}
+
+.float-button .height_fix {
+  margin-top: 100%;
+}
+
+.float-button .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -20px; /* Note, this must be half the font size */
+  color: #222;
+}
+
+.question-item{
+
+}
+
+.question-item .item-content{
+  padding: 8px 5px 1px 5px;
+  font-size: 18px;
+}
+.question-item .item-content .row{
+  margin-bottom: 3px;
+}
+
+.question-item .item-content .row .col{
+  font-size: 16px;
+}
+
+.downvoted, .not-enough{
+  color: #f44336;
+  font-weight: 600;
+}
+
+.upvoted, .good-to-go{
+  color: #4CAF50;
+  font-weight: 600;
+}
+
+.swipe-disabled div.item-content {
+  -webkit-transition: none !important;
+  -webkit-transform: none !important;
+  transform: none !important;
+}
+
+.question-side-button{
+  width: 70px;
+  padding-left: 17px;
+  padding-right: 17px;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.badAnswered{
+  background-color: #FFA726;
+}
+.badAnswered-selected{
+  background-color: #e5e5e5!important;
+  color: #F57C00!important;
+}
+.rightAnswered{
+  background-color: #9CCC65;
+}
+.rightAnswered-selected{
+  background-color: #e5e5e5!important;
+  color: #689F38!important;
+}
+.answeredAnswer{
+  background-color: #DCE775;
+}
+.answeredAnswer-selected{
+  background-color: #e5e5e5!important;
+  color: #AFB42B!important;
+}
+.chosenAnswer{
+  background-color: #5C6BC0;
+}
+.chosenAnswer-selected{
+  background-color: #e5e5e5!important;
+  color: #303F9F!important;
+}
+.bannedAnswer{
+  background-color: #e57373;
+}
+.bannedAnswer-selected{
+  background-color: #e5e5e5!important;
+  color: #d32f2f!important;
+}
+
+
+/***************/
+/** Dashboard **/
+/***************/
+
+.selected-actor{
+  animation-name: voted;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+
+  -webkit-animation-name:voted;
+  -webkit-animation-duration: 0.25s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 3;
+}
+
+@keyframes voted {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.3; }
+  100% { opacity: 1.0; }
+}
+@-webkit-keyframes voted {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.3; }
+   100% { opacity: 1.0; }
+}
+
+.not-selected-actor{
+  opacity: 0.5;
 }

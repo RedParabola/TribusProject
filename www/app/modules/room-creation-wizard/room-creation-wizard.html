@@ -1,11 +1,301 @@
 <ion-view view-title="Room Creation" name="room-creation-wizard-view">
-    <ion-content class="padding">
-      <div class="card">
-        <div class="item item-icon-left" ng-click="roomCreationWizardCtrl.makeCode()">
-          <i class="icon ion-qr-scanner" name="qr"></i>
-          <p>Generate Room QR</p>
-        </div>
+  <ion-nav-bar class="bar-dark">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+  <div class="wizard-color-top-bar category-{{roomCreationWizardCtrl.globalColor}}"></div>
+
+  <ion-content class="padding" scroll="false">
+
+    <ion-slides class="slides-on-bottombar" options="roomCreationWizardCtrl.sliderOptions" slider="roomCreationWizardCtrl.sliderItem">
+
+      <!-- 1. Room basic info -->
+      <ion-slide-page>
+        <ion-content>
+          <h2>¡Welcome to the room creation wizard!</h2>
+          <p>Through 3 simple steps, we will empower you as a <b>moderator</b> in the creation of your own debate room.</p>
+          <div class="row padding-vert-no">
+            <h3 class="padding">Room basic info</h3>
+          </div>
+          <div class="card list margin-vert-92">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label"><b>*Main topic</b></span>
+              <span class="input-label"><i>(maximum 42 characters)</i></span>
+              <textarea type="text"
+                        rows="3"
+                        style="font-size: 20px; line-height: 22px;"
+                        placeholder="Is Net Neutrality overrated?"
+                        ng-model="roomCreationWizardCtrl.topic">
+              </textarea>
+            </label>
+            <label class="item item-input item-select category-{{roomCreationWizardCtrl.globalColor}}">
+              <span class="input-label"><b>*Choose a category</b></span>
+              <select style="font-size: 18px; line-height: 20px; background-color: transparent!important;"
+                      ng-model="roomCreationWizardCtrl.selectedCategory"
+                      ng-change="roomCreationWizardCtrl.updateSelectedCategory()">
+                <option value="" disabled selected>Please Select...</option>
+                <option ng-repeat="category in roomCreationWizardCtrl.categories" value="{{category.id}}">
+                  <p>{{category.text}}</p>
+                </option>
+              </select>
+            </label>
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Short description</span>
+              <span class="input-label"><i>(maximum 180 characters)</i></span>
+              <textarea type="text"
+                        rows="5"
+                        style="font-size: 16px; line-height: 18px;"                  
+                        ng-model="roomCreationWizardCtrl.description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum tenetur obcaecati temporibus totam fugiat et quae quia quisquam asperiores esse eum ipsum porro officiis reiciendis unde molestias rerum molestiae. Perferendis. 
+              </textarea>
+            </label>
+          </div>
+
+        </ion-content>
+      </ion-slide-page>
+
+      <!-- 2. List of actors -->
+      <ion-slide-page>
+        <ion-content scroll="false">
+          <div class="row padding-vert-no" style="margin-top: 2px;">
+            <div class="col col-50 padding-vert-no">
+              <h3 class="padding float-left">List of actors</h3>
+            </div>
+            <div class="col col-30 padding-vert-no">
+              <h3 class="padding float-left"
+                  ng-class="{'not-enough':roomCreationWizardCtrl.actors.length < 2, 'good-to-go':roomCreationWizardCtrl.actors.length > 1}">
+                {{roomCreationWizardCtrl.actors.length}}/8
+              </h3>
+            </div>
+            <div class="col col-20 padding-vert-no">
+              <div class="float-right">
+                <button class="button button-light"
+                        ng-click="roomCreationWizardCtrl.addNewActor()"
+                        ng-disabled="roomCreationWizardCtrl.actors.length === 8">
+                  <i class="icon ion-person-add"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card list margin-vert-92">
+            <div class="item item-button-right"
+                 ng-repeat="actor in roomCreationWizardCtrl.actors track by $index">
+              <div ng-click="roomCreationWizardCtrl.editActor(actor)">                
+                <p style="font-size: 20px;">{{ actor.name | limitTo: 20 }}{{actor.name.length > 20 ? '...' : ''}}</p>
+                <p>{{ actor.motto | limitTo: 30 }}{{actor.motto.length > 30 ? '...' : ''}}</p>
+              </div>
+              <button class="button button-light"
+                      ng-click="roomCreationWizardCtrl.removeActor(actor)">
+                <i class="icon ion-trash-b"></i>
+              </button>
+            </div>
+          </div>
+        </ion-content>
+      </ion-slide-page>
+
+      <!-- 3. Debate phases -->
+      <ion-slide-page>
+        <ion-content scroll="false">
+          <div class="row padding-vert-no" style="margin-top: 2px;">
+            <div class="col col-50 padding-vert-no">
+              <h3 class="padding float-left">Debate phases</h3>
+            </div>
+            <div class="col col-30 padding-vert-no">
+              <h3 class="padding float-right">{{roomCreationWizardCtrl.totalHours}}h{{roomCreationWizardCtrl.totalMinutes}}</h3>
+            </div>
+            <div class="col col-20 padding-vert-no">
+              <div class="float-left">
+                <button class="button button-light"
+                        ng-click="roomCreationWizardCtrl.resetPhases()">
+                  <i class="icon ion-ios-refresh"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phases schema -->
+          <div class="card phases-bar margin-vert-92 category-{{roomCreationWizardCtrl.globalColor}}">
+            <div class="row" ng-if="!roomCreationWizardCtrl.debatePhases.length">
+              <div class="col text-center" style="margin-top: 14px;">
+                <p >Add phases to this debate progress bar.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-10"
+                   ng-repeat="phase in roomCreationWizardCtrl.debatePhases | limitTo:10:0 track by $index"
+                   ng-click="roomCreationWizardCtrl.tapPhase(phase,$index)">
+                <div class="item item-icon status-{{phase.phase}}" style="padding: 0px">
+                  <div class="row">
+                    <i class="icon {{phase.icon}} text-{{phase.needsTextColor}}"></i>
+                  </div>
+                  <div class="row">
+                    <p class="text-{{phase.needsTextColor}}">{{phase.duration}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" ng-if="!(roomCreationWizardCtrl.debatePhases.length > 10)">
+              <div class="col text-center" style="margin-top: 18px;">
+                <p >You need at least one debating phase to start.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-10"
+                   ng-repeat="phase in roomCreationWizardCtrl.debatePhases | limitTo:10:10 track by $index"
+                   ng-click="roomCreationWizardCtrl.tapPhase(phase,$index)">
+                <div class="item item-icon status-{{phase.phase}}" style="padding: 0px">
+                  <div class="row">
+                    <i class="icon {{phase.icon}} text-{{phase.needsTextColor}}"></i>
+                  </div>
+                  <div class="row">
+                    <p class="text-{{phase.needsTextColor}}">{{phase.duration}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col col-30"
+                 ng-click="roomCreationWizardCtrl.addRepeatablePhase('debating')">
+              <div class="item item-icon-right">
+                Debate
+                <i class="icon ion-chatboxes"></i>
+              </div>
+            </div>
+            <div class="col col-30"
+                 ng-click="roomCreationWizardCtrl.addRepeatablePhase('voting')">
+              <div class="item item-icon-right">
+                Voting
+                <i class="icon ion-ios-pie"></i>
+              </div>
+            </div>
+            <div class="col col-30"
+                 ng-click="roomCreationWizardCtrl.addRepeatablePhase('pause')">
+              <div class="item item-icon-right">
+                Pause
+                <i class="icon ion-ios-pause"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="list"> 
+            <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
+                          ng-model="roomCreationWizardCtrl.opening"
+                          ng-change="roomCreationWizardCtrl.toggleCheckbox('opening')">
+              <i class="icon ion-easel"></i><p><b>Opening.</b> Actors presentation.</p>
+            </ion-checkbox>
+            <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
+                          ng-model="roomCreationWizardCtrl.prediction"
+                          ng-change="roomCreationWizardCtrl.toggleCheckbox('prediction')">
+              <i class="icon ion-podium"></i><p><b>Prediction.</b> Spectator's winner guess.</p>
+            </ion-checkbox>
+            <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
+                          ng-model="roomCreationWizardCtrl.closure"
+                          ng-change="roomCreationWizardCtrl.toggleCheckbox('closure')">
+              <i class="icon ion-chatbox"></i><p><b>Closure.</b> Actors last argument.</p>
+            </ion-checkbox>
+            <ion-checkbox class="item-checkbox-right item-icon-left checkbox-{{roomCreationWizardCtrl.globalColor}}"
+                          ng-model="roomCreationWizardCtrl.questions"
+                          ng-change="roomCreationWizardCtrl.toggleCheckbox('questions')">
+              <i class="icon ion-ios-help-outline"></i><p><b>Questions.</b> Spectator's Q&A round.</p>
+            </ion-checkbox>
+          </div>
+
+        </ion-content>
+      </ion-slide-page>
+
+      <!-- 4. Overview -->
+      <ion-slide-page>
+        <ion-content scroll="false">
+          <div class="row padding-vert-no">
+            <div class="col padding-vert-no">
+              <h3 class="padding text-center">Overview</h3>
+            </div>
+          </div>
+
+          <!-- Phases schema -->
+          <div class="card phases-bar category-others margin-vert-92">
+            <div class="row">
+              <div class="col col-10"
+                    ng-repeat="phase in roomCreationWizardCtrl.debatePhases | limitTo:10:0 track by $index"
+                    ng-click="roomCreationWizardCtrl.tapPhase(phase,$index)">
+                <div class="item item-icon status-{{phase.phase}}" style="padding: 0px">
+                  <div class="row">
+                    <i class="icon {{phase.icon}} text-{{phase.needsTextColor}}"></i>
+                  </div>
+                  <div class="row">
+                    <p class="text-{{phase.needsTextColor}}">{{phase.duration}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-10"
+                    ng-repeat="phase in roomCreationWizardCtrl.debatePhases | limitTo:10:10 track by $index"
+                    ng-click="roomCreationWizardCtrl.tapPhase(phase,$index)">
+                <div class="item item-icon status-{{phase.phase}}" style="padding: 0px">
+                  <div class="row">
+                    <i class="icon {{phase.icon}} text-{{phase.needsTextColor}}"></i>
+                  </div>
+                  <div class="row">
+                    <p class="text-{{phase.needsTextColor}}">{{phase.duration}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col padding-vert-no">
+              <p class="text-center" style="font-size: 18px;">
+                When will debate start?
+                <input style="margin: auto;" type="datetime-local" name="bdaytime">
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col padding-vert-no">
+              <p class="text-center" style="font-size: 18px;">Duration: <b>{{roomCreationWizardCtrl.totalHours}}h{{roomCreationWizardCtrl.totalMinutes}}</b></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <h4>{{roomCreationWizardCtrl.selectedCategoryFormatted}}: "{{roomCreationWizardCtrl.topic}}"</h4>
+          </div>
+
+          <div class="card">
+            <div class="item item-text-wrap">
+              <b>List of actors: </b><p>{{roomCreationWizardCtrl.chainedActorsString}}</p>
+            </div>
+          </div>
+
+        </ion-content>
+      </ion-slide-page>
+      
+    </ion-slides>
+
+  </ion-content>
+  <div class="wizard-color-bottom-bar category-{{roomCreationWizardCtrl.globalColor}}"></div>
+  <div class="item-text-wrap row wizard-bottombar">
+      <div class="col col-25">
+        <button class="button button-stable float-left"
+                ng-show="roomCreationWizardCtrl.sliderItem.activeIndex !== 0"
+                ng-click="roomCreationWizardCtrl.goPrevSlide()">
+          Previous
+        </button>
       </div>
-      <div id="qrcode"></div> 
-    </ion-content>
-  </ion-view>
+      <div class="col col-50">
+      </div>
+      <div class="col col-25">
+        <button class="button button-stable float-right"
+                ng-disabled="!roomCreationWizardCtrl.canPressNext"
+                ng-click="roomCreationWizardCtrl.goNextSlide()">
+          {{roomCreationWizardCtrl.sliderItem.activeIndex !== 3 ? 'Next' : 'Create'}}
+        </button>
+      </div>
+    </div>
+
+</ion-view>

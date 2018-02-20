@@ -2,19 +2,20 @@ angular
 .module('starter.controllers')
 .controller('RegisterController', registerController);
 
-registerController.$inject = ['$rootScope', '$log', 'UserService', '$timeout'];
-function registerController($rootScope, $log, UserService, $timeout) {
+registerController.$inject = ['$rootScope', '$log', 'UserService', '$timeout', '$ionicHistory', '$state', 'PopupService'];
+function registerController($rootScope, $log, UserService, $timeout, $ionicHistory, $state, PopupService) {
 
   var vm = this;
   vm.validateField = _validateField;
-  vm.doRegister = _doRegister;    
-
+  vm.doRegister = _doRegister;
+  vm.goToTermsOfService = _goToTermsOfService;
+  
   initialize();
 
   //////////////////
 
   function initialize(){
-    
+    vm.isUserAnonymous = true;
   }
 
   function _validateField(){
@@ -22,14 +23,37 @@ function registerController($rootScope, $log, UserService, $timeout) {
   }
 
   function _doRegister(){
-    $timeout(function(){
-      UserService.tryRegister().then(
-        function(userInfo) {
-          $log.info("Register successful");
-        }, function(error) {
-          $log.info("Register failed -> " + error);
-      });
-      
-    },  100);
+    if(!vm.email || !vm.password || !vm.confirmPassword || (vm.password !== vm.confirmPassword)){
+      PopupService.getAlertPopup(
+        'Register failed!',
+        'Please check that all fields are correctly filled.'
+      );
+    } else {
+      $timeout(function(){
+        UserService.tryRegister(vm.email,vm.password).then(
+          function() {
+            $log.info("Register successful");
+            PopupService.getAlertPopup(
+              'Register successful',
+              'You can now login with the registered account.'
+            );
+            $ionicHistory.nextViewOptions({
+              disableBack : true,
+              historyRoot: true
+            });
+            $state.go('login', {});  
+          }, function(error) {
+            $log.info("Register failed -> " + error);
+        });
+      },  200);
+    }
   }
+
+  function _goToTermsOfService(){
+    $ionicHistory.nextViewOptions({
+      disableBack : false
+    });
+    $state.go('tos', {});    
+  }
+
 }

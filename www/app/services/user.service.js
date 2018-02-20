@@ -13,11 +13,13 @@ function userService($rootScope, $q, ShowResource) {
     var deferred = $q.defer();
     var tempCredentials = {email: userEmail,password: userPassword};
     if ((tempCredentials.email === 'user@email.com' && tempCredentials.password === 'secret') ||
+        (tempCredentials.email === 'eusta@quorum.com' && tempCredentials.password === '123') ||
+        (tempCredentials.email === 'gildo@quorum.com' && tempCredentials.password === '123') ||
         (tempCredentials.email === '0' && tempCredentials.password === '0')) {
       deferred.resolve({
         email: userEmail,
-        field1: 'Campo 1',
-        field2: 'Campo 2'
+        isUserAnonymous: true,
+        isUserModerator: undefined
       });
     } else {
       deferred.reject();
@@ -27,17 +29,13 @@ function userService($rootScope, $q, ShowResource) {
 
   function _tryRegister(userName,userPassword) {
     var deferred = $q.defer();
-    if (userName == 'user@lol.com' && userPassword == 'secret') {
-      deferred.resolve({
-        email: userName,
-        field1: 'A',
-        field2: 'B'
-      });
-    } else {
-      deferred.reject();
-    }
+    $rootScope.mockUser = {
+      email: userName,
+      field1: 'A',
+      field2: 'B'
+    };
+    deferred.resolve();
     return deferred.promise;
   }
 
 }
-

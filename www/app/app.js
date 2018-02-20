@@ -8,6 +8,7 @@
 var app = angular.module('starter', [
   'ionic',
   'ngCordova',
+  'ngAnimate',
   'starter.controllers',
   'starter.services',
   'starter.components',
@@ -16,7 +17,8 @@ var app = angular.module('starter', [
   //'flux',
   //'edomus.stores',
   //'edomus.stores.things',
-  'restangular'
+  'restangular',
+  'timer'
   ])
   
   .run(function($ionicPlatform) {
@@ -32,58 +34,20 @@ var app = angular.module('starter', [
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
+      $ionicPlatform.onHardwareBackButton(function() {
+        event.preventDefault();
+        event.stopPropagation();
+      });
     });
   })
 
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
     // Each state's controller can be found in controllers.js
     $stateProvider
-
-    // setup an abstract state for the tabs directive
-    .state('tab', {
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'app/modules/main/tabs.html'
-    })
-
-    // Each tab has its own nav history stack:
-
-    .state('tab.overview', {
-      url: '/overview',
-      views: {
-        'tab-overview': {
-          templateUrl: 'app/modules/overview/tab-overview.html',
-          controller: 'OverviewController',
-          controllerAs: 'overviewCtrl'
-        }
-      }
-    })
-
-    .state('tab.dash', {
-      url: '/dash',
-      views: {
-        'tab-dash': {
-          templateUrl: 'app/modules/dashboard/tab-dash.html',
-          controller: 'DashController',
-          controllerAs: 'dashCtrl'
-        }
-      }
-    })
-
-    .state('tab.settings', {
-      url: '/settings',
-      views: {
-        'tab-settings': {
-          templateUrl: 'app/modules/settings/tab-settings.html',
-          controller: 'SettingsController',
-          controllerAs: 'settingsCtrl'
-        }
-      }
-    })
 
     .state('login', {
       url: '/login',
@@ -99,6 +63,13 @@ var app = angular.module('starter', [
       controllerAs: 'registerCtrl'
     })
 
+    .state('tos', {
+      url: '/tos',
+      templateUrl: 'app/modules/tos/tos.html',
+      controller: 'TosController',
+      controllerAs: 'tosCtrl'
+    })
+
     .state('hall', {
       url: '/hall',
       templateUrl: 'app/modules/hall/hall.html',
@@ -106,11 +77,11 @@ var app = angular.module('starter', [
       controllerAs: 'hallCtrl'
     })
 
-    .state('room-list', {
-      url: '/room-list',
-      templateUrl: 'app/modules/room-list/room-list.html',
-      controller: 'RoomListController',
-      controllerAs: 'roomListCtrl'
+    .state('hall.profile', {
+      url: '/hall-profile',
+      templateUrl: 'app/modules/profile/hall-profile.html',
+      controller: 'ProfileController',
+      controllerAs: 'profileCtrl'
     })
 
     .state('room-creation-wizard', {
@@ -118,9 +89,98 @@ var app = angular.module('starter', [
       templateUrl: 'app/modules/room-creation-wizard/room-creation-wizard.html',
       controller: 'RoomCreationWizardController',
       controllerAs: 'roomCreationWizardCtrl'
+    })
+
+    // setup an abstract state for the tabs directive
+    .state('moderator', {
+      url: '/moderator',
+      abstract: true,
+      templateUrl: 'app/modules/main/moderator-tabs.html'
+    })
+
+    // Each tab has its own nav history stack:
+
+    .state('moderator.overview', {
+      url: '/overview/:roomId',
+      views: {
+        'tab-overview': {
+          templateUrl: 'app/modules/overview/overview.html',
+          controller: 'OverviewController',
+          controllerAs: 'overviewCtrl'
+        }
+      }
+    })
+
+    .state('moderator.timers', {
+      url: '/timers/:roomId',
+      views: {
+        'tab-timers': {
+          templateUrl: 'app/modules/timers/timers.html',
+          controller: 'TimersController',
+          controllerAs: 'timersCtrl'
+        }
+      }
+    })
+
+    .state('moderator.questions-manager', {
+      url: '/questions-manager/:roomId',
+      views: {
+        'tab-questions-manager': {
+          templateUrl: 'app/modules/questions/questions-manager.html',
+          controller: 'QuestionsController',
+          controllerAs: 'questionsCtrl'
+        }
+      }
+    })
+
+    .state('spectator', {
+      url: '/spectator',
+      abstract: true,
+      templateUrl: 'app/modules/main/spectator-tabs.html'
+    })
+
+    .state('spectator.profile', {
+      url: '/profile',
+      views: {
+        'tab-profile': {
+          templateUrl: 'app/modules/profile/profile.html',
+          controller: 'ProfileController',
+          controllerAs: 'profileCtrl'
+        }
+      }
+    })
+
+    .state('spectator.dash', {
+      url: '/dash/:roomId',
+      views: {
+        'tab-dash': {
+          templateUrl: 'app/modules/dashboard/dash.html',
+          controller: 'DashController',
+          controllerAs: 'dashCtrl'
+        }
+      }
+    })
+
+    .state('spectator.questions', {
+      url: '/questions/:roomId',
+      views: {
+        'tab-questions': {
+          templateUrl: 'app/modules/questions/questions.html',
+          controller: 'QuestionsController',
+          controllerAs: 'questionsCtrl'
+        }
+      }
+    })
+    
+    .state('test-state', {
+      url: '/test-state',
+      templateUrl: 'app/modules/test-state/test-state.html',
+      controller: 'TestStateController',
+      controllerAs: 'testStateCtrl'
     });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
 
   })

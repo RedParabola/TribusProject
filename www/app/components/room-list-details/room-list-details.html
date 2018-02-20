@@ -1,22 +1,32 @@
 <div>
 
-  <div class="item item-icon-left item-text-wrap">
-    <i class="icon ion-ios-people {{roomDetailsCtrl.room.category}}"></i>
-    <p>Topic: {{roomDetailsCtrl.room.topic}}</p>
-  </div>
-  
-  <div class="item item-text-wrap">
-    <p>Participants: {{roomDetailsCtrl.room.joined}}</p>
-    <p>Status: {{roomDetailsCtrl.room.status}}</p>
+  <div class="item item-icon-left item-text-wrap padding-vert-51">
+
+    <i class="icon {{roomDetailsCtrl.room.categoryIcon}} category-{{roomDetailsCtrl.room.globalColor}}"></i>
+    <div class="row no-padding">
+      <div class="col col-90">
+          <b class="">{{roomDetailsCtrl.room.topic}}</b>
+      </div>
+      <div class="col col-10">
+        <div class="item item-icon-right padding-vert-83" ng-click="roomDetailsCtrl.closeFunction()">
+            <i class="icon ion-ios-close-outline" style="font-size: 22px;"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="item-text-wrap row">
+      <div class="col col-40">
+        Participants: {{roomDetailsCtrl.room.joined}}
+      </div>
+      <div class="col col-60 text-right">
+        <b>{{roomDetailsCtrl.room.statusText}}</b>
+      </div>
+    </div>
+
   </div>
 
-  <div class="item item-text-wrap">
-    <p>Master: {{roomDetailsCtrl.room.master}}</p>
-    <p>Actors:</p>        
-    <div ng-repeat="actor in roomDetailsCtrl.room.actors">
-      <p>{{actor.name}}</p>
-      <p>{{actor.sentence}}</p>
-    </div>
+  <div class="item item-text-wrap padding-vert-51">
+    <b>{{roomDetailsCtrl.listOfActors}}</b>
   </div>
 
 </div>

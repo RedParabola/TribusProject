@@ -1,0 +1,139 @@
+<ion-view hide-nav-bar="true">
+
+  <div class="card fixed-search-header">
+    <div class="card timer-progress-bar margin-vert-92">
+      <div class="row">
+        <div class="col col-20"
+              ng-model="timersCtrl.debatePhases[0]">
+          <div id="actual-phase" class="item item-icon status-{{timersCtrl.debatePhases[0].phase}}" style="padding: 0px">
+            <div class="row">
+              <i class="icon {{timersCtrl.debatePhases[0].icon}} text-{{timersCtrl.debatePhases[0].needsTextColor}}"></i>
+              <span class="text-{{timersCtrl.debatePhases[0].needsTextColor}}">{{timersCtrl.debatePhases[0].duration}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col col-20"
+              ng-model="timersCtrl.debatePhases[1]">
+          <div class="item item-icon status-{{timersCtrl.debatePhases[1].phase}}" style="padding: 0px">
+            <div class="row">
+              <i class="icon {{timersCtrl.debatePhases[1].icon}} text-{{timersCtrl.debatePhases[1].needsTextColor}}"></i>
+              <span class="text-{{timersCtrl.debatePhases[1].needsTextColor}}">{{timersCtrl.debatePhases[1].duration}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col col-20"
+              ng-model="timersCtrl.debatePhases[2]">
+          <div class="item item-icon status-{{timersCtrl.debatePhases[2].phase}}" style="padding: 0px">
+            <div class="row">
+              <i class="icon {{timersCtrl.debatePhases[2].icon}} text-{{timersCtrl.debatePhases[2].needsTextColor}}"></i>
+              <span class="text-{{timersCtrl.debatePhases[2].needsTextColor}}">{{timersCtrl.debatePhases[2].duration}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col col-20"
+              ng-model="timersCtrl.debatePhases[3]">
+          <div class="item item-icon status-{{timersCtrl.debatePhases[3].phase}}" style="padding: 0px">
+            <div class="row">
+              <i class="icon {{timersCtrl.debatePhases[3].icon}} text-{{timersCtrl.debatePhases[3].needsTextColor}}"></i>
+              <span class="text-{{timersCtrl.debatePhases[3].needsTextColor}}">{{timersCtrl.debatePhases[3].duration}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col col-20"
+              ng-click="timersCtrl.nextPhase()">
+          <div class="item item-icon" style="padding: 0px">
+            <div class="row">
+              <i class="icon ion-ios-skipforward text-dark"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-content class="ion-content-under-search" scroll="false">
+
+    <!-- Phase timer -->
+    <div class="row padding-vert-no" style="margin-top: 2px;">
+      <div class="col col-10 padding-vert-no">
+      </div>
+      <div class="col col-70 padding-vert-no">
+        <p class="padding-vert-83 text-center" style="font-size: 30px;">
+          <custom-timer timer-id="timersCtrl.debateTimer"
+                        total-time="timersCtrl.totalDebateTime"
+                        actual-running-timer="timersCtrl.actualRunningTimer"
+                        broadcast-function="timersCtrl.thisTimerStarted"
+                        independant="true">
+          </custom-timer>
+        </p>
+        <p class="padding-vert-52 text-center"
+           style="font-size: 20px; font-weight: 300;">
+          {{timersCtrl.totalDebateTime}}
+        </p>
+      </div>
+      <div class="col col-10 padding-vert-no">
+      </div>
+    </div>
+
+    <!-- Grid of Actors Timers-->
+    <div ng-if="timersCtrl.actors" class="list row-no-padding">
+        <div ng-repeat="actor in timersCtrl.actors track by $index">
+          <!-- A row each pair of actors -->
+          <div class="row" style="padding-top: 0px;" ng-if="$even">
+            <div ng-if="timersCtrl.actors[$index]" class="col col-50">
+              <div class="card grid-timer text-center"
+                  ng-click="timersCtrl.startTimer($index)">
+                <div class="item item-text-wrap">
+                  {{timersCtrl.actors[$index].name}}
+                </div>
+                <custom-timer timer-id="$index"
+                              total-time="timersCtrl.actors[$index].totalTime"
+                              actual-running-timer="timersCtrl.actualRunningTimer"
+                              broadcast-function="timersCtrl.thisTimerStarted"
+                              requested-turn="timersCtrl.actors[$index].requestedTurn">
+                </custom-timer>
+                <div class="no-padding row">
+                  <div class="col col-30 no-padding">
+                  </div>
+                  <div class="col col-30 no-padding">
+                    <p>{{timersCtrl.actors[$index].totalTime}}</p>
+                  </div>
+                  <div class="col col-30 no-padding text-center" ng-class="{'next-turn': timersCtrl.actors[$index].turn < 2}">
+                    <span ng-show="timersCtrl.actors[$index].requestedTurn">{{timersCtrl.actors[$index].turn}}</span>
+                    <i class="icon ion-android-hand" ng-show="timersCtrl.actors[$index].requestedTurn"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div ng-if="timersCtrl.actors[$index+1]" class="col col-50">
+              <div class="card grid-timer text-center"
+                   ng-click="timersCtrl.startTimer($index+1)">
+              <div class="item item-text-wrap">
+                {{timersCtrl.actors[$index+1].name}}
+              </div>
+              <custom-timer timer-id="$index+1"
+                            total-time="timersCtrl.actors[$index+1].totalTime"
+                            actual-running-timer="timersCtrl.actualRunningTimer"
+                            broadcast-function="timersCtrl.thisTimerStarted"
+                            requested-turn="timersCtrl.actors[$index+1].requestedTurn">
+              </custom-timer>
+              <div class="no-padding row">
+                <div class="col col-30 no-padding">
+                </div>
+                <div class="col col-30 no-padding">
+                  <p>{{timersCtrl.actors[$index+1].totalTime}}</p>
+                </div>
+                <div class="col col-30 no-padding text-center" ng-class="{'next-turn': timersCtrl.actors[$index+1].turn < 2}">
+                  <span ng-show="timersCtrl.actors[$index+1].requestedTurn">{{timersCtrl.actors[$index+1].turn}}</span>
+                  <i class="icon ion-android-hand" ng-show="timersCtrl.actors[$index+1].requestedTurn"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </ion-content>
+
+</ion-view>

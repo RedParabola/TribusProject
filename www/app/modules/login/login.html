@@ -1,14 +1,25 @@
-<ion-view view-title="Login" name="login-view">
-  <ion-content class="padding">
-      <div class="list list-inset">
-          <label class="item item-input">
-              <input type="text" placeholder="Email" ng-model="loginCtrl.email">
-          </label>
-          <label class="item item-input">
-              <input type="password" placeholder="Password" ng-model="loginCtrl.password">
-          </label>
-      </div>
-      <button class="button button-block button-calm" ng-click="loginCtrl.doLogin()">Login</button>
-      <button class="button button-block button-calm" ng-click="loginCtrl.goToRegister()">Register new account</button>
-    </ion-content>
+<ion-view view-title="Login" name="login-view"
+          hide-nav-bar="true">
+  <ion-content class="padding" scroll="false">
+
+    <div class="login-image">
+    </div>
+    <br style="clear: both;">    
+    <div class="list list-inset">
+      <label class="item item-input">
+        <span class="input-label">Email</span>
+        <input type="text" ng-model="loginCtrl.email">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Password</span>
+        <input type="password" ng-model="loginCtrl.password">
+      </label>
+    </div>
+    <button class="button button-block button-balanced" ng-click="loginCtrl.doLogin()">Login</button>
+    <div class="text-center padding">
+      <span style="font-size: 18px;">Don't have an account yet?</span><br>
+      <span style="font-size: 18px;" ng-click="loginCtrl.goToRegister()"><a><b>Register here</b></a></span>
+    </div>
+    
+  </ion-content>
 </ion-view>

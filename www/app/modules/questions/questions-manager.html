@@ -1,0 +1,57 @@
+<ion-view hide-nav-bar="true">
+
+  <ion-content>
+    <div class="list">
+      
+      <ion-list can-swipe="questionsCtrl.listCanSwipe">
+        <ion-item ng-repeat="question in questionsCtrl.questions"
+                  class="item-text-wrap question-item"
+                  item="question"
+                  class="item-remove-animate">
+          <div class="row">
+              {{question.content}}
+          </div>
+          <div class="row">
+            <div class="col col-20 text-center" ng-class="{'downvoted': question.downVoted}">
+              <span>{{question.downVotes + question.upVotes}}  </span><i class="icon ion-ios-speedometer"></i>
+            </div>
+            <div class="col col-30 text-right" style="font-style: italic;">
+              <span>{{question.author}}</span>
+            </div>
+            <div class="col col-30 text-right text-{{question.status}}"
+                 ng-class="{'text-rejected':question.rejectedAnswer, 'text-accepted':question.acceptedAnswer}">
+              <span>{{question.status}}</span>
+            </div>
+          </div>
+
+          <ion-option-button
+            class="question-side-button answeredAnswer text-center"
+            ng-class="{'answeredAnswer-selected': question.answeredAnswer}"
+            ng-disabled="question.status === questionsCtrl.questionConstants.ANSWERED || question.answeredAnswer"
+            ng-click="questionsCtrl.markAsAnswered(question)">
+            <i class="ion-checkmark-round text-center"></i>
+          </ion-option-button>
+
+          <ion-option-button
+            class="question-side-button chosenAnswer text-center"
+            ng-class="{'chosenAnswer-selected': question.chosenAnswer}"
+            ng-disabled="(question.status !== questionsCtrl.questionConstants.UNANSWERED && question.status !== questionsCtrl.questionConstants.CHOSEN) || question.bannedAnswer"
+            ng-click="questionsCtrl.chooseQuestion(question)">
+            <i class="ion-flag text-center" style="color: black;"></i>
+          </ion-option-button>
+
+          <ion-option-button
+            class="question-side-button bannedAnswer text-center"
+            ng-class="{'bannedAnswer-selected': question.bannedAnswer}"
+            ng-disabled="(question.status !== questionsCtrl.questionConstants.UNANSWERED && question.status !== questionsCtrl.questionConstants.BANNED) || question.chosenAnswer"
+            ng-click="questionsCtrl.banUser(question)">
+            <i class="ion-ios-pulse-strong text-center"></i>
+          </ion-option-button>
+
+        </ion-item>
+      </ion-list>
+
+    </div>
+  </ion-content>
+
+</ion-view>

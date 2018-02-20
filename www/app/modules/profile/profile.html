@@ -1,0 +1,23 @@
+<ion-view hide-nav-bar="true">
+  <ion-content has-header="true" scroll="false">
+    <div>
+      <div class="profile-info">
+        <img class="profile-image" src="../img/eustaquio.jpg">
+        <h3 class="profile-name">{{profileCtrl.userEmail}}</h3>
+        <h4 ng-click="profileCtrl.doLogout()"><a>Logout</a></h4>
+      </div>
+      <div class="profile-settings card">
+        <ion-toggle ng-model="profileCtrl.isAnonymous"
+          ng-change="profileCtrl.anonymousToggle()">
+          I want my profile to be <b>anonymous</b>
+        </ion-toggle>
+      </div>
+      <div class="overview-room-settings card" style="position: fixed; bottom: 50px!important;">
+        <div class="item item-icon-right light-red-back" ng-click="profileCtrl.leaveRoom()">
+          <i class="icon ion-android-exit" name="qr"></i>
+          <b>Leave current room</b>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

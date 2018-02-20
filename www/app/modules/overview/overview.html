@@ -1,0 +1,24 @@
+<ion-view hide-nav-bar="true">
+  <ion-content has-header="true" scroll="false">
+    <div>
+      <div class="profile-info">
+        <img class="profile-image" src="../img/hermenegildo.jpg">
+        <h3 class="profile-name">{{overviewCtrl.userEmail}}</h3>
+        <h4 ng-click="overviewCtrl.doLogout()"><a>Logout</a></h4>
+      </div>
+      <div class="overview-room-settings card" ng-click="overviewCtrl.expandQR()">
+        <div class="item item-icon-right">
+          <b>Room QR. Tap to expand</b>
+          <i class="icon ion-qr-scanner"></i>
+        </div>
+        <div id="smallqr" class="mini-qrcode"></div> 
+      </div>
+      <div class="overview-room-settings card">
+        <div class="item item-icon-right light-red-back" ng-click="overviewCtrl.leaveRoom()">
+          <i class="icon ion-android-exit"></i>
+          <b>Close current room</b>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

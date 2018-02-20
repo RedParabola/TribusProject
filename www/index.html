@@ -27,8 +27,16 @@
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script -->
-    <script src="lib/cordova/ng-cordova.min.js"></script>    
+    <script src="lib/cordova/ng-cordova.min.js"></script>
     <script src="cordova.js"></script>
+
+    <!-- JQuery -->
+    <script src="lib/jquery/jquery.js"></script>
+
+    <!-- Timers, moment.js -->
+    <script src="lib/moment.js/moment.js"></script>
+    <script src="lib/humanize-duration/humanize-duration.js"></script>
+    <script src="lib/angular-timer/angular-timer.min.js"></script>
 
     <!-- Chart.js & angular-charts -->
     <script src="lib/chart.js/dist/Chart.min.js"></script>
@@ -38,22 +46,22 @@
     <script src="lib/qrcode/qrcode.min.js"></script>
 
     <!-- Lodash -->
-    <script src="lib/lodash/lodash.js"></script>    
+    <script src="lib/lodash/lodash.js"></script>
     
     <!-- Restangular -->
     <script src="lib/restangular/src/restangular.js"></script>
 
+    
     <!-- your app's js -->
 
     <!-- Config -->
-    <script src="app/config/rest.config.js"></script>  
+    <script src="app/config/rest.config.js"></script>
 
     <!-- App -->
     <script src="app/app.js"></script>
 
     <!-- Hall, join and create rooms -->
     <script src="app/modules/hall/hall.controller.js"></script>
-    <script src="app/modules/room-list/room-list.controller.js"></script>
     <script src="app/components/room-list-details/room-list-details.component.js"></script>
     <script src="app/modules/room-creation-wizard/room-creation-wizard.controller.js"></script>
 
@@ -61,26 +69,37 @@
     <script src="app/modules/overview/overview.controller.js"></script>
     <script src="app/services/overview-stats.service.js"></script>
 
+    <!-- Profile -->
+    <script src="app/modules/profile/profile.controller.js"></script>
+
+    <!-- Timers -->
+    <script src="app/modules/timers/timers.controller.js"></script>
+    <script src="app/components/timer/timer.component.js"></script>
+
     <!-- Dashboard -->
-    <script src="app/modules/dashboard/dashboard.controller.js"></script>        
+    <script src="app/modules/dashboard/dashboard.controller.js"></script>
     <script src="app/services/resources/room.resource.js"></script>
     <script src="app/services/room.service.js"></script>
     
-    <!-- Settings -->
-    <script src="app/modules/settings/settings.controller.js"></script>    
+    <!-- Questions -->
+    <script src="app/modules/questions/questions.controller.js"></script>
+    <script src="app/services/resources/question.resource.js"></script>
+    <script src="app/services/questions.service.js"></script>
 
-
-    <!-- Login & Register -->
+    <!-- Login, Register & ToS -->
     <script src="app/modules/login/login.controller.js"></script>
     <script src="app/modules/register/register.controller.js"></script>
+    <script src="app/modules/tos/tos.controller.js"></script>
     <script src="app/services/user.service.js"></script>
     
     <!-- Test -->
+    <script src="app/modules/test-state/test-state.controller.js"></script>
     <script src="app/services/resources/tvshows.resource.js"></script>
     <script src="app/services/test.service.js"></script>
 
     <!-- Layouts -->
     <script src="app/layouts/hide-tabs.controller.js"></script>
+    <script src="app/services/popup.service.js"></script>
 
   </head>
 

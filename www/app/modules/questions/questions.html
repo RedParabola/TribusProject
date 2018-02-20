@@ -1,0 +1,64 @@
+<ion-view hide-nav-bar="true">
+
+  <div class="float-button"
+       ng-show="questionsCtrl.canAddQuestion"
+       ng-click="questionsCtrl.addQuestion()">
+    <span class="height-fix">
+      <div class="content">
+        <i class="ion-help"></i>
+      </div>
+    </span>
+  </div>
+
+  <ion-content>
+    <div class="list">
+      
+      <ion-list can-swipe="questionsCtrl.listCanSwipe">
+        <ion-item ng-repeat="question in questionsCtrl.questions"
+                  class="item-text-wrap question-item"
+                  item="question"
+                  ng-class="{'swipe-disabled':!question.yours}"
+                  class="item-remove-animate">
+          <div class="row">
+              {{question.content}}
+          </div>
+          <div class="row">
+            <div class="col col-20 text-center" ng-class="{'downvoted': question.downVoted}"
+                 ng-click="questionsCtrl.downVote(question)">
+              <span>{{question.downVotes}}  </span><i class="ion-thumbsdown"></i>
+            </div>
+            <div class="col col-20 text-center" ng-class="{'upvoted': question.upVoted}"
+                 ng-click="questionsCtrl.upVote(question)">
+              <span>{{question.upVotes}}  </span><i class="ion-thumbsup"></i>
+            </div>
+            <div class="col col-30 text-right" style="font-style: italic;">
+              <span>{{question.author}}</span>
+            </div>
+            <div class="col col-30 text-right text-{{question.status}}"
+                 ng-class="{'text-rejected':question.rejectedAnswer, 'text-accepted':question.acceptedAnswer}">
+              <span>{{question.status}}</span>
+            </div>
+          </div>
+          
+          <ion-option-button
+            class="question-side-button rightAnswered text-center"
+            ng-class="{'rightAnswered-selected': question.acceptedAnswer}"
+            ng-disabled="question.status !== questionsCtrl.questionConstants.ANSWERED || question.rejectedAnswer"
+            ng-click="questionsCtrl.markAsAcceptedAnswer(question)">
+            <i class="ion-android-happy text-center"></i>
+          </ion-option-button>
+
+          <ion-option-button
+            class="question-side-button badAnswered text-center"
+            ng-class="{'badAnswered-selected': question.rejectedAnswer}"
+            ng-disabled="question.status !== questionsCtrl.questionConstants.ANSWERED || question.acceptedAnswer"
+            ng-click="questionsCtrl.markAsRejectedAnswer(question)">
+            <i class="ion-android-sad"></i>
+          </ion-option-button>
+
+        </ion-item>
+      </ion-list>
+
+    </div>
+  </ion-content>
+</ion-view>
