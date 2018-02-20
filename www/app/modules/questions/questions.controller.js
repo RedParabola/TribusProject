@@ -54,12 +54,14 @@ function questionsController($rootScope, $scope, PopupService, QuestionsService,
 
   function questionsPushTimeout(){
     var pushInterval = $interval(function () {
-      vm.questions.push(vm.allQuestions[vm.questionIndex]);
-      vm.questionIndex++;
-    }, Math.floor((Math.random() * 40000) + 3000));
-    $scope.$on('$ionicView.beforeLeave',function () {
-      $interval.cancel(pushInterval);
-    });
+      if(vm.questionIndex < vm.allQuestions.length){
+        vm.questions.push(vm.allQuestions[vm.questionIndex]);
+        vm.questionIndex++;
+      }
+    }, Math.floor((Math.random() * 25000) + 3000));
+    //$scope.$on('$ionicView.beforeLeave',function () {
+    //  $interval.cancel(pushInterval);
+    //});
   }
 
   function _addQuestion() {

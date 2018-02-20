@@ -33,6 +33,10 @@ function registerController($rootScope, $log, UserService, $timeout, $ionicHisto
         UserService.tryRegister(vm.email,vm.password).then(
           function() {
             $log.info("Register successful");
+            PopupService.getAlertPopup(
+              'Register successful',
+              'You can now login with the registered account.'
+            );
             $ionicHistory.nextViewOptions({
               disableBack : true,
               historyRoot: true
